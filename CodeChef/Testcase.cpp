@@ -17,6 +17,8 @@ int main(){
         int j=0;
         int cases[n];
         for(int i=0;i<n;i++) cases[i]=1;
+        for(int i=0;i<n;i++) cout<<cases[i]<<" ";
+        cout<<endl;
 
         for(int i=0;i<n-1;i++){
 
@@ -29,6 +31,8 @@ int main(){
                 j++;
             }
         }
+        for(int i=0;i<n;i++) cout<<cases[i]<<" ";
+        cout<<endl;
 
         int min= 100, max =0;
         for(int i=0;i<=j;i++){

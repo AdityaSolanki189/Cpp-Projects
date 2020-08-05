@@ -37,7 +37,7 @@ void matrix::put(){
 matrix matrix::operator+(matrix b){
 	matrix r;
 	if((x!=b.x)||(y!=b.y)){
-		cout<<"\n\tMatrix Addition is not possible the result is incorrect\n";
+		cout<<"\nMatrix Addition is not possible\n";
 		r.x=0;
 		r.y=0;
 	}
@@ -55,7 +55,7 @@ matrix matrix::operator+(matrix b){
 matrix matrix::operator-(matrix b){
 	matrix r;
 	if((x!=b.x)||(y!=b.y)){
-		cout<<"\n\tMatrix subtraction is not possible the result is incorrect\n\n";
+		cout<<"\nMatrix subtraction is not possible\n";
 		r.x=0;
 		r.y=0;
 	}
@@ -72,7 +72,7 @@ matrix matrix::operator-(matrix b){
 matrix matrix::operator*(matrix b){
 	matrix r;
 	if((x!=b.y)||(y!=b.x)){
-		cout<<"\n\tMatrix Multiplication is not possible result is incorrect\n\n";
+		cout<<"\nMatrix Multiplication is not possible\n";
 		r.x=0;
 		r.y=0;
 	}
@@ -113,7 +113,7 @@ int main(){
 	matrix a,b,c;
 	int t=1;
 	while(t){
-		cout<<"\tSelect Option :\n1.Matrix Addition\n2.Matrix Subtration\n3.Matrix Multiplication\n4.Matrix Transponse\n5.Exit\n";
+		cout<<"Select Option :\n1.Matrix Addition\n2.Matrix Subtration\n3.Matrix Multiplication\n4.Matrix Transponse\n5.Exit\n";
 		cin>>op;
 		switch(op){
 			case '1':
@@ -154,7 +154,6 @@ int main(){
 
 			default:
 				cout<<"\n\tEnter a valid option\n";
-			break;
 		}
 	}
 	return 0;

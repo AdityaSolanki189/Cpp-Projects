@@ -15,38 +15,38 @@ void showlist(list <int> g)
 int main() 
 { 
   
-    list <int> gqlist1, gqlist2; 
+    list <int> list1, list2; 
   
   
     for (int i = 0; i < 10; ++i) 
     { 
-        gqlist1.push_back(i * 2); 
-        gqlist2.push_front(i * 3); 
+        list1.push_back(i * 2); 
+        list2.push_front(i * 3); 
     } 
-    cout << "\nList 1 (gqlist1) is : "; 
+    cout << "\nList 1 is : "; 
     showlist(gqlist1); 
   
-    cout << "\nList 2 (gqlist2) is : "; 
-    showlist(gqlist2); 
+    cout << "\nList 2 is : "; 
+    showlist(list2); 
   
-    cout << "\ngqlist1.front() : " << gqlist1.front(); 
-    cout << "\ngqlist1.back() : " << gqlist1.back(); 
+    cout << "\nlist1.front() : " << list1.front(); 
+    cout << "\nlist1.back() : " << list1.back(); 
   
-    cout << "\ngqlist1.pop_front() : "; 
-    gqlist1.pop_front(); 
-    showlist(gqlist1); 
+    cout << "\nlist1.pop_front() : "; 
+    list1.pop_front(); 
+    showlist(list1); 
   
-    cout << "\ngqlist2.pop_back() : "; 
-    gqlist2.pop_back(); 
-    showlist(gqlist2); 
+    cout << "\nlist2.pop_back() : "; 
+    list2.pop_back(); 
+    showlist(list2); 
   
-    cout << "\ngqlist1.reverse() : "; 
-    gqlist1.reverse(); 
-    showlist(gqlist1); 
+    cout << "\nlist1.reverse() : "; 
+    list1.reverse(); 
+    showlist(list1); 
   
-    cout << "\ngqlist2.sort(): "; 
-    gqlist2.sort(); 
-    showlist(gqlist2); 
+    cout << "\nlist2.sort(): "; 
+    list2.sort(); 
+    showlist(list2); 
   
     return 0; 
   

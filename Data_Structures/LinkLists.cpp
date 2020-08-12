@@ -19,7 +19,7 @@ void Print(){
     Node* temp = head;
     cout<<"List is : "<<endl;
     while(temp != NULL){
-        cout<<" "<<temp->data;
+        cout<<temp->data<<" ";
         temp = temp->next;
     }
     cout<<" ";

@@ -1,35 +1,40 @@
 #include <iostream>
-
 using namespace std;
 
-struct node{
+struct Node{
     int data;
-    node *link;
+    Node* next;
 };
 
-node* head;
+Node* head;  //global variable
 
-void append(int n){
-    head = NULL;
-    node* temp = new node();
-    temp->data = n;
-    temp->link = NULL;
+void Insert(int x){
+    Node* temp = new Node();
+    temp->data = x;
+    temp->next = head;
     head = temp;
 }
 
-void display(){
-    node *temp1 = head;
-    while (temp1 != NULL) { 
-        cout << temp1->data << " "; 
-        temp1 = temp1->link; 
-    } 
+void Print(){
+    Node* temp = head;
+    cout<<"List is : "<<endl;
+    while(temp != NULL){
+        cout<<" "<<temp->data;
+        temp = temp->next;
+    }
+    cout<<" ";
 }
 
-int main(){
-    int n;
-    cout<<"Enter any Integer : ";
+int main(){ 
+    Node* head = NULL;  //empty list
+    int n,x;
+    cout<<"Enter No. Of Elements : "<<endl;
     cin>>n;
-    append(n);
-    display();
+    for(int i=0;i<n;i++){
+        cout<<"\nEnter The Element : "<<endl;
+        cin>>x;
+        Insert(x);
+        Print();
+    }
     return 0;
 }

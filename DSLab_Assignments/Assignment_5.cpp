@@ -19,27 +19,24 @@ void string_op :: frequency(string str){
     int count=0;
     cin>>ch;
     for(int i=0;i<str.length();i++){
-        if(ch==tolower(str[i]))
+        if(tolower (ch) == tolower(str[i]))
             count++;
     }
-    cout<<"Frequency = "<<count;
+    cout<<"Frequency = "<<count<<endl;
 }
-
-/* void string_op:: delete_ch(string_op str){
-    int j,k;
-    cout<<"Enter Positions Of Any 2 Characters you want to delete : "<<endl;
-    cin>>j>>k;
-
-}  */
+void string_op :: Delete(string str){}
+void string_op :: chardelete(string str){}
+void string_op :: palindrome(string str){}
 
 int main(){
     string_op obj;
     string str ;
-    cout<<"Enter any String : "<<endl;
+    cout<<"Enter any String : ";
     getline(cin,str);
     int ch,t=1;
-    cout<<"Choose An Operation :-\n1.Frequency()\n2.Delete()\n3.CharDelete()\n4.Palindrome()\n5.Exit(0)";
+    
     while(t!=0){
+        cout<<"Choose An Operation :-\n1.Frequency()\n2.Delete()\n3.CharDelete()\n4.Palindrome()\n5.Exit(0)\n";
         cin>>ch;
         switch (ch){
             case 1:

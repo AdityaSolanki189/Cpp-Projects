@@ -24,18 +24,38 @@ void string_op::frequency(string str) {
     }
     cout << "Frequency = " << count << endl;
 }
+
 void string_op::Delete(string str) {
     int j, k;
     cout << "The OG String : " << str << endl;
     cout << "Enter Any 2 Positions you want to Delete : " << endl;
     cin >> j >> k;
-    for (int i = j; i < str.length(); i++) {
-        str[i] = str[i + 1];
+    if(j>k){
+        for (int i = j; i < str.length(); i++) {
+            str[i] = str[i + 1];
+        }
+
+        for (int i = k-1; i < str.length(); i++) {
+            str[i] = str[i + 1];
+        }
+        cout << "The New String : " << str << endl;
     }
-    for (int i = k-2; i < str.length(); i++) {
-        str[i] = str[i + 1];
+    else if(j==k){
+        for (int i = k-1; i < str.length(); i++) {
+            str[i] = str[i + 1];
+        }
+        cout << "The New String : " << str << endl;
     }
-    cout << "Our New String : " << str << endl;
+    else{
+        for (int i = j; i < str.length(); i++) {
+            str[i] = str[i + 1];
+        }
+
+        for (int i = k; i < str.length(); i++) {
+            str[i] = str[i + 1];
+        }
+        cout << "The New String : " << str << endl;
+    }
 }
 
 
@@ -50,7 +70,7 @@ int main() {
     int ch, t = 1;
 
     while (t != 0) {
-        cout << "Choose An Operation :-\n1.Frequency()\n2.Delete()\n3.CharDelete()\n4.Palindrome()\n5.Exit(0)\n";
+        cout << "\nChoose An Operation :-\n1.Frequency()\n2.Delete()\n3.CharDelete()\n4.Palindrome()\n5.Exit(0)\n";
         cin >> ch;
         switch (ch) {
         case 1:

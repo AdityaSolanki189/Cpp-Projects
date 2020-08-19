@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string>
+#include <string.h>
 #include <cctype>
 
 using namespace std;
@@ -75,7 +75,17 @@ void string_op::chardelete(string str){
     cout << "The New String : " << str << endl;
 }
 
-void string_op::palindrome(string str) {}
+void string_op::palindrome(string str){
+    cout << "The OG String : " << str << endl;
+    int left=0,right=str.length()-1;
+    while(right > left){
+        if (str[left++] != str[right--]){ 
+            cout<<str<<" Is Not A Palindrome!"<<endl; 
+            return; 
+        } 
+    }
+    cout<<str<<" Is A Palindrome!"<<endl;
+}
 
 int main(){
     string_op obj;

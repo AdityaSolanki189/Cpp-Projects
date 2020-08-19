@@ -1,11 +1,10 @@
 #include<iostream>
 using namespace std;
 #define s 20
-//hello my name is aditya
+
 class matrix {
 protected:
 	int a[s][s], x, y;
-	//static int n;
 public:
 	void get();
 	void put();

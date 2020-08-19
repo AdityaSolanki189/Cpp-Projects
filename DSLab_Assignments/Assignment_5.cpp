@@ -30,23 +30,23 @@ void string_op::Delete(string str) {
     cout << "The OG String : " << str << endl;
     cout << "Enter Any 2 Positions you want to Delete : " << endl;
     cin >> j >> k;
-    if(j>k){
+    if (j < k) {
         for (int i = j; i < str.length(); i++) {
             str[i] = str[i + 1];
         }
 
-        for (int i = k-1; i < str.length(); i++) {
+        for (int i = k - 1; i < str.length(); i++) {
             str[i] = str[i + 1];
         }
         cout << "The New String : " << str << endl;
     }
-    else if(j==k){
-        for (int i = k-1; i < str.length(); i++) {
+    else if (j == k) {
+        for (int i = k ; i < str.length(); i++) {
             str[i] = str[i + 1];
         }
         cout << "The New String : " << str << endl;
     }
-    else{
+    else {
         for (int i = j; i < str.length(); i++) {
             str[i] = str[i + 1];
         }

@@ -93,7 +93,6 @@ int main(){
     cout << "\nEnter any String : ";
     getline(cin, str);
     int ch, t = 1;
-
     while (t != 0){
         cout << "\nChoose An Operation :-\n1.Frequency()\n2.Delete()\n3.CharDelete()\n4.Palindrome()\n5.Exit(0)\n";
         cin >> ch;

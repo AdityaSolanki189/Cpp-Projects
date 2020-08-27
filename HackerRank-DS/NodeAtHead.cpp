@@ -57,16 +57,18 @@ void free_singly_linked_list(SinglyLinkedListNode* node) {
  * };
  *
  */
-SinglyLinkedListNode* insertNodeAtHead(SinglyLinkedListNode* llist, int data) { SinglyLinkedListNode* temp=new SinglyLinkedListNode(data);
+SinglyLinkedListNode* insertNodeAtHead(SinglyLinkedListNode* llist, int data){    
+    SinglyLinkedListNode* temp=new SinglyLinkedListNode(data);
 
-temp->next=NULL;
-if(llist==NULL)
-    llist=temp;
-else
-{    temp->next=llist;
-llist=temp;
+    temp->next=NULL;
+    if(llist==NULL)
+        llist=temp;
+    else{
+        temp->next=llist;
+        llist=temp;
+    }
+    return llist; 
 }
-return llist; }
 
 int main()
 {

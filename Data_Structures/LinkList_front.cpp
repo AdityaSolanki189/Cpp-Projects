@@ -26,7 +26,7 @@ void Print(){
 }
 
 int main(){ 
-    Node* head = NULL;  //empty list
+    head = NULL;  //empty list
     int n,x;
     cout<<"Enter No. Of Elements : "<<endl;
     cin>>n;

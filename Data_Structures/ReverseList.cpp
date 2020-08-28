@@ -17,6 +17,7 @@ void Insert(int data){
     temp1->next = temp;
     }
 }
+
 void Reverse(){
     Node *current, *prev, *next;
     current=head;
@@ -29,6 +30,7 @@ void Reverse(){
     }
     head = prev;
 }
+
 void print(){
     Node* temp = head;
     cout<<"The List : "<<endl;

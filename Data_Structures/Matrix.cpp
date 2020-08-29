@@ -123,9 +123,9 @@ int main() {
 		switch (op) {
 		case '1':
 			cout << "\nMatrix Addition\n";
-            cout<<"\nEnter Order Of Matrix A[x,y] : "
+            cout<<"\nEnter Order Of Matrix A[x,y] : ";
 			a.get_matrix();
-            cout<<"\nEnter Order Of Matrix B[x,y] : "
+            cout<<"\nEnter Order Of Matrix B[x,y] : ";
 			b.get_matrix();
 			c = a + b;
 			c.display_matrix();
@@ -133,9 +133,9 @@ int main() {
 
 		case '2':
 			cout << "\nMatrix Subtration\n";
-			cout<<"\nEnter Order Of Matrix A[x,y] : "
+			cout<<"\nEnter Order Of Matrix A[x,y] : ";
 			a.get_matrix();
-            cout<<"\nEnter Order Of Matrix B[x,y] : "
+            cout<<"\nEnter Order Of Matrix B[x,y] : ";
 			b.get_matrix();
 			c = a - b;
 			c.display_matrix();
@@ -143,9 +143,9 @@ int main() {
 
 		case '3':
 			cout << "\nMatrix Multpication\n";
-			cout<<"\nEnter Order Of Matrix A[x,y] : "
+			cout<<"\nEnter Order Of Matrix A[x,y] : ";
 			a.get_matrix();
-            cout<<"\nEnter Order Of Matrix B[x,y] : "
+            cout<<"\nEnter Order Of Matrix B[x,y] : ";
 			b.get_matrix();
 			c = a * b;
 			c.display_matrix();
@@ -153,7 +153,7 @@ int main() {
 
 		case '4':
 			cout << "\nMatrix Transpose\n";
-			cout<<"\nEnter Order Of Matrix A[x,y] : "
+			cout<<"\nEnter Order Of Matrix A[x,y] : ";
 			a.get_matrix();
 			c = a.transpose();
 			c.display_matrix();

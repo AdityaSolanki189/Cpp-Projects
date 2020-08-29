@@ -6,38 +6,39 @@ class matrix {
 	protected:
 		int a[s][s], x, y;
 	public:
-		void get();
-		void put();
-		matrix operator+(matrix);
-		matrix operator-(matrix);
-		matrix operator*(matrix);
+		void get_matrix();
+		void display_matrix();
+		matrix operator + (matrix);
+		matrix operator - (matrix);
+		matrix operator * (matrix);
 		matrix transpose();
 };
 
-void matrix::get() {
-	cout << "Enter the order of Matrix " << " :\n";
+void matrix :: get_matrix(){
 	cin >> x >> y;
-	cout << "Enter the Matrix " << " :\n";
-	for (int i = 0; i < x; i++) {
-		for (int j = 0; j < y; j++) {
+	for (int i = 0; i < x; i++){
+		for (int j = 0; j < y; j++){
+            cout << "Enter Element At "<<"["<<i+1<<","<<j+1<<"] : ";
 			cin >> a[i][j];
 		}
 	}
 }
 
 
-void matrix::put() {
-	cout << "The Ans is:\n";
-	for (int i = 0; i < x; i++) {
-		for (int j = 0; j < y; j++)
-			cout << a[i][j] << " ";
+void matrix :: display_matrix(){
+	cout << "\nThe Final Matrix is : \n"<<endl;
+	for (int i = 0; i < x; i++){
+		for (int j = 0; j < y; j++){
+            cout << a[i][j] << "\t";
+        }
+        cout<<"\n";
 	}
 }
 
-matrix matrix::operator+(matrix b) {
+matrix matrix :: operator + (matrix b) {
 	matrix r;
-	if ((x != b.x) || (y != b.y)) {
-		cout << "\nMatrix Addition is not possible\n";
+	if ((x != b.x) || (y != b.y)){
+		cout << "\nMatrix Addition Not Possible!\n";
 		r.x = 0;
 		r.y = 0;
 	}
@@ -54,10 +55,10 @@ matrix matrix::operator+(matrix b) {
 }
 
 
-matrix matrix::operator-(matrix b) {
+matrix matrix :: operator - (matrix b) {
 	matrix r;
 	if ((x != b.x) || (y != b.y)) {
-		cout << "\nMatrix subtraction is not possible\n";
+		cout << "\nMatrix Subraction Not Possible!\n";
 		r.x = 0;
 		r.y = 0;
 	}
@@ -73,10 +74,10 @@ matrix matrix::operator-(matrix b) {
 	return r;
 }
 
-matrix matrix::operator*(matrix b) {
+matrix matrix :: operator * (matrix b) {
 	matrix r;
 	if ((x != b.y) || (y != b.x)) {
-		cout << "\nMatrix Multiplication is not possible\n";
+		cout << "\nMatrix Multiplication Not Possible!";
 		r.x = 0;
 		r.y = 0;
 	}
@@ -121,34 +122,41 @@ int main() {
 		cin >> op;
 		switch (op) {
 		case '1':
-			cout << "\nMatrix Addiation\n";
-			a.get();
-			b.get();
+			cout << "\nMatrix Addition\n";
+            cout<<"\nEnter Order Of Matrix A[x,y] : "
+			a.get_matrix();
+            cout<<"\nEnter Order Of Matrix B[x,y] : "
+			b.get_matrix();
 			c = a + b;
-			c.put();
+			c.display_matrix();
 			break;
 
 		case '2':
 			cout << "\nMatrix Subtration\n";
-			a.get();
-			b.get();
+			cout<<"\nEnter Order Of Matrix A[x,y] : "
+			a.get_matrix();
+            cout<<"\nEnter Order Of Matrix B[x,y] : "
+			b.get_matrix();
 			c = a - b;
-			c.put();
+			c.display_matrix();
 			break;
 
 		case '3':
 			cout << "\nMatrix Multpication\n";
-			a.get();
-			b.get();
+			cout<<"\nEnter Order Of Matrix A[x,y] : "
+			a.get_matrix();
+            cout<<"\nEnter Order Of Matrix B[x,y] : "
+			b.get_matrix();
 			c = a * b;
-			c.put();
+			c.display_matrix();
 			break;
 
 		case '4':
 			cout << "\nMatrix Transpose\n";
-			a.get();
+			cout<<"\nEnter Order Of Matrix A[x,y] : "
+			a.get_matrix();
 			c = a.transpose();
-			c.put();
+			c.display_matrix();
 			break;
 
 		case '5':

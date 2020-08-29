@@ -3,41 +3,42 @@ using namespace std;
 #define s 20
 
 class matrix {
-	protected:
-		int a[s][s], x, y;
-	public:
-		void get_matrix();
-		void display_matrix();
-		matrix operator + (matrix);
-		matrix operator - (matrix);
-		matrix operator * (matrix);
-		matrix transpose();
+protected:
+	int a[s][s], x, y;
+public:
+	void get_matrix();
+	void display_matrix();
+	matrix operator + (matrix);
+	matrix operator - (matrix);
+	matrix operator * (matrix);
+	matrix transpose();
 };
 
-void matrix :: get_matrix(){
+void matrix::get_matrix() {
 	cin >> x >> y;
-	for (int i = 0; i < x; i++){
-		for (int j = 0; j < y; j++){
-            cout << "Enter Element At "<<"["<<i+1<<","<<j+1<<"] : ";
+	for (int i = 0; i < x; i++) {
+		for (int j = 0; j < y; j++) {
+			cout << "Enter Element At " << "[" << i + 1 << "," << j + 1 << "] : ";
 			cin >> a[i][j];
 		}
 	}
 }
 
 
-void matrix :: display_matrix(){
-	cout << "\nThe Final Matrix is : \n"<<endl;
-	for (int i = 0; i < x; i++){
-		for (int j = 0; j < y; j++){
-            cout << a[i][j] << "\t";
-        }
-        cout<<"\n";
+void matrix::display_matrix() {
+	cout << "\nThe Final Matrix is : \n" << endl;
+	for (int i = 0; i < x; i++) {
+		for (int j = 0; j < y; j++) {
+			cout << a[i][j] << "\t";
+		}
+		cout << "\n";
 	}
+	cout << endl;
 }
 
 matrix matrix :: operator + (matrix b) {
 	matrix r;
-	if ((x != b.x) || (y != b.y)){
+	if ((x != b.x) || (y != b.y)) {
 		cout << "\nMatrix Addition Not Possible!\n";
 		r.x = 0;
 		r.y = 0;
@@ -123,9 +124,9 @@ int main() {
 		switch (op) {
 		case '1':
 			cout << "\nMatrix Addition\n";
-            cout<<"\nEnter Order Of Matrix A[x,y] : ";
+			cout << "\nEnter Order Of Matrix A[x,y] : ";
 			a.get_matrix();
-            cout<<"\nEnter Order Of Matrix B[x,y] : ";
+			cout << "\nEnter Order Of Matrix B[x,y] : ";
 			b.get_matrix();
 			c = a + b;
 			c.display_matrix();
@@ -133,9 +134,9 @@ int main() {
 
 		case '2':
 			cout << "\nMatrix Subtration\n";
-			cout<<"\nEnter Order Of Matrix A[x,y] : ";
+			cout << "\nEnter Order Of Matrix A[x,y] : ";
 			a.get_matrix();
-            cout<<"\nEnter Order Of Matrix B[x,y] : ";
+			cout << "\nEnter Order Of Matrix B[x,y] : ";
 			b.get_matrix();
 			c = a - b;
 			c.display_matrix();
@@ -143,9 +144,9 @@ int main() {
 
 		case '3':
 			cout << "\nMatrix Multpication\n";
-			cout<<"\nEnter Order Of Matrix A[x,y] : ";
+			cout << "\nEnter Order Of Matrix A[x,y] : ";
 			a.get_matrix();
-            cout<<"\nEnter Order Of Matrix B[x,y] : ";
+			cout << "\nEnter Order Of Matrix B[x,y] : ";
 			b.get_matrix();
 			c = a * b;
 			c.display_matrix();
@@ -153,19 +154,20 @@ int main() {
 
 		case '4':
 			cout << "\nMatrix Transpose\n";
-			cout<<"\nEnter Order Of Matrix A[x,y] : ";
+			cout << "\nEnter Order Of Matrix A[x,y] : ";
 			a.get_matrix();
 			c = a.transpose();
 			c.display_matrix();
 			break;
 
 		case '5':
-			cout << "\nPress any key to exit\n";
+			cout << "Press any key to exit\n"<<endl;
 			t = 0;
 			break;
 
 		default:
-			cout << "\nEnter a valid option\n";
+			cout << "Enter a valid option\n"<<endl
+				;
 		}
 	}
 	return 0;

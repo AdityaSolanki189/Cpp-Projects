@@ -57,7 +57,7 @@ void free_singly_linked_list(SinglyLinkedListNode* node) {
     }
 }
 
-// Complete the compare_lists function below.
+// Complete the mergeLists function below.
 
 /*
  * For your reference:
@@ -68,19 +68,26 @@ void free_singly_linked_list(SinglyLinkedListNode* node) {
  * };
  *
  */
-bool compare_lists(SinglyLinkedListNode* headA, SinglyLinkedListNode* headB) {
-    if (headA == NULL && headB == NULL) {
-	    return 1;
-    } 
-    else if (headA == NULL || headB == NULL) {
-	    return 0;
+SinglyLinkedListNode* mergeLists(SinglyLinkedListNode* headA, SinglyLinkedListNode* headB){ 
+    if((headA==NULL)&&(headB==NULL))
+        return NULL;
+    if((headA!=NULL)&&(headB==NULL))
+        return headA;
+    if((headA == NULL)&&(headB!=NULL))
+        return headB;
+    if(headA->data < headB->data)
+        headA->next = mergeLists(headA->next, headB);
+    else if(headA->data > headB->data)
+    {
+        SinglyLinkedListNode* temp = headB;
+        headB = headB->next;
+        temp->next = headA;
+        headA = temp;
+        headA->next = mergeLists(headA->next, headB);
     }
-    if (headA->data == headB->data) {
-	    return compare_lists(headA->next, headB->next);
-    } else {
-	    return 0;
-    }
+    return headA;
 }
+
 
 int main()
 {
@@ -119,9 +126,12 @@ int main()
             llist2->insert_node(llist2_item);
         }
 
-        bool result = compare_lists(llist1->head, llist2->head);
+        SinglyLinkedListNode* llist3 = mergeLists(llist1->head, llist2->head);
 
-        fout << result << "\n";
+        print_singly_linked_list(llist3, " ", fout);
+        fout << "\n";
+
+        free_singly_linked_list(llist3);
     }
 
     fout.close();

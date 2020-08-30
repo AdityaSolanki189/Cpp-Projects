@@ -57,7 +57,7 @@ void free_singly_linked_list(SinglyLinkedListNode* node) {
     }
 }
 
-// Complete the compare_lists function below.
+// Complete the removeDuplicates function below.
 
 /*
  * For your reference:
@@ -68,60 +68,46 @@ void free_singly_linked_list(SinglyLinkedListNode* node) {
  * };
  *
  */
-bool compare_lists(SinglyLinkedListNode* headA, SinglyLinkedListNode* headB) {
-    if (headA == NULL && headB == NULL) {
-	    return 1;
-    } 
-    else if (headA == NULL || headB == NULL) {
-	    return 0;
+SinglyLinkedListNode* removeDuplicates(SinglyLinkedListNode* head) {
+    if(head == NULL) 
+        return head;
+    SinglyLinkedListNode* nextItem = head;
+    while(nextItem != NULL && head->data == nextItem->data){
+        nextItem = nextItem->next;
     }
-    if (headA->data == headB->data) {
-	    return compare_lists(headA->next, headB->next);
-    } else {
-	    return 0;
-    }
+    head->next = removeDuplicates(nextItem);
+    return head;
 }
 
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
 
-    int tests;
-    cin >> tests;
+    int t;
+    cin >> t;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    for (int tests_itr = 0; tests_itr < tests; tests_itr++) {
-        SinglyLinkedList* llist1 = new SinglyLinkedList();
+    for (int t_itr = 0; t_itr < t; t_itr++) {
+        SinglyLinkedList* llist = new SinglyLinkedList();
 
-        int llist1_count;
-        cin >> llist1_count;
+        int llist_count;
+        cin >> llist_count;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-        for (int i = 0; i < llist1_count; i++) {
-            int llist1_item;
-            cin >> llist1_item;
+        for (int i = 0; i < llist_count; i++) {
+            int llist_item;
+            cin >> llist_item;
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-            llist1->insert_node(llist1_item);
-        }
-      
-      	SinglyLinkedList* llist2 = new SinglyLinkedList();
-
-        int llist2_count;
-        cin >> llist2_count;
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-        for (int i = 0; i < llist2_count; i++) {
-            int llist2_item;
-            cin >> llist2_item;
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-            llist2->insert_node(llist2_item);
+            llist->insert_node(llist_item);
         }
 
-        bool result = compare_lists(llist1->head, llist2->head);
+        SinglyLinkedListNode* llist1 = removeDuplicates(llist->head);
 
-        fout << result << "\n";
+        print_singly_linked_list(llist1, " ", fout);
+        fout << "\n";
+
+        free_singly_linked_list(llist1);
     }
 
     fout.close();

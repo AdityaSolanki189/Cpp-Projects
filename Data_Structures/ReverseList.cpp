@@ -5,8 +5,8 @@ struct Node{
     int data;
     Node* next;
 };
-
-Node* Reverse( Node* head){
+//This is the iterative method. BUt recursion method is better for reversing a linked list.
+Node* Reverse( Node* head){  
     Node *current, *prev, *next;
     current = head;
     prev = NULL;

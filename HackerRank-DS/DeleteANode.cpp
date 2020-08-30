@@ -70,12 +70,12 @@ void free_singly_linked_list(SinglyLinkedListNode* node) {
  */
 SinglyLinkedListNode* deleteNode(SinglyLinkedListNode* head, int position) {
     SinglyLinkedListNode* temp1 = head;
-    if(position == 1){
+    if(position == 0){
         head = temp1->next;
         delete temp1;
         return head;
     }    
-    for(int i=0;i<position-2;i++){  //temp1 points to n-1th node
+    for(int i=0;i<position-1;i++){  //temp1 points to n-1th node
         temp1 = temp1->next;
     }
     SinglyLinkedListNode* temp2 = temp1->next; //points to nth node

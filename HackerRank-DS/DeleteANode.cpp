@@ -57,7 +57,7 @@ void free_singly_linked_list(SinglyLinkedListNode* node) {
     }
 }
 
-// Complete the insertNodeAtPosition function below.
+// Complete the deleteNode function below.
 
 /*
  * For your reference:
@@ -68,21 +68,19 @@ void free_singly_linked_list(SinglyLinkedListNode* node) {
  * };
  *
  */
-
-SinglyLinkedListNode* insertNodeAtPosition(SinglyLinkedListNode* head, int data, int position) {
-    SinglyLinkedListNode* temp;
-    temp = new SinglyLinkedListNode(data);
-
-    int count=0;
-    for (SinglyLinkedListNode *i = head; i != nullptr; i = i->next){
-        count++;
-        if (count == position){
-        temp->next=i->next;
-        temp->data=data;
-        i->next=temp;
-        temp->next = (*i->next).next;
-        }
+SinglyLinkedListNode* deleteNode(SinglyLinkedListNode* head, int position) {
+    SinglyLinkedListNode* temp1 = head;
+    if(position == 1){
+        head = temp1->next;
+        delete temp1;
+        return head;
+    }    
+    for(int i=0;i<position-2;i++){  //temp1 points to n-1th node
+        temp1 = temp1->next;
     }
+    SinglyLinkedListNode* temp2 = temp1->next; //points to nth node
+    temp1->next = temp2->next; //points to n+1th node
+    delete temp2;
     return head;
 }
 
@@ -104,20 +102,16 @@ int main()
         llist->insert_node(llist_item);
     }
 
-    int data;
-    cin >> data;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
     int position;
     cin >> position;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    SinglyLinkedListNode* llist_head = insertNodeAtPosition(llist->head, data, position);
+    SinglyLinkedListNode* llist1 = deleteNode(llist->head, position);
 
-    print_singly_linked_list(llist_head, " ", fout);
+    print_singly_linked_list(llist1, " ", fout);
     fout << "\n";
 
-    free_singly_linked_list(llist_head);
+    free_singly_linked_list(llist1);
 
     fout.close();
 

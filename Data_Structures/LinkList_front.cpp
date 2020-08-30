@@ -5,7 +5,7 @@ struct Node{
     int data;
     Node* next;
 };
-
+ 
 Node* head;  //global variable
 
 void Insert(int x){

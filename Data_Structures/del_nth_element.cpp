@@ -12,7 +12,7 @@ void Insert(int x){
     temp->data = x;
     temp->next = head;
     head = temp;
-}
+} 
 
 void Print(){
     Node* temp = head;

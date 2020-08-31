@@ -13,6 +13,8 @@ public:
 	matrix operator * (matrix);
 	matrix transpose();
 	int sumofdiagonals();
+	void Check_Upper();
+	void Check_Lower();
 };
 
 void matrix::get_matrix() {
@@ -135,12 +137,46 @@ int matrix :: sumofdiagonals(){
 	return sum;
 }
 
+void matrix :: Check_Upper(){
+	if(x == y){
+		for(int i=1;i<x;i++){
+			for(int j=0;j<i;j++){
+				if(a[i][j] != 0){
+					cout<<"Not An Upper Triangular Matrix!\n";
+					return;
+				}
+			}
+		}
+		cout<<"It Is An Upper Triangular Matrix!\n";
+	}
+	else{
+		cout<<"\nThe Dimensions Are Not Same!\n";
+	}	
+}
+
+void matrix :: Check_Lower(){
+	if(x == y){
+		for(int i=0;i<x;i++){
+			for(int j=0;j<i;j++){
+				if(a[i][j] != 0){
+					cout<<"Not An Upper Triangular Matrix!\n";
+					return;
+				}
+			}
+		}
+		cout<<"It Is An Upper Triangular Matrix!\n";
+	}
+	else{
+		cout<<"\nThe Dimensions Are Not Same!\n";
+	}
+}
+
 int main() {
 	char op;
 	matrix a, b, c;
 	int t = 1;
 	while (t) {
-		cout << "Select Option :\n1.Matrix Addition\n2.Matrix Subtration\n3.Matrix Multiplication\n4.Matrix Transponse\n5.Sum OF Diagonals\n6.Exit\n";
+		cout << "Select Option :\n1.Matrix Addition\n2.Matrix Subtration\n3.Matrix Multiplication\n4.Matrix Transponse\n5.Sum OF Diagonals\n6.Upper Triangular\n7.Lower Triangular\n8.Exit\n";
 		cin >> op;
 		switch (op) {
 		case '1':
@@ -182,13 +218,29 @@ int main() {
 			break;
 
 		case '5':
-			cout<<"\nSum Of Diagonals Of The Matrix : ";
+			cout<<"\nSum Of Diagonals Of The Matrix :\n";
 			cout << "\nEnter Order Of Matrix A[x,y] : ";
 			a.get_matrix();
 			cout<<"\nSum Of Diagonals : "<<a.sumofdiagonals()<<endl;
 			break;
 
 		case '6':
+			cout << "\nCheck For Upper Triangular :\n";
+			cout<<"\nSum Of Diagonals Of The Matrix :\n";
+			cout << "\nEnter Order Of Matrix A[x,y] : ";
+			a.get_matrix();
+			a.Check_Upper();
+			break;
+
+		case '7':
+			cout << "\nCheck For Lower Triangular :\n";
+			cout<<"\nSum Of Diagonals Of The Matrix :\n";
+			cout << "\nEnter Order Of Matrix A[x,y] : ";
+			a.get_matrix();
+			a.Check_Lower();
+			break;
+		
+		case '8':
 			cout << "Press any key to exit\n"<<endl;
 			t = 0;
 			break;

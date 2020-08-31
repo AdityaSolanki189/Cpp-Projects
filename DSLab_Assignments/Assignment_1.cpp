@@ -12,6 +12,7 @@ public:
 	matrix operator - (matrix);
 	matrix operator * (matrix);
 	matrix transpose();
+	int sumofdiagonals();
 };
 
 void matrix::get_matrix() {
@@ -113,13 +114,33 @@ matrix matrix::transpose() {
 	return r;
 }
 
+int matrix :: sumofdiagonals(){
+	int sum =0;
+	if(x==y){
+		for(int i=0;i<x;i++){
+			for(int j=0;j<y;j++){
+				if(i==j){
+					sum + = a[i][j]; 
+				}
+			}
+		}
+		int j = y-1;
+		for(int i=0;i<x;i++,j--){
+			sum + = a[i][j];
+		} 
+	}
+	else {
+		cout<<"Dimensions are Same!";
+	}
+	return sum;
+}
 
 int main() {
 	char op;
 	matrix a, b, c;
 	int t = 1;
 	while (t) {
-		cout << "Select Option :\n1.Matrix Addition\n2.Matrix Subtration\n3.Matrix Multiplication\n4.Matrix Transponse\n5.Exit\n";
+		cout << "Select Option :\n1.Matrix Addition\n2.Matrix Subtration\n3.Matrix Multiplication\n4.Matrix Transponse\n5.Sum OF Diagonals\n6.Exit\n";
 		cin >> op;
 		switch (op) {
 		case '1':
@@ -161,13 +182,19 @@ int main() {
 			break;
 
 		case '5':
+			cout<<"\nSum Of Diagonals Of The Matrix : ";
+			cout << "\nEnter Order Of Matrix A[x,y] : ";
+			a.get_matrix();
+			cout<<"Sum Of Diagonals : "<<a.sumofdiagonals();
+			break;
+
+		case '6':
 			cout << "Press any key to exit\n"<<endl;
 			t = 0;
 			break;
-
+			
 		default:
-			cout << "Enter a valid option\n"<<endl
-				;
+			cout << "Enter a valid option\n"<<endl;
 		}
 	}
 	return 0;

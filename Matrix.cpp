@@ -1,65 +1,62 @@
 #include <iostream>
+using namespace std;
 
-int main()
-{
-    int m, n, p, q, c, d, k, sum = 0;
-    int first[10][10], second[10][10], multiply[10][10];
+class matrix{
+    protected:
+        int a[10][10],rows,columns;
+    public:
+        void get();
+        void display();
 
-    printf("Enter The Number Of Rows And Columns Of First Matrix : \n");
-    scanf("%d%d", &m, &n);
-    printf("Enter The Elements Of First Matrix : \n");
+};
 
-    for (c = 0; c < m; c++)
-    {
-        for (d = 0; d < n; d++)
-        {
-            scanf("%d", &first[c][d]);
-        }
-    }
+int main(){
+    char op;
+	matrix a, b, c;
+	int t = 1;
+	while (t) {
+		cout << "Select Option :\n1.Matrix Addition\n2.Matrix Subtration\n3.Matrix Multiplication\n4.Matrix Transponse\n5.Exit\n";
+		cin >> op;
+		switch (op) {
+		case '1':
+			cout << "\nMatrix Addiation\n";
+			a.get();
+			b.get();
+			c = a + b;
+			c.put();
+			break;
 
+		case '2':
+			cout << "\nMatrix Subtration\n";
+			a.get();
+			b.get();
+			c = a - b;
+			c.put();
+			break;
 
-    printf("Enter the number of rows and columns of second matrix\n");
-    scanf("%d%d", &p, &q);
+		case '3':
+			cout << "\nMatrix Multpication\n";
+			a.get();
+			b.get();
+			c = a * b;
+			c.put();
+			break;
 
-    if (n != p)
-        printf("Matrices with entered orders can't be multiplied with each other.\n");
-    else
-    {
-        printf("Enter the elements of second matrix\n");
+		case '4':
+			cout << "\nMatrix Transpose\n";
+			a.get();
+			c = a.transpose();
+			c.put();
+			break;
 
-        for (c = 0; c < p; c++)
-        {
-            for (d = 0; d < q; d++)
-            {
-                scanf("%d ", &second[c][d]);
-            }
-        }
+		case '5':
+			cout << "\nPress any key to exit\n";
+			t = 0;
+			break;
 
-        for (c = 0; c < m; c++)
-        {
-            for (d = 0; d < q; d++)
-            {
-                for (k = 0; k < p; k++)
-                {
-                    sum = sum + first[c][k]*second[k][d];
-                }
-
-                multiply[c][d] = sum;
-                sum = 0;
-            }
-        }
-
-        printf("Product of entered matrices:-\n");
-
-        for (c = 0; c < m; c++)
-        {
-            for (d = 0; d < q; d++) {
-                printf("%d\t", multiply[c][d]);
-            }
-
-            printf("\n");
-        }
-    }
-
-    return 0;
+		default:
+			cout << "\nEnter a valid option\n";
+		}
+	}
+	return 0;
 }

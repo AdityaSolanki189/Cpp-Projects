@@ -150,24 +150,23 @@ void matrix :: Check_Upper(){
 		cout<<"It Is An Upper Triangular Matrix!\n";
 	}
 	else{
-		cout<<"\nThe Dimensions Are Not Same!\n";
+		cout<<"\nThe Dimensions Are Not Equal!\n";
 	}	
 }
 
 void matrix :: Check_Lower(){
 	if(x == y){
-		for(int i=0;i<x;i++){
-			for(int j=0;j<i;j++){
-				if(a[i][j] != 0){
-					cout<<"Not An Upper Triangular Matrix!\n";
-					return;
-				}
+		j=x-1;
+		for(int i=0;i<x,j>i;i++,j--){
+			if(a[i][j] != 0){
+				cout<<"Not An Lower Triangular Matrix!\n";
+				return;
 			}
 		}
-		cout<<"It Is An Upper Triangular Matrix!\n";
+		cout<<"It Is An Lower Triangular Matrix!\n";
 	}
 	else{
-		cout<<"\nThe Dimensions Are Not Same!\n";
+		cout<<"\nThe Dimensions Are Not Equal!\n";
 	}
 }
 

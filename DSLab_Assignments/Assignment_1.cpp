@@ -156,7 +156,7 @@ void matrix :: Check_Upper(){
 
 void matrix :: Check_Lower(){
 	if(x == y){
-		j=x-1;
+		int j=x-1;
 		for(int i=0;i<x,j>i;i++,j--){
 			if(a[i][j] != 0){
 				cout<<"Not An Lower Triangular Matrix!\n";

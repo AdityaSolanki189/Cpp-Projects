@@ -130,7 +130,7 @@ int matrix :: sumofdiagonals(){
 		} 
 	}
 	else {
-		cout<<"Dimensions are Same!";
+		cout<<"\nRows & Columns Are NOT Same!\n";
 	}
 	return sum;
 }
@@ -185,7 +185,7 @@ int main() {
 			cout<<"\nSum Of Diagonals Of The Matrix : ";
 			cout << "\nEnter Order Of Matrix A[x,y] : ";
 			a.get_matrix();
-			cout<<"Sum Of Diagonals : "<<a.sumofdiagonals();
+			cout<<"\nSum Of Diagonals : "<<a.sumofdiagonals()<<endl;
 			break;
 
 		case '6':

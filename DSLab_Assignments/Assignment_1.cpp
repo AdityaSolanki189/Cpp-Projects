@@ -120,13 +120,13 @@ int matrix :: sumofdiagonals(){
 		for(int i=0;i<x;i++){
 			for(int j=0;j<y;j++){
 				if(i==j){
-					sum + = a[i][j]; 
+					sum += a[i][j]; 
 				}
 			}
 		}
 		int j = y-1;
 		for(int i=0;i<x;i++,j--){
-			sum + = a[i][j];
+			sum += a[i][j];
 		} 
 	}
 	else {

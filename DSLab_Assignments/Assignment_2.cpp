@@ -7,14 +7,15 @@ is the minimum element in its row and maximum in its column. */
 
 void saddle_point(int arr[s][s],int m,int n){
     for(int i=0;i<m;i++){
-        int min_row = arr[i][0], column_id = 0,j;
+        int min_row = arr[i][0], column_id = 0,j,k;
+        //finding minimum of the row
         for (j = 1; j < n; j++) { 
             if (min_row > arr[i][j]) { 
                 min_row = arr[i][j]; 
                 column_id = j; 
             } 
         }
-        int k; 
+        //finding maximum of the column
         for(k=0;i<m;k++){
             if (min_row < arr[k][column_id]) 
                 break;

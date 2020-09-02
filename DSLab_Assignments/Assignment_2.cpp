@@ -7,21 +7,21 @@ is the minimum element in its row and maximum in its column. */
 
 void saddle_point(int arr[s][s],int m,int n){
     for(int i=0;i<m;i++){
-        int min_row = arr[i][0], col_id = 0,j;
+        int min_row = arr[i][0], column_id = 0,j;
         for (j = 1; j < n; j++) { 
             if (min_row > arr[i][j]) { 
                 min_row = arr[i][j]; 
-                col_id = j; 
+                column_id = j; 
             } 
         }
         int k; 
         for(k=0;i<m;k++){
-            if (min_row < arr[k][col_id]) 
+            if (min_row < arr[k][column_id]) 
                 break;
         }
         if (k == m) { 
            cout << "\nSaddle Point Of The Given Matrix Is : " << min_row<<endl;
-           cout << "At Location : "<<"["<<i+1<<","<<col_id+1<<"]"<<endl;
+           cout << "At Location : "<<"["<<i+1<<","<<column_id+1<<"]"<<endl;
            return; 
         } 
     }

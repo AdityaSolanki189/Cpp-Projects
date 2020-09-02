@@ -103,7 +103,7 @@ int main(){
 	matrix obj;
 	int t = 1;
 	while (t) {
-		cout << "Select Option :\n1.Matrix Addition\n2.Matrix Subtraction\n3.Matrix Multiplication\n4.Exit\n";
+		cout << "\nSelect Option :\n1.Matrix Addition\n2.Matrix Subtraction\n3.Matrix Multiplication\n4.Exit\n";
 		cin >> op;
 		switch (op) {
 		case '1':

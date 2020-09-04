@@ -1,3 +1,9 @@
+/* 
+		PL1 Assignment 1 by Aditya Solanki 
+		Roll No. 2193023
+		CSE - 3 
+*/
+
 #include<iostream>
 using namespace std;
 #define s 20
@@ -125,7 +131,6 @@ int main(){
 			break;
 
 		case '4':
-			cout << "Press any key to exit\n"<<endl;
 			t = 0;
 			break;
 

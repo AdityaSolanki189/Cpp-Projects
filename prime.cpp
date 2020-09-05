@@ -15,6 +15,6 @@ int main() {
         }
         temp = temp / 10;
     }
-    cout<<"\nNo. Of Prime Digits : "<<count;
+    cout<<"\nNo. Of Prime Digits : "<<count<<endl;
     return 0;
 }

@@ -20,8 +20,8 @@ class poly{
         void accept();
         void display();
         double evaluate(double value);
-        poly operator +(poly obj1);
-        poly operator *(poly obj2);
+        poly operator +(poly);
+        poly operator *(poly);
 };
 
 void poly :: accept(){
@@ -40,6 +40,14 @@ void poly :: display(){
         cout<<poly_array[i].coef<<"x^"<<poly_array[i].expo<<" + ";
     }
     cout<<endl;
+}
+
+poly poly :: operator+(poly ob1){
+
+}
+
+poly poly :: operator*(poly obj2){
+    
 }
 
 int main(){

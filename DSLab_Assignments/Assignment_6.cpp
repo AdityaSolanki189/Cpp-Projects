@@ -43,7 +43,7 @@ void poly :: display(){
 }
 
 poly poly :: operator+(poly ob1){
-
+    
 }
 
 poly poly :: operator*(poly obj2){

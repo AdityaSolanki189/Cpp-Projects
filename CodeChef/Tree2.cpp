@@ -11,7 +11,7 @@ void sort(int array[],int n){
             } 
         }
     }
-}
+} 
 //highest stick -> second Heighest stick -> third heighest stick -> so no... till we reach height = 0
 //Number of Operations is Equal to Number Of Unique heights
 int main(){
@@ -20,11 +20,17 @@ int main(){
     while(T--){
         int n;
         cin>>n;
-        int heights[n];
-        for(int i=0;i<n;i++) cin>>heights[i];
-        sort(heights,n);
-        
-        for(int i=0;i<n;i++) cout<<heights[i]<<" ";
+        int height[n];
+        for(int i=0;i<n;i++) cin>>height[i];
+        sort(height,n);
+        int count = 0,temp = 0;
+        for(int i=0;i<n;i++){
+            if(height[i] != 0 && height[i] != temp){
+                count++;
+                temp = height[i];
+            }
+        }
+        cout<<count;
     }
     return 0;
 }

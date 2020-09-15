@@ -8,7 +8,7 @@ void insertions_sort(int array[],int n){
         i = j-1;
         while((i>=0) && (key<array[i])){
             array[i+1] = array[i];
-            i = i-1;
+            i--;
         }
         array[i+1] = key;
     }

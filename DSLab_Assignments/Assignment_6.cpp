@@ -22,7 +22,7 @@ class poly{
         void display();
         double evaluate(double);
         poly operator +(poly);
-       // poly operator *(poly);
+        poly operator *(poly);
 };
 
 void poly :: accept(){
@@ -93,9 +93,17 @@ poly poly :: operator+(poly B){
     return C;
 }
 
-/* poly poly :: operator*(poly B){
-    
-} */
+poly poly :: operator*(poly B){
+    poly D; // stores product of the polynomials
+    for (int i=0; i<total_terms; i++) 
+   { 
+     // Multiply the current term of first polynomial 
+     // with every term of second polynomial. 
+     for (int j=0; j<B.total_terms; j++) 
+         D.poly_array[i+j] += poly_array[i]*B.poly_array[j]; 
+   } 
+    return D;
+}
 
 int main(){
     poly A,B,C,D;
@@ -130,9 +138,9 @@ int main(){
             break;
         
         case 4:
-           /*  D = A*B;
+            D = A*B;
             cout<<"Product Of The Polynomaials :"<<endl;
-            D.display(); */
+            D.display();
             break;
         
         case 5:

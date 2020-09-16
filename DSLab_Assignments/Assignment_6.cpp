@@ -1,4 +1,5 @@
 /* 
+    Aditya Solanki CSE 3 [2193023]
     Polynomial Operations Using Operator Overloading 
 */
 
@@ -28,12 +29,13 @@ class poly{
 void poly :: accept(){
     cout<<"Enter Total Number Of Terms : ";
     cin>>total_terms;
+    cout<<endl;
     for(int i=0;i<total_terms;i++){
         cout<<"Enter Coefficient Of "<<i+1<<" Term : ";
         cin>>poly_array[i].coef;
         cout<<"Enter Power Of "<<i+1<<" Term : ";
         cin>>poly_array[i].expo;
-        
+        cout<<endl; 
     }
 }
 
@@ -95,13 +97,18 @@ poly poly :: operator+(poly B){
 
 poly poly :: operator*(poly B){
     poly D; // stores product of the polynomials
-    for (int i=0; i<total_terms; i++) 
-   { 
-     // Multiply the current term of first polynomial 
-     // with every term of second polynomial. 
-     for (int j=0; j<B.total_terms; j++) 
-         D.poly_array[i+j] += poly_array[i]*B.poly_array[j]; 
-   } 
+    int prod_terms = total_terms * B.total_terms;
+    int k=0;
+    for (int i=0; i<total_terms; i++){
+        // Multiply the current term of first polynomial 
+        // with every term of second polynomial. 
+        for (int j=0; j<B.total_terms; j++){
+            D.poly_array[k].coef = poly_array[i].coef*B.poly_array[j].coef;
+            D.poly_array[k].expo = poly_array[i].expo+B.poly_array[j].expo;
+            k++;
+        }
+    }
+    D.total_terms = total_terms*B.total_terms;    
     return D;
 }
 
@@ -117,8 +124,10 @@ int main(){
         case 1:
             cout<<"Enter First Polynomial :"<<endl;
             A.accept();
+            cout<<endl;
             cout<<"Enter Second Polynomial :"<<endl;
             B.accept();
+            cout<<endl;
             break;
         
         case 2:
@@ -141,11 +150,13 @@ int main(){
             D = A*B;
             cout<<"Product Of The Polynomaials :"<<endl;
             D.display();
+            cout<<endl;
             break;
         
         case 5:
             cout<<"Enter Value Of X : ";
             cin>>x;
+            A.display();
             ans = A.evaluate(x);
             cout<<"The Value Of Polynomial At (X = "<<x<<") is "<<ans<<endl;
             cout<<endl;

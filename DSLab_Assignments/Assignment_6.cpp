@@ -100,8 +100,7 @@ poly poly :: operator*(poly B){
     int prod_terms = total_terms * B.total_terms;
     int k=0;
     for (int i=0; i<total_terms; i++){
-        // Multiply the current term of first polynomial 
-        // with every term of second polynomial. 
+        // Multiply the current term of first polynomial with every term of second polynomial. 
         for (int j=0; j<B.total_terms; j++){
             D.poly_array[k].coef = poly_array[i].coef*B.poly_array[j].coef;
             D.poly_array[k].expo = poly_array[i].expo+B.poly_array[j].expo;

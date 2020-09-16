@@ -156,6 +156,7 @@ int main(){
         case 5:
             cout<<"Enter Value Of X : ";
             cin>>x;
+            cout<<endl;
             A.display();
             ans = A.evaluate(x);
             cout<<"The Value Of Polynomial At (X = "<<x<<") is "<<ans<<endl;

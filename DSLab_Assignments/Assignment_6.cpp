@@ -159,6 +159,18 @@ int main(){
             ans = A.evaluate(x);
             cout<<"The Value Of Polynomial At (X = "<<x<<") is "<<ans<<endl;
             cout<<endl;
+            B.display();
+            ans = B.evaluate(x);
+            cout<<"The Value Of Polynomial At (X = "<<x<<") is "<<ans<<endl;
+            cout<<endl;
+            C.display();
+            ans = C.evaluate(x);
+            cout<<"The Value Of Polynomial At (X = "<<x<<") is "<<ans<<endl;
+            cout<<endl;
+            D.display();
+            ans = D.evaluate(x);
+            cout<<"The Value Of Polynomial At (X = "<<x<<") is "<<ans<<endl;
+            cout<<endl;
             break;
         
         case 6:

@@ -118,6 +118,7 @@ int main(){
     while(t){
         cout<<"Polynomial Operations :-\n1.Accept Polynomials\n2.Display Polynomials\n3.Add Polynomials\n4.Multiply Polynomials\n5.Evaluate\n6.Exit\n";
         cin>>ch;
+        cout<<endl;
         switch (ch)
         {
         case 1:

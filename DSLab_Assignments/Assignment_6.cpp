@@ -97,7 +97,6 @@ poly poly :: operator+(poly B){
 
 poly poly :: operator*(poly B){
     poly D; // stores product of the polynomials
-    int prod_terms = total_terms * B.total_terms;
     int k=0;
     for (int i=0; i<total_terms; i++){
         // Multiply the current term of first polynomial with every term of second polynomial. 
@@ -107,7 +106,26 @@ poly poly :: operator*(poly B){
             k++;
         }
     }
-    D.total_terms = total_terms*B.total_terms;    
+    D.total_terms = total_terms*B.total_terms;
+    int l = 0;
+    //Adding terms with same expo value
+    for(int i=0;i<D.total_terms;i++){
+        for(int j=i+1;D.total_terms;j++){
+            if(D.poly_array[i].expo == D.poly_array[j].expo){
+                D.poly_array[i].coef = D.poly_array[i].coef + D.poly_array[j].coef;
+                D.poly_array[i].expo = D.poly_array[i].expo;
+                D.poly_array[j] = D.poly_array[j+1];
+                D.poly_array[j+1].coef = 0;
+                D.poly_array[j+1].expo = 0;
+                l++;
+            }
+            else{
+                D.poly_array[j].coef = D.poly_array[j].coef;
+                D.poly_array[j].expo = D.poly_array[j].expo;
+                l++;
+            }
+        }
+    }
     return D;
 }
 

@@ -1,6 +1,5 @@
 #include <iostream>
-#include <string.h>
-#include <cctype>
+#include <string>
 
 using namespace std;
 
@@ -19,7 +18,7 @@ void string_op::frequency(string str){
     int count = 0;
     cin >> ch;
     for (int i = 0; i < str.length(); i++){
-        if (tolower(ch) == tolower(str[i]))
+        if (ch == str[i])
             count++;
     }
     cout << "Frequency = " << count << endl;
@@ -27,7 +26,7 @@ void string_op::frequency(string str){
 
 void string_op::Delete(string str){
     int j, k;
-    cout << "The OG String : " << str << endl;
+    cout << "The Given String : " << str << endl;
     cout << "Enter Any 2 Positions you want to Delete : " << endl;
     cin >> j >> k;
     if (j < k)    {
@@ -59,13 +58,13 @@ void string_op::Delete(string str){
 }
 
 void string_op::chardelete(string str){
-    cout << "The OG String : " << str << endl;
+    cout << "The Given String : " << str << endl;
     char ch, new_str[100];
     cout << "Enter Any Character From The String : ";
     cin >> ch;
     int j;
     for (int i = j = 0; i < str.length(); i++) {
-        if (tolower(ch) != tolower(str[i])) {
+        if (ch != str[i]) {
             str[j++] = str[i];
         }
         else{
@@ -76,7 +75,7 @@ void string_op::chardelete(string str){
 }
 
 void string_op::palindrome(string str){
-    cout << "The OG String : " << str << endl;
+    cout << "The Given String : " << str << endl;
     int left=0,right=str.length()-1;
     while(right > left){
         if (str[left++] != str[right--]){ 

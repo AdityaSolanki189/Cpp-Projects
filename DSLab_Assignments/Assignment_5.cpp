@@ -62,14 +62,7 @@ void string_op::chardelete(string str){
     char ch;
     cout << "Enter Any Character From The String : ";
     cin >> ch;
-    int j;
-    for (int i = j = 0; i < str.length(); i++) {
-        /* if (ch != str[i]) {
-            str[j++] = str[i];
-        }
-        else{
-            str[j++] = '\0';
-        } */
+    for (int i = 0; i < str.length(); i++) {
         if(str[i] == ch){
             str[i] = '\0';
         }

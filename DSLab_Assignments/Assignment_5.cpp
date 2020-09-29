@@ -59,16 +59,19 @@ void string_op::Delete(string str){
 
 void string_op::chardelete(string str){
     cout << "The Given String : " << str << endl;
-    char ch, new_str[100];
+    char ch;
     cout << "Enter Any Character From The String : ";
     cin >> ch;
     int j;
     for (int i = j = 0; i < str.length(); i++) {
-        if (ch != str[i]) {
+        /* if (ch != str[i]) {
             str[j++] = str[i];
         }
         else{
             str[j++] = '\0';
+        } */
+        if(str[i] == ch){
+            str[i] = '\0';
         }
     }
     cout << "The New String : " << str << endl;

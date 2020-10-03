@@ -2,7 +2,7 @@
 #include <cmath>
 using namespace std;
 
-#define ll long long
+#define ll long long int
 
 int main(){
     ios_base::sync_with_stdio(false);
@@ -11,8 +11,9 @@ int main(){
     int t;
     cin>>t;
     while(t--){
-        ll n,k,arr_Q[100000],sum=0;
+        ll n,k,sum=0;
         cin>>n>>k;
+        ll arr[n];
         for(ll i=0;i<n;i++){ 
             cin>>arr_Q[i];
             sum+=arr_Q[i];

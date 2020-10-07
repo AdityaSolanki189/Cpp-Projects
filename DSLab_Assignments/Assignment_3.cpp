@@ -21,7 +21,7 @@ void Password :: pass_function(){
                     if(a[i]==a[j]||a[i]==a[k]||a[i]==a[l]||a[j]==a[k]||a[j]==a[l]||a[k]==a[l]){
                         continue;
                     }
-                    cout<<a[i]<<a[j]<<a[k]<<a[l];
+                    cout<<a[i]<<a[j]<<a[k]<<a[l]<<endl;
                 }
             }
         }

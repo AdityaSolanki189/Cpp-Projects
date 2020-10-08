@@ -11,14 +11,22 @@ int main(){
     int t;
     cin>>t;
     while(t--){
-        ll n,k,sum=0;
+        ll n,i,k,day=0;
         cin>>n>>k;
-        ll arr[n];
-        for(ll i=0;i<n;i++){ 
+        ll arr_Q[n];
+        for(i=0;i<n;i++){ 
             cin>>arr_Q[i];
-            sum+=arr_Q[i];
         }
-        ll day = floor(sum/k);
+        for(i=0;i<n;i++){
+            if(arr_Q[i]>=k){
+                day++;
+                arr_Q[i+1] += (arr_Q[i]-k);
+            }
+            if(arr_Q[i]<k) break;
+        }
+        if(i == n){  
+            day = day + floor((arr_Q[n-1]-k)/k);
+        }
         cout<<day+1<<endl;
     }
 }

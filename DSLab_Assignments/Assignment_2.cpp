@@ -21,7 +21,7 @@ void saddle_point(int arr[s][s],int m,int n){
             if (min_row < arr[k][column_index]) {
                 break;
             }
-            //After Checking (n-1) times in that column
+            //After Checking all the elements in that column
             if (k == n-1) { 
                 cout << "\nSaddle Point Of The Given Matrix Is : " << min_row<<endl;
                 cout << "At Location : "<<"["<<i+1<<","<<column_index+1<<"]"<<endl; 

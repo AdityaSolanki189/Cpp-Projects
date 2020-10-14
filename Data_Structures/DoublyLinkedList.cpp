@@ -107,6 +107,7 @@ void DLL::insert_n(){
     cout<<"Enter The Position : ";
     cin>>pos;
     Node *temp = head;
+    
     for(int i=0;i<pos-2;i++){
         temp = temp->next;
         if(temp->next==NULL){
@@ -114,7 +115,7 @@ void DLL::insert_n(){
             return;
         }
     }
-
+    
     Node *newNode = new Node();
     cout<<"Enter The Data : ";
     cin>>newNode->data;
@@ -168,10 +169,50 @@ void DLL::delete_end(){
 }
 
 void DLL::delete_n(){
+    if(head == NULL){
+        cout<<"The List Is Empty.\n";
+        return;
+    }
 
+    int pos;
+    cout<<"Enter The Position : ";
+    cin>>pos;
+
+    Node *temp = head;
+    if(pos == 1){
+        head = head->next;
+        head->prev = NULL;
+        delete temp;
+        return;
+    }
+    for(int i=0;i<pos-2;i++){
+        temp = temp->next;
+        if(temp->next==NULL){
+            cout<<"Insufficient Nodes\n";
+            return;
+        }
+    }
+    temp->prev->next = temp->next;
+    temp->next->prev = temp->prev;
+    delete temp;
 }
 
-void DLL::reverse(){}
+void DLL::reverse(){
+    Node *temp = head;
+    if(temp == NULL){
+        cout<<"List is Empty.\n";
+        return 0;
+    }
+    while(temp != NULL){
+        temp = temp->next;
+    }
+    cout<<"The Reversed List : ";
+    while(temp != NULL){
+        cout<<temp->data<<" < - > ";
+        temp = temp->prev;
+    }
+    cout<<"NULL";
+}
 
 int main(){
     DLL obj;
@@ -222,7 +263,6 @@ int main(){
 
             case 7:
                 obj.reverse();
-                obj.display();
             break;
 
             case 8:

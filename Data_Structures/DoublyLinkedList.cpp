@@ -118,6 +118,8 @@ void DLL::insert_n(){
     Node *newNode = new Node();
     cout<<"Enter The Data : ";
     cin>>newNode->data;
+    newNode->next = NULL;
+    newNode->prev = NULL;
 
     if(temp->next==NULL){ //position of last node
         temp->next = newNode;
@@ -126,9 +128,8 @@ void DLL::insert_n(){
     }
     else{ //position in middle
         newNode->next = temp->next;
-        newNode->next->prev = newNode;
         temp->next = newNode;
-        newNode->next = temp;
+        newNode->prev = temp;
     }
 }
 

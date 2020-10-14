@@ -134,13 +134,13 @@ void DLL::insert_n(){
 }
 
 void DLL::delete_begg(){
-    Node *temp;
+    
     if(head == NULL){
         cout<<"List Is Empty"<<endl;
         return;
     }
     else{
-        temp = head;
+        Node *temp = head;
         head = head->next;
         head->prev = NULL;
         delete temp;
@@ -160,9 +160,10 @@ void DLL::delete_end(){
     }
     else{
         while(temp->next != NULL){
-            temp->next->prev = NULL;
-            delete temp;
+            temp = temp->next;
         }
+        temp->prev->next = NULL;
+        delete temp;        
     }   
 }
 

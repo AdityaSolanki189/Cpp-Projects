@@ -58,9 +58,80 @@ void DLL :: display(){
     cout<<"NULL";
 }
 
-void DLL::insert_begg(){}
-void DLL::insert_end(){}
-void DLL::insert_n(){}
+void DLL::insert_begg(){
+    Node *newNode = new Node();
+    cout<<"Enter Data in newNode : ";
+    cin>>newNode->data;
+    
+    newNode->prev = NULL;
+
+    if(head == NULL){
+        newNode->next = NULL;
+        head = newNode;
+        return;
+    }
+    else{
+        newNode->next = head;
+        head->prev = newNode;
+        head = newNode;
+    }
+}
+
+void DLL::insert_end(){
+    Node *newNode = new Node();
+    cout<<"Enter Data in newNode : ";
+    cin>>newNode->data;
+    newNode->next = NULL;
+    if(head == NULL){
+        newNode->prev = NULL;
+        head = newNode;
+    }
+    else{
+        Node *temp = head;
+        while(temp->next != NULL){
+            temp = temp->next;
+        }
+        temp->next = newNode;
+        newNode->prev = temp;
+    }
+}
+
+void DLL::insert_n(){
+    
+    if(head == NULL){
+        cout<<"The List Is Empty.\n";
+        return;
+    }
+
+    int pos;
+    cout<<"Enter The Position : ";
+    cin>>pos;
+    Node *temp = head;
+    for(int i=0;i<pos-2;i++){
+        temp = temp->next;
+        if(temp->next==NULL){
+            cout<<"Insufficient Nodes\n";
+            return;
+        }
+    }
+
+    Node *newNode = new Node();
+    cout<<"Enter The Data : ";
+    cin>>newNode->data;
+
+    if(temp->next==NULL){ //position of last node
+        temp->next = newNode;
+        newNode->next = NULL;
+        newNode->prev = temp;
+    }
+    else{ //position in middle
+        newNode->next = temp->next;
+        newNode->next->prev = newNode;
+        temp->next = newNode;
+        newNode->next = temp;
+    }
+}
+
 void DLL::delete_begg(){}
 void DLL::delete_end(){}
 void DLL::delete_n(){}

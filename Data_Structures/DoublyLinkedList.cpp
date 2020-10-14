@@ -52,7 +52,7 @@ void DLL :: display(){
     cout<<"The Doubly Linked List is : ";
     temp = head;
     while(temp != NULL){
-        cout<<temp->data<<" <-> ";
+        cout<<temp->data<<" < - > ";
         temp = temp->next;
     }
     cout<<"NULL";
@@ -133,7 +133,9 @@ void DLL::insert_n(){
     }
 }
 
-void DLL::delete_begg(){}
+void DLL::delete_begg(){
+
+}
 void DLL::delete_end(){}
 void DLL::delete_n(){}
 void DLL::reverse(){}
@@ -151,7 +153,7 @@ int main(){
     }
     obj.display();
     while(t!=0){
-        cout<<"\nBasic Operations :\n1. insert_begg();\n2. insert_end();\n3. insert_n(int,int);\n4. delete_begg();\n5. delete_end();\n6. delete_n(int,int);\n7. reverse();\n8. Exit(0)"<<endl;
+        cout<<"\nBasic Operations :\n1. Insert at Beggining;\n2. Insert at End;\n3. Insert at N;\n4. Delete at Beggining;\n5. Delete at End;\n6. Delete at N;\n7. Reverse;\n8. Exit(0)"<<endl;
         int ch;
         cin>>ch;
         switch (ch){

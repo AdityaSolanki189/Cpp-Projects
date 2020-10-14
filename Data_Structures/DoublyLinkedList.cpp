@@ -180,12 +180,13 @@ void DLL::delete_n(){
 
     Node *temp = head;
     if(pos == 1){
+        Node *temp1 = head;
         head = head->next;
         head->prev = NULL;
         delete temp;
         return;
     }
-    for(int i=0;i<pos-2;i++){
+    for(int i=0;i<pos-1;i++){
         temp = temp->next;
         if(temp->next==NULL){
             cout<<"Insufficient Nodes\n";
@@ -201,17 +202,17 @@ void DLL::reverse(){
     Node *temp = head;
     if(temp == NULL){
         cout<<"List is Empty.\n";
-        return 0;
+        return;
     }
-    while(temp != NULL){
+    while(temp->next != NULL){
         temp = temp->next;
     }
     cout<<"The Reversed List : ";
-    while(temp != NULL){
-        cout<<temp->data<<" < - > ";
+    while(temp != head){
+        cout<<temp->data<" < - > ";
         temp = temp->prev;
     }
-    cout<<"NULL";
+    cout<<temp->data;
 }
 
 int main(){

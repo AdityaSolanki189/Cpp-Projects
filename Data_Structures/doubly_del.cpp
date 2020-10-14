@@ -30,20 +30,20 @@ void Insert(int data,int n){
 void Delete(){
     if(head == NULL){
         cout<<"List Is Empty"<<endl;
+        return;
+    }
+    
+    Node* temp = head;
+    if(temp->prev == temp->next){
+        head = NULL;
+        delete temp;
     }
     else{
-        Node* temp = head;
-        if(temp->prev == temp->next){
-            head = NULL;
+        while(temp->next != NULL){
+            temp->next->prev = NULL;
             delete temp;
         }
-        else{
-            while(temp->next != NULL){
-                temp->next->prev = NULL;
-                delete temp;
-            }
-        }
-    }
+    }    
 }
 
 void Print(){

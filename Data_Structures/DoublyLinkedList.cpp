@@ -134,10 +134,42 @@ void DLL::insert_n(){
 }
 
 void DLL::delete_begg(){
+    Node *temp;
+    if(head == NULL){
+        cout<<"List Is Empty"<<endl;
+        return;
+    }
+    else{
+        temp = head;
+        head = head->next;
+        head->prev = NULL;
+        delete temp;
+    }
+}
+
+void DLL::delete_end(){
+    if(head == NULL){
+        cout<<"List Is Empty"<<endl;
+        return;
+    }
+    
+    Node* temp = head;
+    if(temp->prev == temp->next){
+        head = NULL;
+        delete temp;
+    }
+    else{
+        while(temp->next != NULL){
+            temp->next->prev = NULL;
+            delete temp;
+        }
+    }   
+}
+
+void DLL::delete_n(){
 
 }
-void DLL::delete_end(){}
-void DLL::delete_n(){}
+
 void DLL::reverse(){}
 
 int main(){
@@ -147,7 +179,7 @@ int main(){
     cin>>nodes;
     cout<<"Enter Data for Each Node :-"<<endl;
     for(int i=1;i<=nodes;i++){
-        cout<<i<<". ";
+        cout<<"Node "<<i<<". ";
         cin>>data;
         obj.create(data);
     }

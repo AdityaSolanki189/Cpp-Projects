@@ -10,7 +10,6 @@ struct Node{
 class List{
     public:
         int pos,count1=0,cont=0;
-        string ch1 = "club";
         string ch2,ch;
         Node *head,*tail,*prev,*cur;
         Node *create_node();
@@ -95,12 +94,9 @@ void List :: create_list(){
 
 int main(){
     List obj;
-    cout<<"\nWelcome To Pinnacle Club\n"<<endl;
-    obj.create_list();
-    //obj.operation();
-    return 0;
-    /* while(t!=0){
-        cout<<"\nClub Member Operations :\na) Insert at Beggining;\nb) Insert at End;\nc) Insert at N;\nd) Delete at Beggining;\ne) Exit(0)"<<endl;
+    cout<<"            Welcome To Pinnacle Club\n"<<endl;
+    while(t!=0){
+        cout<<"\nPinnacle Club Operations :\na) Create A List\nb) Compute Total Memebrs OF Club\nc) Display All Members\nd) Display List in Reverse Order\ne) Exit(0)"<<endl;
         int ch;
         cin>>ch;
         switch (ch){
@@ -148,5 +144,5 @@ int main(){
 
         }
     }
-    return 0; */
+    return 0;
 }

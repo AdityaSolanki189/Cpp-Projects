@@ -209,7 +209,7 @@ void DLL::reverse(){
     }
     cout<<"The Reversed List : ";
     while(temp != head){
-        cout<<temp->data<" < - > ";
+        cout<<temp->data<<" < - > ";
         temp = temp->prev;
     }
     cout<<temp->data;
@@ -222,7 +222,7 @@ int main(){
     cin>>nodes;
     cout<<"Enter Data for Each Node :-"<<endl;
     for(int i=1;i<=nodes;i++){
-        cout<<"Node "<<i<<". ";
+        cout<<"Node "<<i<<" -> ";
         cin>>data;
         obj.create(data);
     }

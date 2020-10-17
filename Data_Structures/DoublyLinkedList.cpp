@@ -108,14 +108,20 @@ void DLL::insert_n(){
     cin>>pos;
     Node *temp = head;
     
-    for(int i=0;i<pos-2;i++){
-        temp = temp->next;
-        if(temp->next==NULL){
-            cout<<"Insufficient Nodes\n";
-            return;
+    if(pos == 1){
+        temp->next = NULL;
+        head = temp;
+        return;
+    }
+    else{
+        for(int i=0;i<pos-2;i++){
+            temp = temp->next;
+            if(temp->next==NULL){
+                cout<<"Insufficient Nodes\n";
+                return;
+            }
         }
     }
-    
     Node *newNode = new Node();
     cout<<"Enter The Data : ";
     cin>>newNode->data;

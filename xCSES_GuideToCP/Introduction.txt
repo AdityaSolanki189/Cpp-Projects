@@ -47,4 +47,32 @@ Introductory Programming Techniques :
         search(i);
         }
 
+    #RECURSIVE ALGORITHM#
+
+/* Our first application of recursion is generating all subsets of a set of n elements. For example, the subsets of {1, 2, 3} are ∅, {1}, {2}, {3}, {1, 2}, {1, 3}, {2, 3}, and {1, 2, 3}. The following recursive function search can be used to generate the subsets. The function maintains a vector that will contain the elements of each subset. The search begins when the function is called with the parameter 1*/
+//Using Recursive Aglorithm
+/* 
+Approach: The idea is simple, that if there are n number of elements inside an array, there are two choices for every element. Either include that element in the subset or do not include it.
+Using the above idea form a recursive solution to the problem. */
+
+
+void search(int k)
+{
+    if (k == n + 1)
+    {
+        // process subset
+    }
+    else
+    {
+        // include k in the subset
+        subset.push_back(k);
+        search(k + 1);
+        subset.pop_back();
+        // don’t include k in the subset
+        search(k + 1);
+    }
+}
+
+        #BACKTRACKING#
+    
 

@@ -18,7 +18,8 @@ class DLL{
         void insert_n();
         void delete_begg();
         void delete_end();
-        void delete_n();
+        void delete_pos();
+        void delete_node();
         void reverse();
         DLL(){
             head = NULL;
@@ -174,7 +175,7 @@ void DLL::delete_end(){
     }   
 }
 
-void DLL::delete_n(){
+void DLL::delete_pos(){  //by given position
     if(head == NULL){
         cout<<"The List Is Empty.\n";
         return;
@@ -202,6 +203,44 @@ void DLL::delete_n(){
     temp->prev->next = temp->next;
     temp->next->prev = temp->prev;
     delete temp;
+}
+
+void DLL::delete_node(){ //by given data
+    Node *curr,*temp;
+    int val;
+    cout<<"Enter The Value : ";
+    cin>>val;
+    if(head == NULL){
+        cout<<"List Is Empty\n";
+        return;
+    }
+    temp = head;
+    while(temp->data!=val){
+        if(temp->next==NULL){
+            cout<<"Data Not Found\n";
+            return;
+        }
+        temp = temp->next;
+    }
+    if(head->next == temp){ //first node
+        head = head->next;
+        head->prev = NULL;
+        delete temp;
+    }
+    else if(temp->next == NULL){ //last node
+        temp->prev->next = NULL;
+        delete temp; 
+    }
+    else if(temp->next->next == NULL){
+        temp->next = NULL;
+    }
+    else{
+        curr = temp->next;
+        temp->next = curr->next;
+        curr->next->prev = temp;
+        delete curr;
+        cout<<"Node Deleted \n"<<endl;
+    }
 }
 
 void DLL::reverse(){
@@ -234,7 +273,7 @@ int main(){
     }
     obj.display();
     while(t!=0){
-        cout<<"\nBasic Operations :\n1. Insert at Beggining;\n2. Insert at End;\n3. Insert at N;\n4. Delete at Beggining;\n5. Delete at End;\n6. Delete at N;\n7. Reverse;\n8. Exit(0)"<<endl;
+        cout<<"\nBasic Operations :\n1. Insert at Beggining;\n2. Insert at End;\n3. Insert at N;\n4. Delete at Beggining;\n5. Delete at End;\n6. Delete a Node by Position\n7. Delete a Node by Value\n8. Reverse\n9. Exit(0)"<<endl;
         int ch;
         cin>>ch;
         switch (ch){
@@ -264,15 +303,20 @@ int main(){
             break;
 
             case 6:
-                obj.delete_n();
+                obj.delete_pos();
                 obj.display();
             break;
 
             case 7:
-                obj.reverse();
+                obj.delete_node();
+                obj.display();
             break;
 
             case 8:
+                obj.reverse();
+            break;
+            
+            case 9:
                 t = 0;
             break;
 

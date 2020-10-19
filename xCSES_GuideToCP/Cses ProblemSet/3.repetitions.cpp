@@ -4,20 +4,18 @@ using namespace std;
 
 int longest_rep(string str){
     int count = 1;
-    int output = 0;
-    int j =0;
+    int longest = 0;
     for(int i=0;i<str.length()-1;i++){
-        j=i;
-        while(i<(str.length()-1) && str[i] == str[i+1]){
-            i++;
+        if(str[i] == str[i+1]){
             count++;
         }
-        if(count>output){
-            output = j;
+        else{
+            longest = max(longest,count);
+            count = 1;
         }
-        count = 1;
     }
-    return output;
+    longest = max(longest,count);
+    return longest;
 }
 
 int main(){

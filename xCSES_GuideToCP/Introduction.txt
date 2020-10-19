@@ -1,0 +1,50 @@
+Introductory Programming Techniques : 
+
+    #SHORTENING OF THE CODE#
+
+1. The command typedef can be used to give a short name to a data type. For example, the name long long is long, so we can define a short name ll as follows:
+    
+    typedef long long ll;
+
+    After this, the code
+        long long a = 123456789;
+        long long b = 987654321;
+        cout << a*b << "\n";
+
+    can be shortened as follows:
+        ll a = 123456789;
+        ll b = 987654321;
+        cout << a*b << "\n";
+
+2. Macros Another way to shorten code is to define macros. A macro specifies that certain strings in the code will be changed before the compilation. In C++, macros are defined using the #define keyword.For example, we can define the following macros:
+
+    #define F first
+    #define S second
+    #define PB push_back
+    #define MP make_pair
+
+    After this, the code
+        v.push_back(make_pair(y1,x1));
+        v.push_back(make_pair(y2,x2));
+        int d = v[i].first+v[i].second;
+
+    can be shortened as follows:
+        v.PB(MP(y1,x1));
+        v.PB(MP(y2,x2));
+        int d = v[i].F+v[i].S;
+
+    A macro can also have parameters, which makes it possible to shorten loops and other structures. For example, we can define the following macro:
+    
+    #define REP(i,a,b) for (int i = a; i <= b; i++)
+    
+    After this, the code
+        for (int i = 1; i <= n; i++) {
+        search(i);
+        }
+
+    can be shortened as follows:
+        REP(i,1,n) {
+        search(i);
+        }
+
+

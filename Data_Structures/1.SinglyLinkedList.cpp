@@ -202,23 +202,21 @@ void SLL::delete_node(){ //by given data/key
     cout<<"Enter The Data/Key : ";
     cin>>key;
 
-    while(curr != NULL){
-        if(curr->data == key){
-            if(curr == head){
-                head = curr->next;
-                delete curr;
-                return;
-            }
-            else{
-                prev->next = curr->next;
-                delete curr;
-            }
-        }
-        else{
-            prev = curr;
-            curr = curr->next;
-        }
+    if(curr != NULL && curr->data == key){
+        head = curr->next;
+        delete curr;
+        return;
     }
+    
+    while(curr != NULL && curr->data != key){
+        prev = curr;
+        curr = curr->next;
+    }
+    
+    if(curr == NULL) return;
+
+    prev->next = curr->next;
+    delete curr;
 }
 
 void SLL::reverse(){

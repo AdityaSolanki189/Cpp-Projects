@@ -8,7 +8,7 @@ struct Node{
 
 Node *head;
 
-class DLL{
+class SLL{
     public:
         void create(int);
         void display();
@@ -20,17 +20,16 @@ class DLL{
         void delete_pos();
         void delete_node();
         void reverse();
-        DLL(){
+        SLL(){
             head = NULL;
         }
 };
 
-void DLL :: create(int value){ //insert at end Looped
+void SLL :: create(int value){ //insert at end Looped
     Node *newNode = new Node();
     newNode->data = value;
     newNode->next = NULL;
     if(head == NULL){
-        newNode->prev = NULL;
         head = newNode;
     }
     else{
@@ -39,11 +38,10 @@ void DLL :: create(int value){ //insert at end Looped
             temp = temp->next;
         }
         temp->next = newNode;
-        newNode->prev = temp;
     }
 }
 
-void DLL :: display(){
+void SLL :: display(){
     Node *temp;
     if(head == NULL){
         cout<<"The List Is Empty!"<<endl;
@@ -52,18 +50,17 @@ void DLL :: display(){
     cout<<"The Doubly Linked List is : ";
     temp = head;
     while(temp != NULL){
-        cout<<temp->data<<" < - > ";
+        cout<<temp->data<<" - > ";
         temp = temp->next;
     }
     cout<<"NULL";
 }
 
-void DLL::insert_begg(){
+void SLL::insert_begg(){
     Node *newNode = new Node();
     cout<<"Enter Data in newNode : ";
     cin>>newNode->data;
-    
-    newNode->prev = NULL;
+    newNode->next = NULL;
 
     if(head == NULL){
         newNode->next = NULL;
@@ -72,18 +69,17 @@ void DLL::insert_begg(){
     }
     else{
         newNode->next = head;
-        head->prev = newNode;
         head = newNode;
     }
 }
 
-void DLL::insert_end(){
+void SLL::insert_end(){
     Node *newNode = new Node();
     cout<<"Enter Data in newNode : ";
     cin>>newNode->data;
     newNode->next = NULL;
     if(head == NULL){
-        newNode->prev = NULL;
+        
         head = newNode;
     }
     else{
@@ -92,11 +88,10 @@ void DLL::insert_end(){
             temp = temp->next;
         }
         temp->next = newNode;
-        newNode->prev = temp;
     }
 }
 
-void DLL::insert_n(){
+void SLL::insert_n(){
     
     if(head == NULL){
         cout<<"The List Is Empty.\n";
@@ -106,161 +101,144 @@ void DLL::insert_n(){
     int pos;
     cout<<"Enter The Position : ";
     cin>>pos;
-    Node *temp = head;
-    
-    if(pos == 1){
-        temp->next = NULL;
-        head = temp;
-        return;
-    }
-    else{
-        for(int i=0;i<pos-2;i++){
-            temp = temp->next;
-            if(temp->next==NULL){
-                cout<<"Insufficient Nodes\n";
-                return;
-            }
-        }
-    }
+
     Node *newNode = new Node();
     cout<<"Enter The Data : ";
     cin>>newNode->data;
     newNode->next = NULL;
-    newNode->prev = NULL;
-
-    if(temp->next==NULL){ //position of last node
-        temp->next = newNode;
-        newNode->next = NULL;
-        newNode->prev = temp;
-    }
-    else{ //position in middle
-        newNode->next = temp->next;
-        temp->next = newNode;
-        newNode->prev = temp;
-    }
-}
-
-void DLL::delete_begg(){
     
-    if(head == NULL){
-        cout<<"List Is Empty"<<endl;
-        return;
-    }
-    else{
-        Node *temp = head;
-        head = head->next;
-        head->prev = NULL;
-        delete temp;
-    }
-}
-
-void DLL::delete_end(){
-    if(head == NULL){
-        cout<<"List Is Empty"<<endl;
-        return;
-    }
-    
-    Node* temp = head;
-    if(temp->prev == temp->next){
-        head = NULL;
-        delete temp;
-    }
-    else{
-        while(temp->next != NULL){
-            temp = temp->next;
-        }
-        temp->prev->next = NULL;
-        delete temp;        
-    }   
-}
-
-void DLL::delete_pos(){  //by given position
-    if(head == NULL){
-        cout<<"The List Is Empty.\n";
-        return;
-    }
-
-    int pos;
-    cout<<"Enter The Position : ";
-    cin>>pos;
-
-    Node *temp = head;
     if(pos == 1){
-        Node *temp1 = head;
-        head = head->next;
-        head->prev = NULL;
-        delete temp;
+        newNode->next = head;
+        head = newNode;
         return;
     }
-    for(int i=0;i<pos-1;i++){
+    Node *temp = head;
+    for(int i=0;i<pos-2;i++){
         temp = temp->next;
         if(temp->next==NULL){
             cout<<"Insufficient Nodes\n";
             return;
         }
     }
-    temp->prev->next = temp->next;
-    temp->next->prev = temp->prev;
-    delete temp;
+
+    if(temp->next==NULL){ //position of last node
+        temp->next = newNode;
+        newNode->next = NULL;
+    }
+    else{ //position in middle
+        newNode->next = temp->next;
+        temp->next = newNode;
+    }
 }
 
-void DLL::delete_node(){ //by given data
-    Node *curr,*temp;
-    int val;
-    cout<<"Enter The Value : ";
-    cin>>val;
+void SLL::delete_begg(){
+    
     if(head == NULL){
-        cout<<"List Is Empty\n";
+        cout<<"List Is Empty"<<endl;
         return;
-    }
-    temp = head;
-    while(temp->data!=val){
-        if(temp->next==NULL){
-            cout<<"Data Not Found\n";
-            return;
-        }
-        temp = temp->next;
-    }
-    if(head->next == temp){ //first node
-        head = head->next;
-        head->prev = NULL;
-        delete temp;
-    }
-    else if(temp->next == NULL){ //last node
-        temp->prev->next = NULL;
-        delete temp; 
-    }
-    else if(temp->next->next == NULL){
-        temp->next = NULL;
     }
     else{
-        curr = temp->next;
-        temp->next = curr->next;
-        curr->next->prev = temp;
-        delete curr;
-        cout<<"Node Deleted \n"<<endl;
+        Node *temp = head;
+        head = temp->next;
+        delete temp;
     }
 }
 
-void DLL::reverse(){
-    Node *temp = head;
-    if(temp == NULL){
-        cout<<"List is Empty.\n";
+void SLL::delete_end(){
+    if(head == NULL){
+        cout<<"List Is Empty"<<endl;
         return;
     }
-    while(temp->next != NULL){
+    
+    Node* Last_node = head;
+    Node* secondLast_node = head;
+    while(Last_node->next != NULL){
+        secondLast_node = Last_node;
+        Last_node = Last_node->next;
+    } 
+
+    if(secondLast_node == head)
+        head = NULL;        
+    else
+        secondLast_node->next = NULL;
+    
+    delete Last_node;
+}   
+
+
+void SLL::delete_pos(){  //by given position
+    if(head == NULL){
+        cout<<"The List Is Empty.\n";
+        return;
+    }
+
+    int pos;
+    cout<<"Enter The Position : ";
+    cin>>pos;
+
+    Node *temp = head;
+    if(pos == 1){
+        head = temp->next;
+        delete temp;
+        return;
+    }
+    for(int i=0;i<pos-2;i++){
         temp = temp->next;
+        if(temp->next==NULL){
+            cout<<"Insufficient Nodes\n";
+            return;
+        }
     }
-    cout<<"The Reversed List : ";
-    while(temp != head){
-        cout<<temp->data<<" < - > ";
-        temp = temp->prev;
+    //after the for loop temp points towards n-1 th node
+    Node* temp2 = temp->next; // temp 2 points to n th node
+    temp->next = temp2->next; // link n-1 th node with n+1 the node
+    delete temp2; // delete n th node
+}
+
+void SLL::delete_node(){ //by given data/key
+    Node* prev = NULL;
+    Node* curr = head;
+    int key;
+    cout<<"Enter The Data/Key : ";
+    cin>>key;
+
+    while(curr != NULL){
+        if(curr->data == key){
+            if(curr == head){
+                head = curr->next;
+                delete curr;
+                return;
+            }
+            else{
+                prev->next = curr->next;
+                delete curr;
+            }
+        }
+        else{
+            prev = curr;
+            curr = curr->next;
+        }
     }
-    cout<<temp->data;
+}
+
+void SLL::reverse(){
+    Node* current = head; 
+    Node *prev = NULL, *next = NULL; 
+  
+    while (current != NULL) { 
+            // Store next 
+        next = current->next; 
+            // Reverse current node's pointer 
+        current->next = prev; 
+            // Move pointers one position ahead. 
+        prev = current; 
+        current = next; 
+    } 
+    head = prev;
 }
 
 int main(){
-    DLL obj;
+    SLL obj;
     int nodes,data,t=1;
     cout<<"\nEnter Number Of Nodes : ";
     cin>>nodes;
@@ -313,6 +291,7 @@ int main(){
 
             case 8:
                 obj.reverse();
+                obj.display();
             break;
             
             case 9:

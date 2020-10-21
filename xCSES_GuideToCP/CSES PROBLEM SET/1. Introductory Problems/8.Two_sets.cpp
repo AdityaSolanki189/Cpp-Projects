@@ -2,13 +2,15 @@
   into two sets of equal sum. If division is 
   possible then print "YES", else print "NO".
   
-  YSK : Sum of 1...n is (n*(n+1))/2.
+  YSK : Sum of 1,2,3,...,n is (n*(n+1))/2.
+  Therefore, the 2 Equal Sets will have
+	    sum = (n*(n+1))/4 each.
 */
 
 #include <bits/stdc++.h>
 using namespace std;
 
-typedef long long int ll;
+typedef long long ll;
 
 int main(){
 	cin.tie(0);
@@ -17,7 +19,8 @@ int main(){
 
 	ll num;
 	cin>>num;
-
+    vector<int> x;
+    
 
 
 	return 0;

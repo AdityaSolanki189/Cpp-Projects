@@ -47,7 +47,7 @@ void SLL :: display(){
         cout<<"The List Is Empty!"<<endl;
         return;
     }
-    cout<<"The Doubly Linked List is : ";
+    cout<<"The Singly Linked List is : ";
     temp = head;
     while(temp != NULL){
         cout<<temp->data<<" - > ";
@@ -248,7 +248,7 @@ int main(){
     }
     obj.display();
     while(t!=0){
-        cout<<"\n\nBasic Operations :\n1. Insert at Beggining;\n2. Insert at End;\n3. Insert at N;\n4. Delete at Beggining;\n5. Delete at End;\n6. Delete a Node by Position\n7. Delete a Node by Value\n8. Reverse\n9. Exit(0)"<<endl;
+        cout<<"\n\nSLL Basic Operations :\n1. Insert at Beggining;\n2. Insert at End;\n3. Insert at N;\n4. Delete at Beggining;\n5. Delete at End;\n6. Delete a Node by Position\n7. Delete a Node by Value\n8. Reverse\n9. Exit(0)"<<endl;
         int ch;
         cin>>ch;
         switch (ch){

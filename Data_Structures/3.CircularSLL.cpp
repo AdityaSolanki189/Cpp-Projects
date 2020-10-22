@@ -25,12 +25,13 @@ class CSLL{
         }
 };
 
-void CSLL :: create(int value){ //insert at end Looped
+void CSLL :: create(int value){ //insert at end (Looped)
     Node *newNode = new Node();
     newNode->data = value;
     newNode->next = NULL;
     if(head == NULL){
         head = newNode;
+        newNode->next = head;
     }
     else{
         Node *temp = head;
@@ -38,6 +39,7 @@ void CSLL :: create(int value){ //insert at end Looped
             temp = temp->next;
         }
         temp->next = newNode;
+        newNode->next = head;
     }
 }
 
@@ -49,7 +51,7 @@ void CSLL :: display(){
     }
     cout<<"The Circular Singly Linked List is : ";
     temp = head;
-    while(temp != NULL){
+    while(temp->next != head){
         cout<<temp->data<<" - > ";
         temp = temp->next;
     }
@@ -63,8 +65,8 @@ void CSLL::insert_begg(){
     newNode->next = NULL;
 
     if(head == NULL){
-        newNode->next = NULL;
         head = newNode;
+        newNode->next = head;
         return;
     }
     else{
@@ -123,7 +125,7 @@ void CSLL::insert_n(){
 
     if(temp->next==NULL){ //position of last node
         temp->next = newNode;
-        newNode->next = NULL;
+        newNode->next = head;
     }
     else{ //position in middle
         newNode->next = temp->next;
@@ -139,8 +141,15 @@ void CSLL::delete_begg(){
     }
     else{
         Node *temp = head;
-        head = temp->next;
-        delete temp;
+        if(temp->next == head){
+            head = NULL;
+            delete temp;
+        }
+        else{
+            head = temp->next;
+            head->next = head;
+            delete temp;
+        }
     }
 }
 
@@ -160,7 +169,7 @@ void CSLL::delete_end(){
     if(secondLast_node == head)
         head = NULL;        
     else
-        secondLast_node->next = NULL;
+        secondLast_node->next = head;
     
     delete Last_node;
 }   
@@ -208,7 +217,7 @@ void CSLL::delete_node(){ //by given data/key
         return;
     }
     
-    while(curr != NULL && curr->data != key){
+    while(curr->next != head && curr->data != key){
         prev = curr;
         curr = curr->next;
     }

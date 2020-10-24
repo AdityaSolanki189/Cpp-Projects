@@ -29,7 +29,7 @@
 	}
 	cout << best << "\n";
 
-// O(n) Time Solution : 
+// O(n) Time Solution :
 	int best = 0;
 	for(int k = 0; k < n; k++){
 		sum = max( array[k], sum + array[k]);

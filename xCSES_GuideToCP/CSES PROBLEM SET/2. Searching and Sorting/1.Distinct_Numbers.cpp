@@ -8,16 +8,13 @@ int main(){
 	cout.tie(0);
 	ios_base::sync_with_stdio(0);
 
-	ll num,sum,wsum;
+	ll num;
+	vector<ll> x;
 	cin>>num;
-    vector<int> x;
-
-    if(n*(n+1) %4 != 0){
-    	cout<<"NO";
-    	return 0;
-    }
-
-
-
+	while(num--){
+		for ( ll i = 0; i < num; i++ )
+			cin>>x[i];
+		
+	}
 	return 0;
 }

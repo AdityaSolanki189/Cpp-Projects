@@ -217,7 +217,7 @@ void CSLL::delete_node(){ //by given data/key
         return;
     }
     
-    while(curr->next != head && curr->data != key){
+    while(curr != head && curr->data != key){
         prev = curr;
         curr = curr->next;
     }

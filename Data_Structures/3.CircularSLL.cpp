@@ -28,14 +28,14 @@ class CSLL{
 void CSLL :: create(int value){ //insert at end (Looped)
     Node *newNode = new Node();
     newNode->data = value;
-    newNode->next = NULL;
+    newNode->next = head;
     if(head == NULL){
         head = newNode;
         newNode->next = head;
     }
     else{
         Node *temp = head;
-        while(temp->next != NULL){
+        while(temp->next != head){
             temp = temp->next;
         }
         temp->next = newNode;
@@ -44,17 +44,16 @@ void CSLL :: create(int value){ //insert at end (Looped)
 }
 
 void CSLL :: display(){
-    Node *temp;
     if(head == NULL){
         cout<<"The List Is Empty!"<<endl;
         return;
     }
+    Node *temp = head;
     cout<<"The Circular Singly Linked List is : ";
-    temp = head;
-    while(temp->next != head){
+    do{
         cout<<temp->data<<" - > ";
         temp = temp->next;
-    }
+    }while(temp != head);
     cout<<"HEAD";
 }
 
@@ -70,7 +69,7 @@ void CSLL::insert_begg(){
         return;
     }
     else{
-        newNode->next = head;
+        newNode = head->next;
         head = newNode;
     }
 }
@@ -205,27 +204,46 @@ void CSLL::delete_pos(){  //by given position
 }
 
 void CSLL::delete_node(){ //by given data/key
-    Node* prev = NULL;
-    Node* curr = head;
     int key;
     cout<<"Enter The Data/Key : ";
     cin>>key;
-
-    if(curr != NULL && curr->data == key){
-        head = curr->next;
-        delete curr;
+    //If the list is empty
+    if(head == NULL){
+        cout<<"List Is Empty"<<endl;
         return;
     }
-    
-    while(curr != head && curr->data != key){
-        prev = curr;
-        curr = curr->next;
+    Node *temp = head;
+    //If there is only one node
+    if(temp->next == head && temp->data == key){
+        head = NULL;
+        delete temp;
+        return;
     }
-    
-    if(curr == NULL) return;
 
-    prev->next = curr->next;
-    delete curr;
+    Node *last = head, *d;
+    temp = head;
+    //If the first node is to be deleted
+    if(temp->data == key){
+        while(last->next != head)
+            last = last->next;
+        last->next = temp->next;
+        delete temp;
+        head = last->next;
+    }
+    //If the node is in the middle
+    while(last->next != head && last->next->data != key){
+        last = last->next;
+    }
+    //If the Node is Found
+    if(last->next->data == key){
+        d = last->next;
+        last->next = d->next;
+        delete d;
+    }
+    else{
+        cout<<"No Such Key Found!";
+        return;
+    }
 }
 
 void CSLL::reverse(){

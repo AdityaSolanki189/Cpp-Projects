@@ -3,39 +3,42 @@
 #include <stack>
 using namespace std;
 
-int Calculate(int oper,int op1,int op2){
-    if(oper == "+")
-        return op1+op2;
-    else if(oper == "-")
-        return op1-op2;
-    else if(oper == "*")
-        return op1*op2;
-    else if(oper == "/")
-        return op1/op2;   
+int Calculate(char optr, int op1, int op2) {
+    if (optr == '+')
+        return op1 + op2;
+    if (optr == '-')
+        return op1 - op2;
+    if (optr == '*')
+        return op1 * op2;
+    if (optr == '/')
+        return op1 / op2;
 }
 
-int Evaluate_PostFix(string exp){
+int Evaluate_PostFix(string exp) {
     stack <int> S;
-    int op1=0,op2=0,res=0;
-    for(int i=0;i<exp.length()-1;i++){
-        if(exp[i] == "+" || exp[i] == "-" || exp[i] == "*" || exp[i] == "/"){
-            op1 = s.pop();
-            op2 = s.pop();
+    char op1, op2;
+    int res = 0;
+    for (int i = 0; i < exp.length() - 1; i++) {
+        if (exp[i] == '+'|| exp[i] == '-' || exp[i] == '*' || exp[i] == '/') {
+            op1 = S.top();
+            S.pop();
+            op2 = S.top();
+            S.pop();
             res = Calculate(exp[i],(int)op1,(int)op2);
-            s.push(res);
+            S.push(res);
         }
-        else{
-            s.push(exp[i]);
+        else {
+            S.push((int)exp[i]);
         }
     }
-    return s.top();
+    return S.top();
 }
 
-int main(){
+int main() {
     string exp;
-    cout<<"Enter A PostFix String : ";
-    getline(cin,exp);
-    cout<<Evaluate_PostFix(exp);
+    cout << "Enter A PostFix String : ";
+    getline(cin, exp);
+    cout << Evaluate_PostFix(exp);
     return 0;
 }
 

@@ -4,7 +4,8 @@
 #include <stack>
 using namespace std;
 
-int Calculate(char optr, int op2, int op1) {
+int Calculate(char optr, int op2, int op1) {  //Op1&Op2 Order For PostFix
+    if (optr == '+')
     if (optr == '+')
         return op1 + op2;
     if (optr == '-')

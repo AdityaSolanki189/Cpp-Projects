@@ -4,7 +4,7 @@
 #include <stack>
 using namespace std;
 
-int Calculate(char optr, int op2, int op1) {
+int Calculate(char optr, int op1, int op2) { //Op1&Op2 Order For PreFix
     if (optr == '+')
         return op1 + op2;
     if (optr == '-')
@@ -15,11 +15,11 @@ int Calculate(char optr, int op2, int op1) {
         return op1 / op2;
 }
 
-int Evaluate_PostFix(string exp) {
+int Evaluate_PreFix(string exp) {
     stack <int> S;
     int op1, op2;
     int res = 0;
-    for (int i = exp.length() - 1; i >=0 ; i--) {
+    for (int i = exp.length() - 1; i >= 0; i--) {
         if (exp[i] == '+' || exp[i] == '-' || exp[i] == '*' || exp[i] == '/') {
             op1 = S.top();
             S.pop();
@@ -37,13 +37,13 @@ int Evaluate_PostFix(string exp) {
 
 int main() {
     string exp;
-    cout << "Enter A PostFix String : ";
+    cout << "Enter A Prefix String : ";
     cin >> exp;
-    cout << "Answer Of PostFix : " << Evaluate_PostFix(exp);
+    cout << "Answer Of Prefix : " << Evaluate_Prefix(exp);
     return 0;
 }
 
 /*Sample Input :
     Enter A Prefix String : -+*23*549
-    Answer Of Postfix : 17
+    Answer Of Prefix : 17
 */

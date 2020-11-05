@@ -2,34 +2,61 @@
 #include <iostream>
 using namespace std;
 
-class stack {
+#define SIZE 10
 
-public:
+class stack {
+    int top;
+    
+    public:
+    int stack_arr[SIZE];
     void create();
     void push();
     void pop();
     void top();
     void display();
+    stack(){
+        top = -1;;
+    }
 };
 
-void stack::create() {
-
-}
-
 void stack::push() {
+    int value;
+    cout<<"Enter Any Value : ";
+    cin>>value;
 
+    if(top >= n-1){
+        cout<<"Stack OverFlow !!"<<endl;
+        return;
+    }
+    top++;
+    stack_arr[top] = value;
 }
 
 void stack::pop() {
-
+    if(top <= -1){
+        cout<<"Stack UnderFlow !!"<<endl;
+        return;
+    }
+    cout<< stack_arr[top] <<" is Popped from the stack !"<<endl;
+    top--;
 }
 
 void stack::top() {
-
+    cout<<"Element at the TOP : "<<endl;
+    cout<< stack_arr[top];
 }
 
 void stack::display() {
-
+    if(top >= 0){
+        cout<<"Stack Elemensts are : "<<endl;;
+        for(int i = top; i >= 0; i--){
+            cout<<"\t"<<stack_arr[i]<<endl;
+        }
+    }
+    else{
+        cout<<"Stack Is Empty !!"<<endl;
+        return;
+    }
 }
 int main() {
     stack obj;

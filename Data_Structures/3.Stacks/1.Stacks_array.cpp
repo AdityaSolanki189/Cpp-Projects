@@ -41,7 +41,7 @@ void stack::pop() {
 }
 
 void stack::peek() {
-    cout << "Element at the TOP : " << endl;
+    cout << "Element at the TOP : ";
     cout << stack_arr[top];
 }
 

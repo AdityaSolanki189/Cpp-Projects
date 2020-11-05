@@ -13,7 +13,6 @@ public:
     void pop();
     void peek();
     void display();
-    bool isEmpty();
     stack() {
         top = -1;
     }
@@ -60,40 +59,29 @@ void stack::display() {
     }
 }
 
-bool stack::isEmpty() {
-    return (top < 0);
-}
-
 int main() {
     stack obj;
     int t = 1, ch;
     while (t) {
-        cout << "\n~ STACK OPERATIONS ~\n\n1. Create a Stack\n2. Push a Value\n3. Pop a Value\n4. Display Stack Contents\n5. Display top\n6. Check If Empty \n7. Exit\n" << endl;
+        cout << "\n~ STACK OPERATIONS ~\n\n1. Push a Value\n2. Pop a Value\n3. Display Stack Contents\n4. Display top\n5. Exit \n" << endl;
         cin >> ch;
         switch (ch) {
         case 1:
-            
-            obj.display();
-            break;
-        case 2:
             obj.push();
             obj.display();
             break;
-        case 3:
+        case 2:
             obj.pop();
             obj.display();
             break;
-        case 4:
+        case 3:
             obj.display();
             obj.display();
             break;
-        case 5:
+        case 4:
             obj.peek();
             break;
-        case 6:
-            obj.isEmpty();
-            break;
-        case 7:
+        case 5:
             cout << "Exit(0)!";
             t = 0;
             break;

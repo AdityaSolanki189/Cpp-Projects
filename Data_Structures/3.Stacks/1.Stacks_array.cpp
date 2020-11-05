@@ -6,26 +6,26 @@ using namespace std;
 
 class stack {
     int top;
-    
-    public:
     int stack_arr[SIZE];
-    void create();
+public:
+       
     void push();
     void pop();
-    void top();
+    void peek();
     void display();
-    stack(){
-        top = -1;;
+    bool isEmpty();
+    stack() {
+        top = -1;
     }
 };
 
 void stack::push() {
     int value;
-    cout<<"Enter Any Value : ";
-    cin>>value;
+    cout << "Enter Any Value : ";
+    cin >> value;
 
-    if(top >= n-1){
-        cout<<"Stack OverFlow !!"<<endl;
+    if (top >= SIZE - 1) {
+        cout << "Stack OverFlow !!" << endl;
         return;
     }
     top++;
@@ -33,40 +33,46 @@ void stack::push() {
 }
 
 void stack::pop() {
-    if(top <= -1){
-        cout<<"Stack UnderFlow !!"<<endl;
+    if (top <= -1) {
+        cout << "Stack UnderFlow !!" << endl;
         return;
     }
-    cout<< stack_arr[top] <<" is Popped from the stack !"<<endl;
+    cout << stack_arr[top] << " is Popped from the stack !" << endl;
     top--;
 }
 
-void stack::top() {
-    cout<<"Element at the TOP : "<<endl;
-    cout<< stack_arr[top];
+void stack::peek() {
+    cout << "Element at the TOP : " << endl;
+    cout << stack_arr[top];
 }
 
 void stack::display() {
-    if(top >= 0){
-        cout<<"Stack Elemensts are : "<<endl;;
-        for(int i = top; i >= 0; i--){
-            cout<<"\t"<<stack_arr[i]<<endl;
+    if (top >= 0) {
+        cout << "Stack Elemensts are : " << endl;;
+        for (int i = top; i >= 0; i--) {
+            cout << "\t" << stack_arr[i] << endl;
+            cout << "\t" << "---" << endl;
         }
     }
-    else{
-        cout<<"Stack Is Empty !!"<<endl;
+    else {
+        cout << "Stack Is Empty !!" << endl;
         return;
     }
 }
+
+bool stack::isEmpty() {
+    return (top < 0);
+}
+
 int main() {
     stack obj;
-    cout << "\n~ STACK OPERATIONS ~\n\n1. Create a Stack\n2. Push a Value\n3. Pop a Value\n4. Display Stack Contents\n5. Display top\n6. Exit\n" << endl;
     int t = 1, ch;
     while (t) {
+        cout << "\n~ STACK OPERATIONS ~\n\n1. Create a Stack\n2. Push a Value\n3. Pop a Value\n4. Display Stack Contents\n5. Display top\n6. Check If Empty \n7. Exit\n" << endl;
         cin >> ch;
         switch (ch) {
         case 1:
-            obj.create();
+            
             obj.display();
             break;
         case 2:
@@ -82,9 +88,12 @@ int main() {
             obj.display();
             break;
         case 5:
-            obj.top();
+            obj.peek();
             break;
         case 6:
+            obj.isEmpty();
+            break;
+        case 7:
             cout << "Exit(0)!";
             t = 0;
             break;

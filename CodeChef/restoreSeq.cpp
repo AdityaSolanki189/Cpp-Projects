@@ -1,11 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
-#define max 10000000
+#define max 10000006
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
+
+
+    
     int T;
     cin>>T;
     while(T--){   

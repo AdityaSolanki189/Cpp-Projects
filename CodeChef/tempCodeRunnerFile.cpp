@@ -1,2 +1,3 @@
-ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+for(ll j=1;j<=num;j++) {
+            cin>>B[j];
+        }

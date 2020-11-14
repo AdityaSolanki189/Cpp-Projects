@@ -10,8 +10,13 @@ int main(){
     cin>>T;
     while(T--){
 
+        ll N,Q;
+        cin>>N:
+        ll A[N],R[Q];
+        for(int i=0;i<N;i++) cin>>A[i];
+        for(int i=0;i<Q;i++) cin>>R[i];
 
-        
+
     }
 
     return 0;

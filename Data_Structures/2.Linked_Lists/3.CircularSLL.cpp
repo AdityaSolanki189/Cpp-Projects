@@ -10,7 +10,7 @@ Node *head;
 
 class CSLL{
     public:
-        void create(int);
+        //void create(int);
         void display();
         void insert_begg();
         void insert_end();
@@ -25,7 +25,7 @@ class CSLL{
         }
 };
 
-void CSLL :: create(int value){ //insert at end (Looped)
+/* void CSLL :: create(int value){ //insert at end (Looped)
     Node *newNode = new Node();
     newNode->data = value;
     newNode->next = head;
@@ -41,21 +41,7 @@ void CSLL :: create(int value){ //insert at end (Looped)
         temp->next = newNode;
         newNode->next = head;
     }
-}
-
-void CSLL :: display(){
-    if(head == NULL){
-        cout<<"The List Is Empty!"<<endl;
-        return;
-    }
-    Node *temp = head;
-    cout<<"The Circular Singly Linked List is : ";
-    do{
-        cout<<temp->data<<" - > ";
-        temp = temp->next;
-    }while(temp != head);
-    cout<<"HEAD";
-}
+} */
 
 void CSLL::insert_begg(){
     Node *newNode = new Node();
@@ -262,10 +248,24 @@ void CSLL::reverse(){
     head = prev;
 }
 
+void CSLL :: display(){
+    if(head == NULL){
+        cout<<"The List Is Empty!"<<endl;
+        return;
+    }
+    Node *temp = head;
+    cout<<"The Circular Singly Linked List is : ";
+    do{
+        cout<<temp->data<<" - > ";
+        temp = temp->next;
+    }while(temp != head);
+    cout<<"HEAD";
+}
+
 int main(){
     CSLL obj;
     int nodes,data,t=1;
-    cout<<"\nEnter Number Of Nodes : ";
+    /* cout<<"\nEnter Number Of Nodes : ";
     cin>>nodes;
     cout<<"Enter Data for Each Node :-"<<endl;
     for(int i=1;i<=nodes;i++){
@@ -273,7 +273,7 @@ int main(){
         cin>>data;
         obj.create(data);
     }
-    obj.display();
+    obj.display(); */
     while(t!=0){
         cout<<"\n\nCSLL Basic Operations :\n1. Insert at Beggining;\n2. Insert at End;\n3. Insert at N;\n4. Delete at Beggining;\n5. Delete at End;\n6. Delete a Node by Position\n7. Delete a Node by Value\n8. Reverse\n9. Exit(0)"<<endl;
         int ch;

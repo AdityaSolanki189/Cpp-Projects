@@ -149,7 +149,7 @@ void CSLL::delete_begg(){
 		Node *store=head;
 		head=head->next;
 		temp->next=head;
-		free (store);        
+		delete store;        
     }
 }
 
@@ -186,8 +186,12 @@ void CSLL::delete_pos(){  //by given position
 
     Node *temp = head;
     if(pos == 1){
-        head = temp->next;
-        delete temp;
+        while(temp->next!= head)
+            temp = temp->next;
+		Node *store=head;
+		head=head->next;
+		temp->next=head;
+		delete store;   
         return;
     }
     for(int i=0;i<pos-2;i++){
@@ -197,10 +201,31 @@ void CSLL::delete_pos(){  //by given position
             return;
         }
     }
-    //after the for loop temp points towards n-1 th node
+    /*//after the for loop temp points towards n-1 th node
     Node* temp2 = temp->next; // temp 2 points to n th node
     temp->next = temp2->next; // link n-1 th node with n+1 the node
-    delete temp2; // delete n th node
+    delete temp2; // delete n th node */
+    if(temp->next == head){ //position of last node
+        Node* Last_node = head;
+        Node* secondLast_node = head;
+        while(Last_node->next != head){
+            secondLast_node = Last_node;
+            Last_node = Last_node->next;
+        } 
+
+        if(secondLast_node->next == head)
+            head = NULL;        
+        else
+            secondLast_node->next = head;
+    
+        delete Last_node;
+    }
+    else{ //position in middle
+        //after the for loop temp points towards n-1 th node
+        Node* temp2 = temp->next; // temp 2 points to n th node
+        temp->next = temp2->next; // link n-1 th node with n+1 the node
+        delete temp2; // delete n th node
+    }
 }
 
 void CSLL::delete_node(){ //by given data/key
@@ -250,7 +275,7 @@ void CSLL::reverse(){
     Node* current = head; 
     Node *prev = NULL, *next = NULL; 
   
-    while (current != NULL) { 
+    do{ 
             // Store next 
         next = current->next; 
             // Reverse current node's pointer 
@@ -258,7 +283,8 @@ void CSLL::reverse(){
             // Move pointers one position ahead. 
         prev = current; 
         current = next; 
-    } 
+    } while (current != head);
+    head->next = prev;
     head = prev;
 }
 

@@ -10,7 +10,7 @@ Node *head;
 
 class CSLL{
     public:
-        //void create(int);
+        void create(int);
         void display();
         void insert_begg();
         void insert_end();
@@ -25,10 +25,10 @@ class CSLL{
         }
 };
 
-/* void CSLL :: create(int value){ //insert at end (Looped)
+void CSLL :: create(int value){ //insert at end (Looped)
     Node *newNode = new Node();
     newNode->data = value;
-    newNode->next = head;
+    newNode->next = NULL;
     if(head == NULL){
         head = newNode;
         newNode->next = head;
@@ -41,7 +41,7 @@ class CSLL{
         temp->next = newNode;
         newNode->next = head;
     }
-} */
+}
 
 void CSLL::insert_begg(){
     Node *newNode = new Node();
@@ -55,7 +55,12 @@ void CSLL::insert_begg(){
         return;
     }
     else{
-        newNode = head->next;
+        Node *temp = head;
+        while(temp->next!=head){
+            temp = temp->next;
+        }
+        newNode->next = head;
+        temp->next = newNode;
         head = newNode;
     }
 }
@@ -66,15 +71,17 @@ void CSLL::insert_end(){
     cin>>newNode->data;
     newNode->next = NULL;
     if(head == NULL){
-        
         head = newNode;
+        newNode->next = head;
+        return;
     }
     else{
         Node *temp = head;
-        while(temp->next != NULL){
+        while(temp->next != head){
             temp = temp->next;
         }
         temp->next = newNode;
+        newNode->next = head;
     }
 }
 
@@ -95,20 +102,27 @@ void CSLL::insert_n(){
     newNode->next = NULL;
     
     if(pos == 1){
+        Node *temp1 = head;
+        while(temp1->next!=head){
+            temp1 = temp1->next;
+        }
         newNode->next = head;
+        temp1->next = newNode;
         head = newNode;
         return;
     }
+
     Node *temp = head;
     for(int i=0;i<pos-2;i++){
         temp = temp->next;
-        if(temp->next==NULL){
+        if(temp->next == head){
             cout<<"Insufficient Nodes\n";
             return;
         }
     }
 
-    if(temp->next==NULL){ //position of last node
+    if(temp->next == head){ //position of last node
+        temp = temp->next;
         temp->next = newNode;
         newNode->next = head;
     }
@@ -124,17 +138,18 @@ void CSLL::delete_begg(){
         cout<<"List Is Empty"<<endl;
         return;
     }
+    Node *temp = head;
+    if(temp->next == head){
+        head = NULL;
+        delete temp;
+    }
     else{
-        Node *temp = head;
-        if(temp->next == head){
-            head = NULL;
-            delete temp;
-        }
-        else{
-            head = temp->next;
-            head->next = head;
-            delete temp;
-        }
+		while(temp->next!= head)
+            temp = temp->next;
+		Node *store=head;
+		head=head->next;
+		temp->next=head;
+		free (store);        
     }
 }
 
@@ -143,15 +158,14 @@ void CSLL::delete_end(){
         cout<<"List Is Empty"<<endl;
         return;
     }
-    
     Node* Last_node = head;
     Node* secondLast_node = head;
-    while(Last_node->next != NULL){
+    while(Last_node->next != head){
         secondLast_node = Last_node;
         Last_node = Last_node->next;
     } 
 
-    if(secondLast_node == head)
+    if(secondLast_node->next == head)
         head = NULL;        
     else
         secondLast_node->next = head;
@@ -265,7 +279,7 @@ void CSLL :: display(){
 int main(){
     CSLL obj;
     int nodes,data,t=1;
-    /* cout<<"\nEnter Number Of Nodes : ";
+    cout<<"\nEnter Number Of Nodes : ";
     cin>>nodes;
     cout<<"Enter Data for Each Node :-"<<endl;
     for(int i=1;i<=nodes;i++){
@@ -273,9 +287,9 @@ int main(){
         cin>>data;
         obj.create(data);
     }
-    obj.display(); */
+    obj.display();
     while(t!=0){
-        cout<<"\n\nCSLL Basic Operations :\n1. Insert at Beggining;\n2. Insert at End;\n3. Insert at N;\n4. Delete at Beggining;\n5. Delete at End;\n6. Delete a Node by Position\n7. Delete a Node by Value\n8. Reverse\n9. Exit(0)"<<endl;
+        cout<<"\n\nCSLL Basic Operations :\n1. Insert at Beggining;\n2. Insert at End;\n3. Insert at N;\n4. Delete at Beggining;\n5. Delete at End;\n6. Delete a Node by Position\n7. Delete a Node by Value\n8. Reverse\n9. Exit."<<endl;
         int ch;
         cin>>ch;
         switch (ch){

@@ -17,8 +17,7 @@ public:
     void pop();
     void peek();
     void display();
-    stack() {
-        top = -1;
+    stack_sll() {
         head = NULL;
     }
 };
@@ -110,7 +109,6 @@ void stack_sll::display() {
         cout<<"\t"<<"---"<<endl;
         temp = temp->next;
     }
-    cout<<"NULL";
 
     //reversing back to the original LIST
 
@@ -147,7 +145,6 @@ int main() {
             obj.display();
             break;
         case 3:
-            obj.display();
             obj.display();
             break;
         case 4:

@@ -1,3 +1,5 @@
+//Pinnacle Club Problem using singly linked list
+
 #include<iostream>
 #include<string>
 using namespace std;

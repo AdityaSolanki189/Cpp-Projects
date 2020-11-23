@@ -1,3 +1,5 @@
+//WAP in C++ to perform String Operations
+
 #include <iostream>
 #include <string>
 

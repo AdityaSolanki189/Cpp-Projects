@@ -71,10 +71,10 @@ void stack_sll::peek() {       //print last node
         return;
     }
     temp = head;
-    while(temp != NULL){
+    while(temp->next != NULL){
         temp = temp->next;
     }
-    cout<<temp->data;
+    cout<<temp->data<<endl;
 }
 
 void stack_sll::display() {

@@ -10,7 +10,6 @@ struct Node{
 Node *head;
 
 class stack_sll {
-    int top;
 public:
        
     void push();
@@ -22,7 +21,7 @@ public:
     }
 };
 
-void stack_sll::push() {   //add at end node
+void stack_sll::push() {   //insert at end node
     Node *newNode = new Node();
     cout << "Enter Any Value : ";
     cin >> newNode->data;
@@ -38,12 +37,11 @@ void stack_sll::push() {   //add at end node
         }
         temp->next = newNode;
     }
-    top++;
 }
 
 void stack_sll::pop() {      //delete from end node
     if(head == NULL){
-        cout<<"List Is Empty"<<endl;
+        cout<<"Stack Is Empty"<<endl;
         return;
     }
     
@@ -60,16 +58,15 @@ void stack_sll::pop() {      //delete from end node
         secondLast_node->next = NULL;
     
     delete Last_node;
-    top--;
 }
 
 void stack_sll::peek() {       //print last node
-    cout << "Element at the TOP : ";
-    Node *temp;
     if(head == NULL){
-        cout<<"The List Is Empty!"<<endl;
+        cout<<"The Stack Is Empty!"<<endl;
         return;
     }
+    cout << "Element at the TOP : ";
+    Node *temp;
     temp = head;
     while(temp->next != NULL){
         temp = temp->next;
@@ -81,7 +78,7 @@ void stack_sll::display() {
     
     Node *temp;
     if(head == NULL){
-        cout<<"The List Is Empty!"<<endl;
+        cout<<"The Stack Is Empty!"<<endl;
         return;
     }
 

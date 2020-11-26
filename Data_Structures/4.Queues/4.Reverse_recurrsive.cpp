@@ -3,8 +3,7 @@
 using namespace std; 
 
 
-void Print(queue<int>& Queue) 
-{ 
+void Print(queue<int>& Queue) { 
 	while (!Queue.empty()) { 
 		cout << Queue.front() << " "; 
 		Queue.pop(); 
@@ -12,8 +11,7 @@ void Print(queue<int>& Queue)
 } 
 
 
-void reverse(queue<int>& q) 
-{ 
+void reverse(queue<int>& q) { 
 	if(q.empty())
 	   return;
 	   
@@ -25,8 +23,7 @@ void reverse(queue<int>& q)
 } 
 
  
-int main() 
-{ 
+int main() { 
 	queue<int> q; 
 	q.push(12); 
 	q.push(5); 

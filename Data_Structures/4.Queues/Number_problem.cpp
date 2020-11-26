@@ -1,0 +1,1 @@
+/* Given a number n, print first n number(in increasing order) such that all these numbers have digits in set {5, 6} */

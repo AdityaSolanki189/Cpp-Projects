@@ -14,6 +14,7 @@ int Calculate(char optr, int op2, int op1) {  //Op1&Op2 Order For PostFix
         return op1 * op2;
     if (optr == '/')
         return op1 / op2;
+    return 0;
 }
 
 int Evaluate_PostFix(string exp) {
@@ -38,9 +39,10 @@ int Evaluate_PostFix(string exp) {
 
 int main() {
     string exp;
-    cout << "Enter A PostFix String : ";
+    cout << "\nEnter A PostFix String : ";
     cin >> exp;
-    cout << "Answer Of PostFix : " << Evaluate_PostFix(exp);
+    cout << "\nAnswer Of PostFix : " << Evaluate_PostFix(exp);
+    cout<<endl;
     return 0;
 }
 

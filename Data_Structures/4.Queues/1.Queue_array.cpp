@@ -9,8 +9,8 @@ class Queue {
     int queue_arr[SIZE];
 public:
        
-    void push();
-    void pop();
+    void enqueue();
+    void dequeue();
     void peek();
     void display();
     Queue() {
@@ -18,43 +18,47 @@ public:
     }
 };
 
-void Queue::push() {
+void Queue::enqueue() {
     int value;
     cout << "Enter Any Value : ";
     cin >> value;
 
     if (top >= SIZE - 1) {
-        cout << "Stack OverFlow !!" << endl;
+        cout << "Queue OverFlow !!" << endl;
         return;
     }
     top++;
-    stack_arr[top] = value;
+    queue_arr[top] = value;
 }
 
-void Queue::pop() {
+void Queue::dequeue() {
+    int front =queue_arr[0];
     if (top <= -1) {
-        cout << "Stack UnderFlow !!" << endl;
+        cout << "Queue UnderFlow !!" << endl;
         return;
     }
-    cout << stack_arr[top] << " is Popped from the stack !" << endl;
+    cout << queue_arr[0] << " is Popped from the queue !" << endl;
+    for(int i=0;i<queue_arr.size()-1;i++){
+        queue_arr[i] = queue_arr[i+1];
+    }
     top--;
 }
 
 void Queue::peek() {
     cout << "Element at the TOP : ";
-    cout << stack_arr[top];
+    cout << queue_arr[top];
 }
 
 void Queue::display() {
     if (top >= 0) {
-        cout << "Stack Elemensts are : " << endl;;
+        cout << "Queue Elemensts are : " << endl;;
         for (int i = top; i >= 0; i--) {
-            cout << "\t" << stack_arr[i] << endl;
+            cout << "\t" << queue_arr[i] << endl;
             cout << "\t" << "---" << endl;
         }
     }
     else {
-        cout << "Stack Is Empty !!" << endl;
+        cout << "Queue Is Empty !!" << endl;
         return;
     }
 }
@@ -63,7 +67,7 @@ int main() {
     Queue obj;
     int t = 1, ch;
     while (t) {
-        cout << "\n~ STACK OPERATIONS ~\n\n1. Push a Value\n2. Pop a Value\n3. Display Stack Contents\n4. Display top\n5. Exit \n" << endl;
+        cout << "\n~ QUEUE OPERATIONS ~\n\n1. Push a Value\n2. Pop a Value\n3. Display Stack Contents\n4. Display top\n5. Exit \n" << endl;
         cin >> ch;
         switch (ch) {
         case 1:

@@ -49,7 +49,7 @@ int priority ( char alpha )
         return(2);
     }
  
-    if(alpha == '$')
+    if(alpha == '^')
     {
         return(3);
     }

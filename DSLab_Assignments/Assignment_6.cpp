@@ -140,10 +140,10 @@ int main(){
         switch (ch)
         {
         case 1:
-            cout<<"Enter First Polynomial :"<<endl;
+            cout<<"Enter First Polynomial :-"<<endl;
             A.accept();
             cout<<endl;
-            cout<<"Enter Second Polynomial :"<<endl;
+            cout<<"Enter Second Polynomial :-"<<endl;
             B.accept();
             cout<<endl;
             break;

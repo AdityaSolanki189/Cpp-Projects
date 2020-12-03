@@ -39,7 +39,7 @@ int main() {
     string exp;
     cout << "Enter A Prefix String : ";
     cin >> exp;
-    cout << "Answer Of Prefix : " << Evaluate_Prefix(exp);
+    cout << "Answer Of Prefix : " << Evaluate_PreFix(exp);
     return 0;
 }
 

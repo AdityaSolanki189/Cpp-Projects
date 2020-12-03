@@ -134,7 +134,7 @@ void Evaluate :: push(char oper){
 void Evaluate :: pop(){
     char ch;
     if(top==-1){
-        cout<<"Stack Is Empty!";
+        return;
     }
     else{
         ch=stk[top];

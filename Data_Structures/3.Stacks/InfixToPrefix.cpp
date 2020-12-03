@@ -1,4 +1,4 @@
-// C++ Program infix to postfix expression using stack (array) in data structure NOT USING STACK STL
+// C++ Program infix to prefix expression using stack (array) in data structure NOT USING STACK STL
 #include<iostream>
 #include<string>
 #define MAX 20

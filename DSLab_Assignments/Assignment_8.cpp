@@ -5,6 +5,7 @@
 */
 #include <iostream>
 #include <string>
+#include <cctype>
 #define MAX 20
 using namespace std;
 
@@ -86,7 +87,7 @@ string Convert :: infix_to_postfix(string infix){
     string postfix = "";
     int i=0;
     while(infix[i]!='\0'){
-        if(infix[i]>='a' && infix[i]<='z'|| infix[i]>='A'&& infix[i]<='Z'){
+        if(infix[i]>='a' && infix[i]<='z'|| infix[i]>='A'&& infix[i]<='Z' ||isdigit(infix[i])){
             postfix += infix[i];
             i++;
         }

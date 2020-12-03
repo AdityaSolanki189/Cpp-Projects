@@ -109,7 +109,7 @@ string convert(string infix)
                 push(infix[i]);
                 i++;
             }
- 
+      
             else if( priority(infix[i]) <= priority(stk[top])) {
                 postfix.insert(postfix.end(),pop());
                

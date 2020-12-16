@@ -1,4 +1,19 @@
-//Pinnacle Club Problem using singly linked list
+/* 
+		PL1 Assignment 7 by Aditya Solanki 
+		Roll No. 2193023
+		CSE - 3 
+*/
+/* 
+    Department of Computer Engineering has student's club named 'Pinnacle Club'. Students of Second, third
+    and final year can be granted membership on request. Similarly one may cancel the membership of club.
+    The First position of list is always reserved for the President of club and last position of list is reserved for
+    the Secretary of club. Write C++ program to maintain information of club member‘s using singly linked
+    list.Write functions
+    1. Add and delete the members.
+    2. Compute total number of members of club
+    3. Display members
+    4. Display list in reverse order
+*/
 
 #include<iostream>
 #include<string>

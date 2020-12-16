@@ -1,7 +1,14 @@
-/*
-    WAP in C++ for expression conversion from infix to postfix 
-    and Evaluate using Stack Data Structure.
-    #Condition : Only '+','-','*','/' and '^' are expected
+/* 
+		PL1 Assignment 8 by Aditya Solanki 
+		Roll No. 2193023
+		CSE - 3 
+*/
+/* 
+    Implement C++ program for expression conversion as infix to postfix and its evaluation using stack based
+    on given conditions
+    1. Operands and operator, both must be single character.
+    2. Input Postfix expression must be in a desired format.
+    3. Only '+', '-', '*' and '/ ' operators are expected.
 */
 #include <iostream>
 #include <string>

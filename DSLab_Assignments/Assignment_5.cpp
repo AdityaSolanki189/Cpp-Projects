@@ -1,4 +1,16 @@
-//WAP in C++ to perform String Operations
+/* 
+		PL1 Assignment 5 by Aditya Solanki 
+		Roll No. 2193023
+		CSE - 3 
+*/
+/* 
+    Write C++ program for String operations. Write the following functions:
+    frequency(): that determines the frequency of occurrence of particular character in the string.
+    delete(): that accepts two intergers to specify position of characters to be deleted. The function computes
+    new string that is except the deleted characters.
+    chardelete(): that accepts a character c. The function returns the string with all occurrences of c removed.
+    palindrome(): to check whether given string is palindrome or not
+*/
 
 #include <iostream>
 #include <string>

@@ -1,4 +1,14 @@
-//WAP in C++ storing a Martix And Perform Given Functions
+/* 
+		PL1 Assignment 4 by Aditya Solanki 
+		Roll No. 2193023
+		CSE - 3 
+*/
+/* 
+    Write C++ program for storing matrix. Write functions for
+	1. Check whether given matrix is upper triangular or not
+	2. Compute summation of diagonal elements
+	3. Compute transpose of matrix
+*/
 
 #include<iostream>
 using namespace std;

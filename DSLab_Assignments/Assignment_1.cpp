@@ -1,9 +1,8 @@
 /* 
-		PL1 Assignment 1 by Aditya Solanki 
-		Roll No. 2193023
-		CSE - 3 
-*/
-/* 
+	PL1 Assignment 1 by Aditya Solanki 
+	Roll No. 2193023
+	CSE - 3 
+
 	Write program in C++ to perform matrix operaions like add_matrix(), sub_matrix(), multi_mutrix() using
 	appropriate data sturucture. Also write how to determine time complexity and space compleity of your
 	program.  

@@ -1,9 +1,8 @@
 /* 
-		PL1 Assignment 5 by Aditya Solanki 
-		Roll No. 2193023
-		CSE - 3 
-*/
-/* 
+	PL1 Assignment 5 by Aditya Solanki 
+	Roll No. 2193023
+	CSE - 3 
+ 
     Write C++ program for String operations. Write the following functions:
     frequency(): that determines the frequency of occurrence of particular character in the string.
     delete(): that accepts two intergers to specify position of characters to be deleted. The function computes

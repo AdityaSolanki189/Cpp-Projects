@@ -77,6 +77,13 @@ void printArray(int A[], int size){
     printf("\n");
 }
 
+/* 
+    Time Complexity : 
+    Best - Ω(n(logn))
+    Avg. - θ(n(logn))
+    Worst - O(n(logn)) 
+*/
+
 int main(){
     int n;
     cin>>n;

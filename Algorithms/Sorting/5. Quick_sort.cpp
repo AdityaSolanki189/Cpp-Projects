@@ -53,7 +53,13 @@ void printArray(int arr[], int size){
     cout << endl;  
 }  
   
-// Driver Code 
+/* 
+    Time Complexity : 
+    Best - Ω(n(logn))
+    Avg. - θ(n(logn))
+    Worst - O(n^2) 
+*/
+
 int main(){  
     int arr[] = {10, 7, 8, 9, 1, 5};  
     int n = sizeof(arr) / sizeof(arr[0]);  

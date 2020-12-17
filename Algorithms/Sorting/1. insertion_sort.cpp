@@ -14,6 +14,13 @@ void insertions_sort(int array[],int n){
     }
 }
 
+/* 
+    Time Complexity : 
+    Best - Ω(n)
+    Avg. - θ(n^2)
+    Worst - O(n^2) 
+*/
+
 int main(){
     int n;
     cin>>n;

@@ -6,7 +6,7 @@
     Write a modular program using object oriented programming features to implement different searching
     methods.(Binary Search, Sequential Search).
 	Binary Search - For Sorted Large Arrays
-	Sequential Search - For Unsorted Small Arrays 
+	Sequential Search - For Unsorted Small Arrays  
 */
 
 #include <iostream>
@@ -22,10 +22,6 @@ class Search{
 };
 
 void Search :: create(int num){
-	if(num>MAX){
-		cout<<"Memory Overflow!"<<endl;
-		return;
-	}
 	cout<<"\nEnter Elements in the Array :\n";
 	for(int i=0;i<num;i++){
 		cin>>array[i];
@@ -36,6 +32,10 @@ void Search :: Binary_Search(){
 	int N,key;
 	cout<<"\nEnter Number Of Array Elements : ";
 	cin>>N;
+	if(N>MAX){
+		cout<<"Memory Overflow!"<<endl;
+		return;
+	}
 	create(N);
 	cout<<"\nEnter The Element You want to search : ";
 	cin>>key;
@@ -60,6 +60,10 @@ void Search :: Sequential_Search(){
 	int N,key;
 	cout<<"\nEnter Number Of Array Elements : ";
 	cin>>N;
+	if(N>MAX){
+		cout<<"Memory Overflow!"<<endl;
+		return;
+	}
 	create(N);
 	cout<<"\nEnter The Element You want to search : ";
 	cin>>key;

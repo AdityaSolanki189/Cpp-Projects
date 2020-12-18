@@ -50,11 +50,51 @@ void Sort :: insertion_sort(){
 }
 
 void Sort :: bubble_sort(){
+	int N;
+	cout<<"\nEnter Number Of Array Elements : ";
+	cin>>N;
+	if(N>MAX){
+		cout<<"Memory Overflow!"<<endl;
+		return;
+	}
+	create(N);
 
+	for(int i=0;i<n-1;i++){
+        for(int j=i+1; j<n; j++){
+            if(arr[j] > arr[j+1]){
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+
+	display_sorted(N);
 }
 
 void Sort :: selection_sort(){
+	int N;
+	cout<<"\nEnter Number Of Array Elements : ";
+	cin>>N;
+	if(N>MAX){
+		cout<<"Memory Overflow!"<<endl;
+		return;
+	}
+	create(N);
 
+	for(int i=0;i<n-1;i++){
+        int indexof_smallest = i;
+        for(int j=i+1; j<n; j++){
+            if(arr[j] < arr[indexof_smallest]){
+                indexof_smallest = j;
+            }
+        }
+        int temp = arr[i];
+        arr[i] = arr[indexof_smallest];
+        arr[indexof_smallest] = temp;
+    }
+
+	display_sorted(N);
 }
 
 void Sort :: display_sorted(int N){

@@ -59,8 +59,8 @@ void Sort :: bubble_sort(){
 	}
 	create(N);
 
-	for(int i=0;i<n-1;i++){
-        for(int j=i+1; j<n; j++){
+	for(int i=0;i<N-1;i++){
+        for(int j=i+1; j<N; j++){
             if(arr[j] > arr[j+1]){
                 int temp = arr[j];
                 arr[j] = arr[j+1];
@@ -82,9 +82,9 @@ void Sort :: selection_sort(){
 	}
 	create(N);
 
-	for(int i=0;i<n-1;i++){
+	for(int i=0;i<N-1;i++){
         int indexof_smallest = i;
-        for(int j=i+1; j<n; j++){
+        for(int j=i+1; j<N; j++){
             if(arr[j] < arr[indexof_smallest]){
                 indexof_smallest = j;
             }

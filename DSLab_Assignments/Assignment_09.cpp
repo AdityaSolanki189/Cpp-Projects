@@ -49,11 +49,11 @@ void Priority_Queue :: insert_job(int job, int time){
 void Priority_Queue :: delete_job(){
 	Node *temp;
 	if(front == NULL){
-		cout<<"Queue Underflow!\n";
+		cout<<"\nQueue Underflow!\n";
 	}
 	else{
 		temp = front;
-		cout<<"Deleted Job is : "<<temp->job<<"\n";
+		cout<<"\nDeleted Job is : "<<temp->job<<"\n";
 		front = front->link;
 		delete(temp);
 	}
@@ -62,10 +62,10 @@ void Priority_Queue :: delete_job(){
 void Priority_Queue :: display(){
 	Node *temp = front;
 	if(temp == NULL){
-		cout<<"Queue Is Empty!\n";
+		cout<<"\nQueue Is Empty!\n";
 	}
 	else{
-		cout<<"The Queue is :\n";
+		cout<<"\nThe Queue is :\n";
 		cout<<"Job\tTime\n";
 		while(temp!=NULL){
 			cout<<temp->job<<"\t"<<temp->time<<"\n";
@@ -86,7 +86,7 @@ int main(){
 		cin>>ch;
 		switch(ch){
 			case 1:
-				cout<<"Enter The Job Number : ";
+				cout<<"\nEnter The Job Number : ";
 				cin>>job;
 				cout<<"Enter its Time Value : ";
 				cin>>time;

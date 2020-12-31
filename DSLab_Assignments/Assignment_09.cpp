@@ -66,9 +66,9 @@ void Priority_Queue :: display(){
 	}
 	else{
 		cout<<"The Queue is :\n";
-		cout<<"Time\tJob\n";
+		cout<<"Job\tTime\n";
 		while(temp!=NULL){
-			cout<<temp->time<<"\t"<<temp->job<<"\n";
+			cout<<temp->job<<"\t"<<temp->time<<"\n";
 			temp = temp->link;
 		}
 	}
@@ -78,7 +78,7 @@ int main(){
 	Priority_Queue obj;
 	int t=1, job, time, ch;
 	while(t){
-		cout<<"Enter Any One Choice :\n";
+		cout<<"\nEnter Any One Choice :\n";
 		cout<<"1. Insert Value in Priority Queue\n";
 		cout<<"2. Delete Value from Priority Queue\n";
 		cout<<"3. Display the Priority Queue\n";

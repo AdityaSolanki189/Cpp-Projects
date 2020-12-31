@@ -76,7 +76,7 @@ void Priority_Queue :: display(){
 
 int main(){
 	Priority_Queue obj;
-	int t=0, job, time, ch;
+	int t=1, job, time, ch;
 	while(t){
 		cout<<"Enter Any One Choice :\n";
 		cout<<"1. Insert Value in Priority Queue\n";

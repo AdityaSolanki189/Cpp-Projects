@@ -2,13 +2,6 @@
 #define ll long long int
 using namespace std;
 
-void swap(ll n1, ll n2) {
-    ll temp;
-    temp = n1;
-    n1 = n2;
-    n2 = temp;
-}
-
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
@@ -31,21 +24,31 @@ int main(){
         }
         //-1 if its impossible
         //0 if no swap needed
-        if(n_votes == m_votes){
+        if(n_votes > m_votes){
             cout<<0<<"\n";
             continue;
         }
-        /* ll dif = m_votes-n_votes;
+
         sort(A,A+n);
-        sort(B,B+m); */
-        ll swaps=0;
-        while(n_votes>m_votes){
-            ll n1 = min_element(A,A+n);
-            ll n2 = max_element(B,B+m);
-            swap(n1,n2);
+        sort(B,B+m,greater<int>());
+        ll flag=0,swaps=0,min=0,max=0;
+        for(ll i=0;i<n;i++){
+            min = A[i];
+            max = B[i];
+            n_votes-=min;
+            n_votes+=max;
+            m_votes-=max;
+            m_votes+=min;
             swaps++;
+            if(n_votes>m_votes){
+                flag=1;
+                cout<<swaps<<"\n";   
+                break;
+            }
         }
-        cout<<swaps<<"\n";
+        
+        if(flag==0)
+            cout<<-1<<"\n";
     }
     return 0;
 }

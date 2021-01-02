@@ -58,7 +58,7 @@ void string_op::Delete(string str){
         }
         cout << "The New String : " << str << endl;
     }
-    else{
+    else{ //when j<k
         for (int i = j; i < str.length(); i++){
             str[i] = str[i + 1];
         }

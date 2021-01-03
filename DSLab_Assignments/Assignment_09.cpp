@@ -38,7 +38,7 @@ void Priority_Queue :: insert_job(int job, int time){
 	}
 	else{
 		q = front;
-		while(q->next != NULL && q->next->time <= true){
+		while(q->next != NULL && q->next->time <= time){
 			q = q->next;
 		}
 		temp->next = q->next;

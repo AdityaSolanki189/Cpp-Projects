@@ -14,7 +14,7 @@ using namespace std;
 struct Node{
 	int time;
 	int job;
-	Node *link;
+	Node *next;
 };
 
 class Priority_Queue{
@@ -33,16 +33,16 @@ void Priority_Queue :: insert_job(int job, int time){
 	temp->job = job;
 	temp->time = time;
 	if(front == NULL || time < front->time){
-		temp->link = front;
+		temp->next = front;
 		front = temp;
 	}
 	else{
 		q = front;
-		while(q->link != NULL && q->link->time <= true){
-			q = q->link;
+		while(q->next != NULL && q->next->time <= true){
+			q = q->next;
 		}
-		temp->link = q->link;
-		q->link = temp;
+		temp->next = q->next;
+		q->next = temp;
 	}
 }
 
@@ -54,7 +54,7 @@ void Priority_Queue :: delete_job(){
 	else{
 		temp = front;
 		cout<<"\nDeleted Job is : "<<temp->job<<"\n";
-		front = front->link;
+		front = front->next;
 		delete(temp);
 	}
 }
@@ -69,7 +69,7 @@ void Priority_Queue :: display(){
 		cout<<"Job\tTime\n";
 		while(temp!=NULL){
 			cout<<temp->job<<"\t"<<temp->time<<"\n";
-			temp = temp->link;
+			temp = temp->next;
 		}
 	}
 }

@@ -15,6 +15,7 @@ class Sort{
 	int array[MAX];
 	public:
 	void create(int);
+	void Swap(int*,int*);
 	void insertion_sort();
 	void bubble_sort();
 	void selection_sort();
@@ -26,6 +27,12 @@ void Sort :: create(int num){
 	for(int i=0;i<num;i++){
 		cin>>array[i];
 	}
+}
+
+void Sort :: Swap(int *xp, int *yp){
+	int temp = *xp;
+	*xp = *yp;
+	*yp = temp;
 }
 
 void Sort :: insertion_sort(){
@@ -62,9 +69,7 @@ void Sort :: bubble_sort(){
 	for(int i=0;i<N-1;i++){
         for(int j=0; j<N-i-1; j++){
             if(array[j] > array[j+1]){
-                int temp = array[j];
-                array[j] = array[j+1];
-                array[j+1] = temp;
+				Swap(&array[j],&array[j+1]);
             }
         }
     }
@@ -89,9 +94,7 @@ void Sort :: selection_sort(){
                 indexof_smallest = j;
             }
         }
-        int temp = array[i];
-        array[i] = array[indexof_smallest];
-        array[indexof_smallest] = temp;
+        Swap(&array[i],&array[indexof_smallest]);
     }
 
 	display_sorted(N);

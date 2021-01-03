@@ -60,11 +60,11 @@ void Sort :: bubble_sort(){
 	create(N);
 
 	for(int i=0;i<N-1;i++){
-        for(int j=i+1; j<N; j++){
-            if(arr[j] > arr[j+1]){
-                int temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
+        for(int j=0; j<N-i-1; j++){
+            if(array[j] > array[j+1]){
+                int temp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp;
             }
         }
     }
@@ -85,13 +85,13 @@ void Sort :: selection_sort(){
 	for(int i=0;i<N-1;i++){
         int indexof_smallest = i;
         for(int j=i+1; j<N; j++){
-            if(arr[j] < arr[indexof_smallest]){
+            if(array[j] < array[indexof_smallest]){
                 indexof_smallest = j;
             }
         }
-        int temp = arr[i];
-        arr[i] = arr[indexof_smallest];
-        arr[indexof_smallest] = temp;
+        int temp = array[i];
+        array[i] = array[indexof_smallest];
+        array[indexof_smallest] = temp;
     }
 
 	display_sorted(N);

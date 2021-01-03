@@ -1,7 +1,7 @@
 /* 
 	PL1 Assignment 6 by Aditya Solanki 
 	Roll No. 2193023
-	CSE - 3 
+	CSE - 3   
 
     Write a C++ program to realize polynomial equation and perform operations. Write the following functions:
     1. To input and output polynomials

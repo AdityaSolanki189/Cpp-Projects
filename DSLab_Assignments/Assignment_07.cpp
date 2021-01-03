@@ -1,7 +1,7 @@
 /* 
 	PL1 Assignment 7 by Aditya Solanki 
 	Roll No. 2193023
-	CSE - 3 
+	CSE - 3   
 
     Department of Computer Engineering has student's club named 'Pinnacle Club'. Students of Second, third
     and final year can be granted membership on request. Similarly one may cancel the membership of club.

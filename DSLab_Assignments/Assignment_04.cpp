@@ -69,10 +69,11 @@ void matrix :: Sum_Diagonals(){
 				}
 			}
 		}
-		int j = y-1;
+		/* int j = y-1;  //column -1    opposite diagonal
 		for(int i=0;i<x;i++,j--){
+			if(i==j)continue;
 			sum += a[i][j];
-		} 
+		}  */
         cout<<"\nSummation Of Diagonal Elements = "<<sum<<endl;
 	}
 	else {

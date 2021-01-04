@@ -91,7 +91,7 @@ poly poly :: operator+(poly B){
         i++;
         k++;
     }
-    while(j<total_terms){
+    while(j<B.total_terms){
         C.poly_array[k].coef = B.poly_array[j].coef;
         C.poly_array[k].expo = B.poly_array[j].expo;
         j++;

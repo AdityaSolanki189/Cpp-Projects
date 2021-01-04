@@ -156,7 +156,6 @@ char Evaluate :: top_(){
 
 int Evaluate :: calculate(char optr, int op2, int op1) {  //Op1&Op2 Order For PostFix
     if (optr == '+')
-    if (optr == '+')
         return op1 + op2;
     if (optr == '-')
         return op1 - op2;

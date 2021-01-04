@@ -6,6 +6,7 @@
     A set S=(1,3, a, s, t, i} represent alphanumeric characters. Write a program in C++ to generate all possible passwords
     of length 4.
     We can form n^4 passwords, with repetition. (here, n=6  So, 6^4 = 1296)
+    But without REPETITION, we get No of possible outcomes = 360
 */
 
 #include <iostream>
@@ -30,10 +31,12 @@ void Password :: pass_function(){
                         continue;
                     }
                     cout<<a[i]<<a[j]<<a[k]<<a[l]<<endl;
+                    count++;
                 }
             }
         }
     }
+    cout<<"\nTotal No. of Passwords Formed : "<<count<<"\n";
 }
 
 int main(){

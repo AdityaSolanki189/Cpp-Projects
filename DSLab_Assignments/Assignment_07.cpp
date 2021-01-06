@@ -118,8 +118,8 @@ void list1 :: operation(){
     cout<<'\t'<<"WELCOME TO PINNACLE CLUB"<<'\t'<<endl;
     while(ch){
         cout<<endl;
-        cout<<"1.Insert \n2.Delete members \n3.Compute total number of members \n4.Display"<<endl;
-        cout<<"5.Display in reverse order \n6.Exit"<<endl;
+        cout<<"1.Insert \n2.Delete members \n3.Compute total number of members";
+        cout<<"\n4.Display5.Display in reverse order \n6.Exit"<<endl;
         cout<<"Enter your choice: ";
         cin>>in;
         

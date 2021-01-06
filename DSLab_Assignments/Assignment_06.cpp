@@ -116,7 +116,7 @@ poly poly :: operator*(poly B){
     int l = 0;
     //Adding terms with same expo value
     for(int i=0;i<D.total_terms;i++){
-        for(int j=i+1;D.total_terms;j++){
+        for(int j=i+1;j<D.total_terms;j++){
             if(D.poly_array[i].expo == D.poly_array[j].expo){
                 D.poly_array[i].coef = D.poly_array[i].coef + D.poly_array[j].coef;
                 D.poly_array[i].expo = D.poly_array[i].expo;
@@ -140,7 +140,9 @@ int main(){
     double ans;
     int ch,t=1,x;
     while(t){
-        cout<<"Polynomial Operations :-\n1.Accept Polynomials\n2.Display Polynomials\n3.Add Polynomials\n4.Multiply Polynomials\n5.Evaluate\n6.Exit\n";
+        cout<<"Polynomial Operations :-\n1.Accept Polynomials\n";
+        cout<<"2.Display Polynomials\n3.Add Polynomials\n4.Multiply Polynomials";
+        cout<<"\n5.Evaluate\n6.Exit\n";
         cin>>ch;
         cout<<endl;
         switch (ch)

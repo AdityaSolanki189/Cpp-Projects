@@ -34,7 +34,7 @@ void display(const vector<int> &v)
 void printSubsetsRec(int arr[], int i, int sum, vector<int> &p)
 {
     // If we reached end and sum is non-zero. We print
-    // p[] only if arr[0] is equal to sun OR dp[0][sum]
+    // p[] only if arr[0] is equal to sum OR dp[0][sum]
     // is true.
     if (i == 0 && sum != 0 && dp[0][sum])
     {

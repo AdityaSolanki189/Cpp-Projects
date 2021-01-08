@@ -60,6 +60,7 @@ void list1 :: display(){
         cout<<"List is empty"<<endl;
         return;    
     }
+    cout<<"\nThe Members Are : \n";
     while(temp!=NULL){
         cout<<temp->data<<endl;
         temp=temp->link;

@@ -56,14 +56,13 @@ Node *list1 :: create_node(){
 void list1 :: display(){
     Node *temp;
     temp=head;
-    if(temp!=NULL){
-        while(temp!=NULL){
-            cout<<temp->data<<endl;
-            temp=temp->link;
-        }
-    }
-    else{
+    if(temp==NULL){
         cout<<"List is empty"<<endl;
+        return;    
+    }
+    while(temp!=NULL){
+        cout<<temp->data<<endl;
+        temp=temp->link;
     }
 }
 

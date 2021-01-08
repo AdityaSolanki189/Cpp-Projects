@@ -24,7 +24,7 @@ struct Node{
 class list1{
     public:  
     int pos,count1=0,count2=0;
-    string ch1="club";
+    string ch1="2021";
     string ch2,ch;
 
     Node *head,*tail,*prev,*cur,*temp;
@@ -46,7 +46,7 @@ Node *list1 :: create_node(){
     prev=NULL;
     cur=head;
     newNode=new Node;
-    cout<<"Enter member's name: ";
+    cout<<"Enter Member's Name: ";
     cin>>newNode->data;
     newNode->link=NULL;
     count1++;
@@ -71,10 +71,10 @@ void list1 :: create_list(){
     Node *newNode1;
     char ch='y';
     int choice=1;
-    string th1="club";
+    string th1="2021";
     string th2;
     string th;
-    cout<<"Are you Admin (enter A) or Member (enter M)"<<endl;
+    cout<<"Are You Admin (Enter A) or Member (Enter M)"<<endl;
     cin>>th2;
     if(th2=="A"|| th2=="a"){
         while(choice==1){
@@ -92,13 +92,13 @@ void list1 :: create_list(){
                         tail->link=newNode1;
                         tail=newNode1;
                     }
-                    cout<<"Do you want to enter more member's names (Y/N): ";
+                    cout<<"Do You Want To Add More Members ?\n (Y/N): ";
                     cin>>ch;
                 }
             }
             else{
-                cout<<"Incorrect password"<<endl;
-                cout<<"Do you want to continue (1/0): ";
+                cout<<"Incorrect Password"<<endl;
+                cout<<"Do You Want To Continue ?\n (1/0): ";
                 cin>>choice;
                 if(choice==0){
                     exit(0);
@@ -108,7 +108,7 @@ void list1 :: create_list(){
         }
     }
     else{
-        cout<<"No authority to enter data"<<endl;
+        cout<<"Access Denied!\nYou Have No Authority To Enter Data!"<<endl;
     }
 }
 
@@ -126,14 +126,14 @@ void list1 :: operation(){
         switch(in){
             case 1:  {
                 char ch;
-                cout<<"\nAre you Admin (A) or member (M): ";
+                cout<<"\nAre You Admin (Enter A) or Member (Enter M) ";
                 cin>>ch;
                 if(ch=='A' || ch=='a'){
-                    cout<<"\nEnter password to login: ";
+                    cout<<"\nEnter Password To Login: ";
                     cin>>ch2;
                     if(ch2==ch1){
                         newNode1=create_node();
-                        cout<<"\nEnter the position at which you want to enter: ";
+                        cout<<"\nEnter The Position At Which You Want To Enter: ";
                         cin>>pos;
                         while(count2!=pos){
                             prev=cur;
@@ -145,7 +145,7 @@ void list1 :: operation(){
                                 newNode1->link=cur;
                         }
                         else{
-                            cout<<"\nUnable to process"<<endl;
+                            cout<<"\nUnable To Process"<<endl;
                         }
                     }
                     else{
@@ -153,7 +153,7 @@ void list1 :: operation(){
                     }
                 }
                 else{
-                    cout<<"\nNo authority to insert member"<<endl;
+                    cout<<"\nAccess Denied!\nYou Have No Authority To Enter Data!"<<endl;
                 }
             }
             break;                     
@@ -162,7 +162,7 @@ void list1 :: operation(){
                 string ch1;
                 temp=head;
                 int count3=0,count4=1;
-                cout<<"\nEnter the name you want to delete: ";
+                cout<<"\nEnter The Name Your Want To Delete : ";
                 cin>>ch1;
                 if(temp!=NULL){
                     while(temp!=NULL){
@@ -177,7 +177,7 @@ void list1 :: operation(){
                     }
                 }
                 if(count3==1 || count3==count1){
-                        cout<<"\nCan not delete trusted members"<<endl;
+                        cout<<"\nCannot Delete Trusted Members."<<endl;
                         break;
                 }
                 else{
@@ -194,7 +194,7 @@ void list1 :: operation(){
             break;
 
             case 3: {
-                cout<<"\nTotal number of members are: "<<count1<<endl;
+                cout<<"\nTotal Numbers Of Members Are : "<<count1<<endl;
             }        
             break;         
 
@@ -224,7 +224,7 @@ void list1 :: operation(){
             break;
             
             default: 
-                cout<<"\nInvalid choice"<<endl;
+                cout<<"\nInvalid Choice"<<endl;
             break;
         }
     }

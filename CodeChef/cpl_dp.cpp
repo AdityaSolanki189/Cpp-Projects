@@ -7,7 +7,7 @@ ll pref[4020];
 
 ll D_fn(ll id,ll taken,ll n,ll k,vll arr){
     if(taken>=k && (pref[id]-taken >= k)) return 0;
-    if(id>=n) return 1e10;
+    if(id>=n) return INT_MAX;
     if(DP[id][taken]!=-1) return DP[id][taken];
 
     ll C1= D_fn(id+1,min(taken+arr[id],pref[id]-taken),n,k,arr);
@@ -16,9 +16,18 @@ ll D_fn(ll id,ll taken,ll n,ll k,vll arr){
 }
 
 ll givemedp(vll &arr,ll n,ll k){
-    for(ll i=0;i<n;i++){
-        
+    for(ll i=0;i<n/2;i++){
+        swap(arr[i],arr[n-i-1]);
     }
+    for(ll i=0;i<=(n+10);i++){
+        pref[i] = 0;
+        for(ll j=0;j<=k+10) DP[i][j]=-1;
+    }
+    for(ll i=1;i<=n;i++){
+        pref[i] = pref[i-1]+arr[i-1];
+    }
+    ll ans = D_fn(0,0,n,k,arr);
+    return ans>INT_MAX?-1:ans;
 }
 
 int main(){
@@ -33,7 +42,7 @@ int main(){
         vector<ll> arr;
         arr.assign(N,0);
         for(ll i=0;i<N;i++) cin>>arr[i];
-        sort(arr,arr+n);
+        sort(arr,arr+N);
         if(N == 1){
             cout<<"-1"<<endl;
         }

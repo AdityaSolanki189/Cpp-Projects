@@ -7,7 +7,7 @@ ll pref[4020];
 
 ll D_fn(ll id,ll taken,ll n,ll k,vll arr){
     if(taken>=k && (pref[id]-taken >= k)) return 0;
-    if(id>=n) return INT_MAX;
+    if(id>=n) return 1e10;
     if(DP[id][taken]!=-1) return DP[id][taken];
 
     ll C1= D_fn(id+1,min(taken+arr[id],pref[id]-taken),n,k,arr);
@@ -27,7 +27,7 @@ ll givemedp(vll &arr,ll n,ll k){
         pref[i] = pref[i-1]+arr[i-1];
     }
     ll ans = D_fn(0,0,n,k,arr);
-    return ans>INT_MAX?-1:ans;
+    return ans>1e9?-1:ans;
 }
 
 int main(){

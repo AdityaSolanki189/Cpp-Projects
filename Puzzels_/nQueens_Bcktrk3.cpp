@@ -1,11 +1,104 @@
 /* The n-Queens Problem Place n queens on an n × n chessboard so that no two queens
 attack each other by being in the same column, row, or diagonal. */
 
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
-
-int main(){
-
-    return 0;
-}
+#define N 4
+  
+void printSolution(int board[N][N]) { 
+    cout << "\nQueen Placement on a " << N << " x " << N << " Board :\n\n";
+    for (int i = 0; i < N; i++) { 
+        for (int j = 0; j < N; j++) 
+            cout << setw(4) << board[i][j]; 
+        cout << "\n"; 
+    } 
+} 
+  
+/* A utility function to check if a queen can 
+   be placed on board[row][col]. Note that this 
+   function is called when "col" queens are 
+   already placed in columns from 0 to col -1. 
+   So we need to check only left side for 
+   attacking queens */
+bool isSafe(int board[N][N], int row, int col) { 
+    int i, j; 
+  
+    /* Check this row on left side */
+    for (i = 0; i < col; i++) 
+        if (board[row][i]) //check if 1 present
+            return false; 
+  
+    /* Check upper diagonal on left side */
+    for (i = row, j = col; i >= 0 && j >= 0; i--, j--) 
+        if (board[i][j]) //check if 1 present
+            return false; 
+  
+    /* Check lower diagonal on left side */
+    for (i = row, j = col; j >= 0 && i < N; i++, j--) 
+        if (board[i][j]) //check if 1 present
+            return false; 
+  
+    // When all the conditions are false (ie. No 1 present)
+    return true; 
+} 
+  
+/* A recursive utility function to solve N 
+   Queen problem */
+bool solveNQUtil(int board[N][N], int col) { 
+    /* base case: If all queens are placed 
+      then return true */
+    if (col >= N) 
+        return true; 
+  
+    /* Consider this column and try placing 
+       this queen in all rows one by one */
+    for (int i = 0; i < N; i++) { 
+        /* Check if the queen can be placed on 
+          board[i][col] */
+        if (isSafe(board, i, col)) { 
+            /* Place this queen in board[i][col] */
+            board[i][col] = 1; 
+  
+            /* Recursion to place rest of the queens */
+            if (solveNQUtil(board, col + 1)) 
+                return true; 
+  
+            /* If placing queen in board[i][col] 
+               doesn't lead to a solution, then 
+               remove queen from board[i][col] */
+            board[i][col] = 0; // BACKTRACK 
+        } 
+    } 
+  
+    /* If the queen cannot be placed in any row in 
+        this colum col  then return false */
+    return false; 
+} 
+  
+/* This function solves the N Queen problem using 
+   Backtracking. It mainly uses solveNQUtil() to  
+   solve the problem. It returns false if queens 
+   cannot be placed, otherwise, return true and 
+   prints placement of queens in the form of 1s. 
+   Please note that there may be more than one 
+   solutions, this function prints one  of the 
+   feasible solutions.*/
+bool solveNQueen() { 
+    int board[N][N] = { { 0, 0, 0, 0 }, 
+                        { 0, 0, 0, 0 }, 
+                        { 0, 0, 0, 0 }, 
+                        { 0, 0, 0, 0 } }; 
+  
+    if (solveNQUtil(board, 0) == false) { 
+        printf("Solution does not exist"); 
+        return false; 
+    } 
+  
+    printSolution(board); 
+    return true; 
+} 
+  
+int main() { 
+    solveNQueen(); 
+    return 0; 
+} 

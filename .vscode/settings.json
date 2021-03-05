@@ -4,6 +4,7 @@
         "iostream": "cpp",
         "random": "cpp",
         "numeric": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "unordered_set": "cpp"
     }
 }

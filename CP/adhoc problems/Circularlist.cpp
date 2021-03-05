@@ -1,11 +1,4 @@
 /*
-
-				Name: Gourav Singh
-				https://www.linkedin.com/in/gouravsingh2580/
-
-*/
-
-/*
 				PROBLEM STATEMENT
 You are given a circular list of students as follows:
 0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10 -> 11
@@ -59,10 +52,5 @@ int main( int argc , char ** argv )
 
 		cout << go(i, p) << '\n';
 	}
-
-
 	return 0 ; 
-
-
-
 }

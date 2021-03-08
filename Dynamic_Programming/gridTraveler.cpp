@@ -19,13 +19,15 @@ int gridTraveler(int m, int n){
 int dp[500][500] = {0};
 
 // recursion + memoization (DP approach)
+// Time Complexity : O(m*n), better than the recursive only approach
+// Space Complexity : O(n+m)
 int gridTraveler_DP(int m, int n){
     if(m == 1 && n == 1) return 1;
     if(m == 0 || n == 0) return 0;
 
     // check if already computed
     if(dp[m][n] != 0) return dp[m][n];
-    
+
     // gridTraveler(a,b) == gridTraveler(b,a)
     dp[m][n] = dp[n][m] = gridTraveler(m-1, n) + gridTraveler(m, n-1);
     return dp[m][n];

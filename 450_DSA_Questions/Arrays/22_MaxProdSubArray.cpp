@@ -10,8 +10,35 @@ Example 1:
 
 #include<bits/stdc++.h>
 using namespace std;
+#define ll long long int
 
-int main(){
-    
+ll maxProduct(ll *arr, ll n) {
+    ll x, y, z, maxx = arr[0], minn = arr[0], res = arr[0];
+
+    for(ll i=1; i<n; i++) {
+        x = arr[i];
+        y = maxx*x;
+        z = minn*x;
+        
+        maxx = max(x, max(y,z));
+        minn = min(x, min(y,z));
+        res = max(res, max(maxx, minn));
+    }
+    return res;
+}
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        ll n, i;
+        cin >> n;
+        ll arr[n];
+        for (i = 0; i < n; i++) {
+            cin >> arr[i];
+        }
+        ll ans = maxProduct(arr, n);
+        cout << ans << "\n";
+    }
     return 0;
 }

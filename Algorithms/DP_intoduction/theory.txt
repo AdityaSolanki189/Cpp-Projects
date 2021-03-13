@@ -1,8 +1,0 @@
-Take Example,
-    x = (1+2+5+8) * 3
-    We have to calculate x from scratch
-    y = x * 2
-    here, we use the stored data in x, so we perform it faster
-
-For DP 
-    

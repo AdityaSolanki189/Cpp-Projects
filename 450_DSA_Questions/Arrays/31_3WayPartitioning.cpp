@@ -13,13 +13,40 @@ Output: 1
 Explanation: One possible arrangement is:
 {1, 2, 3, 3, 4}. If you return a valid
 arrangement, output will be 1. */
+// flag based quick sort
 
 #include<bits/stdc++.h>
 using namespace std;
 
+// O(n) Time Complexity
+void partition(vector<int> v, int a, int b){
+    int start=0, end=v.size()-1;
+    int i=0;
+    while(i<=end){
+        if(v[i] < a){
+            swap(v[i++], v[start++]);
+        }
+        else if(v[i] > b){
+            swap(v[i], v[end--]);
+        }
+        else i++;
+    }
+}
+
 int main(){
-    int n;
-    cin >> n;
-     
+    int n, x, a, b;
+    cin >> n >> a >> b;
+    vector<int> v;
+    for(int i=0;i<n;i++){
+        cin >> x;
+        v.push_back(x);
+    }
+    
+    partition(v, a, b);
+
+    for(int i=0;i<n;i++){
+        cout << v[i] << " ";
+    }
+    cout << "\n";
     return 0;
 }

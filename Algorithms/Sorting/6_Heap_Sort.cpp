@@ -27,6 +27,13 @@ void heapSort(int arr[], int n) {
 	}
 }
 
+/* 	Time Complexity :
+	Worst case performance: Θ(nlogn)
+	Best case performance: Θ(nlogn)
+	Average case performance: Θ(nlogn)
+	Worst case space complexity: Θ(n) total, Θ(1) auxiliary
+*/
+
 int main() {
 	int arr[] = {12, 11, 13, 5, 6, 7};
 	int n = sizeof(arr) / sizeof(arr[0]);
@@ -38,3 +45,10 @@ int main() {
 	cout << '\n';
 	return 0;
 }
+
+/* Theory:
+Heapsort is a comparison-based sorting algorithm and is part of the selection sort family.
+Although somewhat slower in practice on most machines than a good implementation of Quick
+sort, it has the advantage of a more favorable worst-case Θ(nlogn) runtime. Heapsort is an in-place algorithm but is not a stable sort.
+Using Priority Queues
+*/

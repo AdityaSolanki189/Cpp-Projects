@@ -44,8 +44,7 @@ void quickSort(int arr[], int low, int high){
         quickSort(arr, pi + 1, high);  
     }  
 }  
-  
-/* Function to print an array */
+
 void printArray(int arr[], int size){  
     int i;  
     for (i = 0; i < size; i++)  

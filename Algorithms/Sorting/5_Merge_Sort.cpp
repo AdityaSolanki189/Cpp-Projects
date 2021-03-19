@@ -1,3 +1,4 @@
+// Merge Sort is an example of Divide and Conquer Strategy
 #include <iostream>
 using namespace std;
 
@@ -68,8 +69,6 @@ void mergeSort(int arr[], int l, int r){
     }
 }
 
-/* UTILITY FUNCTIONS */
-/* Function to print an array */
 void printArray(int A[], int size){
     int i;
     for (i = 0; i < size; i++)
@@ -82,6 +81,7 @@ void printArray(int A[], int size){
     Best - Ω(n(logn))
     Avg. - θ(n(logn))
     Worst - O(n(logn)) 
+    Worst Case Space Complexity: θ(n) auxiliary
 */
 
 int main(){
@@ -100,3 +100,29 @@ int main(){
     printArray(arr, arr_size);
     return 0;
 }
+
+/* Important Notes :
+
+    • Merging is the process of combining two sorted files to make one bigger sorted file.
+    • Selection is the process of dividing a file into two parts: k smallest elements and n – k largest elements.
+    • Selection and merging are opposite operations
+        ○ selection splits a list into two lists
+        ○ merging joins two files to make one file
+    • Merge sort is Quick sort’s complement
+    • Merge sort accesses the data in a sequential manner
+    • This algorithm is used for sorting a linked list• Merge sort is insensitive to the initial order of its input
+    • In Quick sort most of the work is done before the recursive calls. Quick sort starts
+    with the largest subfile and finishes with the small ones and as a result it needs
+    stack. Moreover, this algorithm is not stable. Merge sort divides the list into two
+    parts; then each part is conquered individually. Merge sort starts with the small
+    subfiles and finishes with the largest one. As a result it doesn’t need stack. This
+    algorithm is stable.
+
+    In Merge sort the input list is divided into two parts and these are solved recursively. After
+    solving the sub problems, they are merged by scanning the resultant sub problems. Let us assume
+    T(n) is the complexity of Merge sort with n elements. The recurrence for the Merge Sort can be
+    defined as: 
+                Recurrence for MergeSort is T(n) = 2T(n/2) + θ(n).
+                Using Master's Theorem, we get, T(n) = θ(nlogn).
+
+*/    

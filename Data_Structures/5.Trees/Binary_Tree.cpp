@@ -1,4 +1,3 @@
-//Trees are hierarchical data structures.
 #include <iostream>
 using namespace std;
 

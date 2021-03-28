@@ -6,11 +6,11 @@ In the maze matrix, 0 means the block is a dead end and 1 means the block can be
 #include <bits/stdc++.h> 
 using namespace std;
 #define N 4 
- 
+
 bool solveMazeUtil( 
     int maze[N][N], int x, 
     int y, int sol[N][N]); 
- 
+
 /* A utility function to print solution matrix sol[N][N] */
 void printSolution(int sol[N][N]) { 
     for (int i = 0; i < N; i++) { 
@@ -19,7 +19,7 @@ void printSolution(int sol[N][N]) {
         printf("\n"); 
     } 
 } 
- 
+
 /* A utility function to check if x, y is valid index for N*N maze */
 bool isSafe(int maze[N][N], int x, int y) { 
     // if (x, y outside maze) return false 
@@ -29,7 +29,7 @@ bool isSafe(int maze[N][N], int x, int y) {
  
     return false; 
 } 
- 
+
 /* This function solves the Maze problem 
 using Backtracking. It mainly uses 
 solveMazeUtil() to solve the problem. 
@@ -53,7 +53,7 @@ bool solveMaze(int maze[N][N]) {
     printSolution(sol); 
     return true; 
 } 
- 
+
 /* A recursive utility function to solve Maze problem */
 bool solveMazeUtil( 
     int maze[N][N], int x, 
@@ -64,26 +64,26 @@ bool solveMazeUtil(
         sol[x][y] = 1; 
         return true; 
     } 
- 
+
     // Check if maze[x][y] is valid 
     if (isSafe(maze, x, y) == true) {
           // Check if the current block is already part of solution path.    
           if (sol[x][y] == 1)
               return false;
-       
+
         // mark x, y as part of solution path 
         sol[x][y] = 1; 
- 
+
         /* Move forward in x direction */
         if (solveMazeUtil(maze, x + 1, y, sol) == true) 
             return true; 
- 
+
         /* If moving in x direction 
         doesn't give solution then 
         Move down in y direction */
         if (solveMazeUtil(maze, x, y + 1, sol) == true) 
             return true; 
-       
+
         /* If moving in y direction 
         doesn't give solution then 
         Move back in x direction */

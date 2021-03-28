@@ -1,22 +1,18 @@
+// March CookOff 2021
 #include<bits/stdc++.h>
 using namespace std;
+#define ll long long int
 
 void fastio(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
 
+// Sliding Window Minimum Approach (Greedy)
 void solve(){
-    int w1,w2,x1,x2,m;
-    cin >> w1>> w2>> x1>> x2>> m;
-    int min = w1, max = w1;
-    min += x1*m;
-    max += x2*m;
-    if(w2>=min && w2<=max)
-        cout << 1;
-    else    
-        cout << 0;
-    cout << "\n";
+    int n, k;
+    cin >> n >> k;
+        
 }
 
 int main(){

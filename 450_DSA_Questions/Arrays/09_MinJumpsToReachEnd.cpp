@@ -18,8 +18,6 @@ Given an array of integers where each element represents the max number of steps
 using namespace std;
 
 int getMinJumps(int array[], int n){
-
-    // jumps[n-1] will hold the result
     int* jumps = new int[n];
     int i, j;
  
@@ -28,8 +26,6 @@ int getMinJumps(int array[], int n){
  
     jumps[0] = 0;
  
-    // Find the minimum number of jumps to reach arr[i]
-    // from arr[0], and assign this value to jumps[i]
     for (i = 1; i < n; i++) {
         jumps[i] = INT_MAX;
         for (j = 0; j < i; j++) {

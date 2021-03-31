@@ -15,7 +15,7 @@ void merge(int arr1[], int arr2[], int n, int m) {
 	    
 	int gap = n + m;
 	int i, j;
-	// cout<<"here"<<nextGap(gap)<<endl;
+	
 	gap = nextGap(gap);
 	for(; gap > 0 ; gap = nextGap(gap) ){
 		

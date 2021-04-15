@@ -29,14 +29,23 @@ class Binary_Tree{
     void create_root();
     void insert();
     void search();
-    void del_deepestNode(Node*, Node*);
-    void remove();
+    /* void del_deepestNode(Node*, Node*);
+    void remove(); */
     void level_order();
     void pre_order();
     void post_order();
     void in_order();
-    int find_MAX();
-    int Find_MIN();
+    void find_MAX();
+    void find_MIN();
+    void find_SUM();
+    void find_Size();
+    void Reverse_level_order();
+    void Height_Depth();
+    void No_of_leaves();
+    void No_of_full_nodes();
+    void No_of_half_nodes();
+    void Diameter_width();
+    void level_with_max_sum();
     Binary_Tree(){
         root = NULL;
         Node *left = NULL;
@@ -126,7 +135,7 @@ void Binary_Tree :: search(){
 • Find the deepest node in the tree.
 • Replace the deepest node’s data with node to be deleted.
 • Then delete the rightmost deepest node. */
-void Binary_Tree :: del_deepestNode(Node* r_node, Node* del_node){
+/* void Binary_Tree :: del_deepestNode(Node* r_node, Node* del_node){
     queue<Node*> q, empty;
     q.push(r_node);
     // Do level order traversal until last node and delete it
@@ -187,10 +196,11 @@ void Binary_Tree :: remove(){
         key_node->key = x;
     }
     cout << "Node Removed Successfully!\n";
-}
+} */
 
 // Level Order Traversal to  Display
 void Binary_Tree :: level_order(){
+    cout << "\nLevel-Order Traversal : ";
     Node* temp = new Node();
     queue<Node*> q;
     queue<Node*> empty;
@@ -212,6 +222,7 @@ void Binary_Tree :: level_order(){
 
 // In-Order Traversal to Display
 void Binary_Tree :: in_order(){
+    cout << "\nIn-Order Traversal : ";
     stack<Node*> s, empty;
     Node* temp = root;
     while(1){
@@ -233,6 +244,7 @@ void Binary_Tree :: in_order(){
 
 // Pre-Order Traversal to Display
 void Binary_Tree :: pre_order(){
+    cout << "\nPre-Order Traversal : ";
     stack<Node*> s, empty;
     Node* temp = root;
     while(1){
@@ -254,8 +266,10 @@ void Binary_Tree :: pre_order(){
 
 // Post-Order Traversal to Display
 void Binary_Tree :: post_order(){
+    cout << "\nPost-Order Traversal : ";
     stack<Node*> s, empty;
-    Node* temp = root, previous = NULL;
+    Node* temp = root;
+    Node* previous = new Node();
     do{
         while(temp){
             s.push(temp);
@@ -276,10 +290,12 @@ void Binary_Tree :: post_order(){
 }
 
 // Find the Minimum of the Tree
-void Binary_Tree :: Find_MIN(){
-    Node* temp;
-    int min = INT_MIN;
+void Binary_Tree :: find_MIN(){
+    Node* temp = new Node();
+    int min = INT_MAX;
     queue<Node*> q, empty;
+    if(!root)
+        return;
     q.push(root);
     while(!q.empty()){
         temp = q.front();
@@ -292,16 +308,17 @@ void Binary_Tree :: Find_MIN(){
             q.push(temp->right);
     }
     swap(q, empty);
-    cout << "Value of the Max Element in the Binary Tree : " << min;
-    return;
+    cout << "\nValue of the Min Element in the Binary Tree : " << min;
     return;
 }
 
 // Find the Maximum of the Tree
 void Binary_Tree :: find_MAX(){
-    Node* temp;
-    int max = INT_MAX;
+    Node* temp = new Node();
+    int max = INT_MIN;
     queue<Node*> q, empty;
+    if(!root)
+        return;
     q.push(root);
     while(!q.empty()){
         temp = q.front();
@@ -314,9 +331,81 @@ void Binary_Tree :: find_MAX(){
             q.push(temp->right);
     }
     swap(q, empty);
-    cout << "Value of the Max Element in the Binary Tree : " << max;
+    cout << "\nValue of the Max Element in the Binary Tree : " << max;
     return;
 }
+
+// Find the Sum of All Elements of the Binary Tree
+void Binary_Tree :: find_SUM(){
+    Node* temp = new Node();
+    int sum = 0;
+    queue<Node*> q, empty;
+    if(!root)
+        return;
+    q.push(root);
+    while(!q.empty()){
+        temp = q.front();
+        q.pop();
+        sum += temp->data; 
+        if(temp->left)
+            q.push(temp->left);
+        if(temp->right)
+            q.push(temp->right);
+    }
+    swap(q, empty);
+    cout << "\nSum of al the Elements in the Binary Tree : " << sum;
+    return;
+}
+
+// Find the Size of the Binary Tree
+void Binary_Tree :: find_Size(){
+    Node* temp = new Node();
+    queue<Node*> q, empty;
+    int count = 0;
+    if(!root){
+        cout << "\nEmpty Tree!";
+        return;
+    }
+    q.push(root);
+    while(!q.empty()){
+        temp = q.front();
+        q.pop();
+        count++;
+        if(temp->left)
+            q.push(temp->left);
+        if(temp->right)
+            q.push(temp->right);
+    }
+    swap(q, empty);
+    cout << "\nThe Size of the Binary Tree : " << count;
+}
+
+// Print the Level Order Traversal in Reverse Order
+void Binary_Tree :: Reverse_level_order(){
+    queue<Node*> q, empty;
+    stack<Node*> s;
+    Node* temp = new Node();
+    if(!root){
+        cout << "\nEmpty Tree!";
+        return;
+    }
+    q.push(root);
+    while(!q.empty()){
+        temp = q.front();
+        q.pop();
+        if(temp->right)
+            q.push(temp->right);
+        if(temp->left)
+            q.push(temp->left);
+        s.push(temp);
+    }
+    while(!s.empty()){
+        cout << s.top()->data << " ";
+        s.pop();
+    }
+}
+
+
 
 int main(){
     Binary_Tree BT;
@@ -337,7 +426,7 @@ int main(){
             break;
 
             case 3:
-                BT.remove();
+                /* BT.remove(); */
             break;
 
             case 4:
@@ -361,7 +450,7 @@ int main(){
             break;
 
             case 9:
-                BT.Find_MIN();
+                BT.find_MIN();
             break; 
             
             case 10:

@@ -1,10 +1,3 @@
-/*
-
-				Name: Gourav Singh
-				https://www.linkedin.com/in/gouravsingh2580/
-
-*/
-
 
 /*
 MONK AND THE ISLAND

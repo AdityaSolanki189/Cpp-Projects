@@ -1,9 +1,4 @@
-/*
 
-				Name: Gourav Singh
-				https://www.linkedin.com/in/gouravsingh2580/
-
-*/
 /*
 You all must be familiar with the chess-board having 
 8*8 squares of alternate black and white cells. Well, here 

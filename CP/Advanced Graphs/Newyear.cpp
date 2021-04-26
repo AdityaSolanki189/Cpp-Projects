@@ -1,10 +1,3 @@
-/*
-
-				Name: Gourav Singh
-				https://www.linkedin.com/in/gouravsingh2580/
-
-*/
-
 
 #include <bits/stdc++.h>
 using namespace std;

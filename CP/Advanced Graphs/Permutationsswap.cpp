@@ -1,9 +1,3 @@
-/*
-
-				Name: Gourav Singh
-				https://www.linkedin.com/in/gouravsingh2580/
-
-*/
 
 /*
 Kevin has a permutation P of N integers 1, 2, ..., N, but he doesn't like it. Kevin wants to get a permutation Q.

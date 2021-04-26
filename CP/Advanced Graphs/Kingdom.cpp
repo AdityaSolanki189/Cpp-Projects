@@ -1,9 +1,4 @@
-/*
 
-				Name: Gourav Singh
-				https://www.linkedin.com/in/gouravsingh2580/
-
-*/
 /*
 This is the story in Zimbo, the kingdom officially made for monkeys. Our Code Monk visited Zimbo and declared open a challenge in the kingdom, thus spoke to all the monkeys :
 

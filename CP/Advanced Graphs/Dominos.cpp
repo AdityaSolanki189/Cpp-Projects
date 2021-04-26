@@ -1,9 +1,4 @@
-/*
 
-				Name: Gourav Singh
-				https://www.linkedin.com/in/gouravsingh2580/
-
-*/
 /*
 Dominos are lots of fun. Children like to stand the tiles on their side in long lines. When one domino falls, it knocks down the next one, which knocks down the one after that, all the way down the line.
 However, sometimes a domino fails to knock the next one down. In that case, we have to knock it down by hand to get the dominos falling again.

@@ -3,6 +3,19 @@ using namespace std;
 
 // vector<int> AdjList[100]; // 100 nodes
 
+int run_bfs(int s, vector<bool> &visited){
+    queue<int> Q;
+    visited[s] = true;
+    int node_count = 0;
+    while(!Q.empty()){
+        s = Q.front();
+        Q.pop();
+        node_count += 1;
+
+        for(int adjNode: )
+    }
+}
+
 int main(){
     int n, m;
     cin >> n >> m;

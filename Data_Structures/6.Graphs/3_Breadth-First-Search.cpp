@@ -62,7 +62,7 @@ int main(){
     }
 
     cout << "\nThe BFS Traversal of the Tree : ";
-    g.BFS(); // Like Linear Order Traverasl in Trees
+    g.BFS(); // Like Linear|Level Order Traverasl in Trees
     cout << "\n";
      
     return 0;

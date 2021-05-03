@@ -22,7 +22,7 @@ int findParent(int node, vector<int> &parent){
     if(node == parent[node]){
         return node;
     }
-    return findParent(parent[node], parent); // Path Compression 
+    return findParent(parent[node], parent); // Path Compression to Reduce TC
 }
 
 void Union(int u, int v, vector<int> &parent, vector<int> &rank){

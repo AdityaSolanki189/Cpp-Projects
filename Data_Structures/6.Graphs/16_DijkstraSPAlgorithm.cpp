@@ -25,7 +25,7 @@ void Graph :: addEdge(int from, int to, int weight){
 }
 
 void Graph :: ShortestDistance(int source){ 
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> PQ;
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> PQ; // min priority queue
     vector<int> distTo(V+1, INT_MAX);
 
     distTo[source] = 0;
@@ -37,14 +37,23 @@ void Graph :: ShortestDistance(int source){
         PQ.pop();
 
         vector<pair<int, int>> ::iterator it;
-        for(it = AdjList[prev].begin(); it != AdjList[prev].end(); it++){
+        for(it = AdjList[prev].begin(); it != AdjList[prev].end(); it++){ 
+            int next = it->first;           // -> adj. node
+            int nextDist = it->second;      // -> edge weight
+            if(distTo[next] > distTo[prev] + nextDist){
+                distTo[next] = distTo[prev] + nextDist;
+                PQ.push(make_pair(distTo[next], next));
+            }
+        }
+        
+        /* for(auto it: AdjList[prev]){ 
             int next = it->first;
             int nextDist = it->second;
             if(distTo[next] > distTo[prev] + nextDist){
                 distTo[next] = distTo[prev] + nextDist;
                 PQ.push(make_pair(distTo[next], next));
             }
-        }
+        } */
     }
     
     for(int i=1; i<=V;i++){

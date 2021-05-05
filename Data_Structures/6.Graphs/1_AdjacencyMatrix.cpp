@@ -2,39 +2,31 @@
 using namespace std;
 
 int main(){
-    int n, m;
-    cin >> n >> m;
-    // N -> Vertices
-    // M -> Edges
-    vector<vector<int>> adjMat(n, vector<int>(n, 0));
-    // adjMat Object for storing N*N Adecency Matrix
-    // Accepting Directed edges (ex. 0 -> 1) 
-    for(int i=0;i<m;++i){
+   int nodes;
+    cout << "\nEnter No of Nodes : ";
+    cin >> nodes;
+
+    int Edges, from , to;
+    cout << "\nEnter total Edges : ";
+    cin >> Edges;
+
+
+    vector<vector<int>> matrix(nodes+1, vector<int> (nodes+1,0));
+    // Undirected Graph
+    while(Edges--){
         int from, to;
+        cout << "\nEnter from and to : ";
         cin >> from >> to;
-        adjMat[from][to] = 1;
+        matrix[from][to] = 1;
+        matrix[to][from] = 1;
     }
+    // We can do for Directed and Weighted the same way
 
-    // Accepting Undirected Graphs
-    for(int i=0;i<m;++i){
-        int from, to;
-        cin >> from >> to;
-        adjMat[from][to] = 1;
-        adjMat[to][from] = 1;
-    }
-
-    // Accepting Undirected Weighted Graphs
-    for(int i=0;i<m;++i){
-        int from, to, wt;
-        cin >> from >> to >> wt;
-        adjMat[from][to] = wt;
-        adjMat[to][from] = wt;
-    }
-
-    // Printing the Adjecency Matrix
-    for(int i=0;i<n;++i){
-        for(int j=0;j<n;++j){
-            cout << adjMat[i][j] << " ";
+    // depends on the indexing of the graph
+    cout << "\nAdjacency Matrix : \n";
+    for(int i=1;i<=nodes;i++){
+        for(int j=1;j<=nodes;j++){
+            cout << "\t" << matrix[i][j] << " ";
         }
         cout << "\n";
     }

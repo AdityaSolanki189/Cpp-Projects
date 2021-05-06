@@ -20,8 +20,8 @@ int main(){
     }
 
     cout << "\n\nAges : "; 
-    for(int ages = 0; ages < Age.size(); ages++){
-        cout << Age[ages] << " ";
+    for(auto ages: Age){
+        cout << ages << " ";
     }
     // Sort in Ascending
     sort(Age.begin(), Age.end()); // Quick sort : O(nlogn)

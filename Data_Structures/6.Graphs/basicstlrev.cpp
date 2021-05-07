@@ -8,7 +8,6 @@ int main(){
     cout << "\n";
     // vector<data type> name;
     vector<int> Age;   // Dynamic array: Array that can be modified at runtime.
-
     int input = 1;
 
     while(input){
@@ -52,6 +51,21 @@ int main(){
         cout << "\nAge Not Found!";
     }
     cout << "\n";
-    
+
+    vector<pair<string, int>> Student;
+    string name;
+    while(input){
+        cout << "Enter Your Name & Age(0 to quit) : ";
+        cin >> name >> input;
+        if(input){
+            Student.push_back(make_pair(name, input));
+        }    
+    }
+
+    for(auto details: Student){
+        cout << "Roll No. : " << details.first << " & " << "Age : " << details.second << "\n";
+    }
+    cout << "\n";
+
     return 0;
 }

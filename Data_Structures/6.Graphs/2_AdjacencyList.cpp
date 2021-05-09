@@ -92,8 +92,12 @@ int main(){
         cout << "\n";
     } */
 
+    /* for(auto node = 0; node < AdjList[i].size(); node++){
+        cout << AdjList[i][node] << " ";
+    } */
+    
     // Printing the Adjecency List Weighted
     g.Display();
-    
+
     return 0;
 }

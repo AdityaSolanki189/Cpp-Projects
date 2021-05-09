@@ -3,16 +3,19 @@
 // Or use set ds as set<pair<int, int>>
 // Formula : D(y) = min(old D(x), D(y) + Wt.(x, y))  where, x is the source
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <climits>
 using namespace std;
 
 class Graph{
     int V;
-    vector<pair<int, int>> AdjList[100001];
+    vector<pair<int, int>> AdjList[101];
     
     public:
-    Graph(int V){
-        this->V = V;
+    Graph(int nodes){
+        V = nodes;
     }
     void addEdge(int, int, int);
     void ShortestDistance(int);

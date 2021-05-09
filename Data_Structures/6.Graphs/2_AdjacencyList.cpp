@@ -9,11 +9,34 @@ class Graph{
     }
     vector<pair<int, int>> AdjList[101];
     void addEdge(int, int, int);
+    void Display();
 };
 
 void Graph :: addEdge(int from, int to, int weight){
     AdjList[from].push_back(make_pair(to, weight));
     AdjList[to].push_back(make_pair(from, weight));
+}
+
+void Graph :: Display(){
+    for(int i = 1; i <= V; i++){
+        cout << "Adjacent Node  of " << i << " : ";
+
+        vector<pair<int, int>> ::iterator node;
+        for(node = AdjList[i].begin(); node != AdjList[i].end(); node++){
+            cout << "(" << node->first << ", " << node->second << ")" << " ";
+        }
+        cout << "\n";
+
+        for(auto node = AdjList[i].begin(); node != AdjList[i].end(); node++){
+            cout << "(" << node->first << ", " << node->second << ")" << " ";
+        }
+        cout << "\n";
+
+        for(auto node : AdjList[i]){
+            cout << "(" << node.first << ", " << node.second << ")" << " ";
+        }
+        cout << "\n";
+    }
 }
 
 int main(){
@@ -70,12 +93,7 @@ int main(){
     } */
 
     // Printing the Adjecency List Weighted
-    for(int i=1;i<=vertex;++i){
-        cout << "AdjList of " << i << " : ";
-        for(auto node : g.AdjList[i]){
-            cout << "(" << node.first << ", " << node.second << ")" << ", ";
-        }
-        cout << "\n";
-    }
+    g.Display();
+    
     return 0;
 }

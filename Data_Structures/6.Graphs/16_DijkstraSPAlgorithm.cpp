@@ -1,7 +1,7 @@
 // Shortest path in an Undirected Graph using Dijkstra's Algorithm
 // Using Priority Queue to always take the path with least distance (Greedy Algorithm)
 // Or use set ds as set<pair<int, int>>
-// Formula : D(x) = min(old D(x), D(y) + Wt.(x, y))
+// Formula : D(y) = min(old D(x), D(y) + Wt.(x, y))  where, x is the source
 
 #include <bits/stdc++.h>
 using namespace std;

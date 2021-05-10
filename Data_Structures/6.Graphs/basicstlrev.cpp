@@ -24,7 +24,6 @@ int main(){
     }
     // Sort in Ascending
     sort(Age.begin(), Age.end()); // Quick sort : O(nlogn)
-    
     cout << "\n\nAges : "; 
     for(int ages = 0; ages < Age.size(); ages++){
         cout << Age[ages] << " ";

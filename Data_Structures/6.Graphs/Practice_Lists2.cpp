@@ -5,20 +5,20 @@ using namespace std;
 class Graph{
     int V; // nodes
     // Adjacency List
-    vector<int> AdjList[101];    
+    vector<pair<int, int>> AdjList[101];    
 
     public:
     Graph(int Nodes){
         V = Nodes;
     }
-    void AddEdge(int, int);
+    void AddEdge(int, int, int);
     void Display();
 };
 
 // Undirected 
-void Graph :: AddEdge(int from , int to){
-    AdjList[from].push_back(to);
-    AdjList[to].push_back(from); 
+void Graph :: AddEdge(int from , int to, int weight){
+    AdjList[from].push_back(make_pair(to, weight));
+    AdjList[to].push_back(make_pair(from, weight)); 
 }
 
 // Display
@@ -26,11 +26,7 @@ void Graph :: Display(){
     for(int i = 1; i <= V; i++){
         cout << "Adjacency Node  of " << i << " : ";
         for(auto node: AdjList[i]){
-            cout << node << " ";
-        }
-
-        for(int node = 0; node < AdjList[i].size(); node++){
-            cout << AdjList[i][node]; 
+            cout << "(" <<node->first << ", " << node->second << ")" << " ";
         }
         cout << "\n";
     }
@@ -43,14 +39,14 @@ int main(){
 
     Graph g(nodes);
 
-    int Edges, from, to;
+    int Edges, from, to, weight;
     cout << " Enter Edges : ";
     cin >> Edges;
 
     while(Edges--){
-        cout << " Enter from and T0 : ";
-        cin >> from >> to;
-        g.AddEdge(from, to);
+        cout << " Enter from and T0 & weight: ";
+        cin >> from >> to >> weight;
+        g.AddEdge(from, to,weight);
     }
 
     g.Display();

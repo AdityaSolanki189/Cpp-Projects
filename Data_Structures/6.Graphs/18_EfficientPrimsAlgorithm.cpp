@@ -41,9 +41,9 @@ void Graph :: EfficientPRIM(){
     parent[0] = -1;
     PQ.push({0, 0});
 
-    for(int count=0; count<V-1; count++){
+    for(int count=0; count<V; count++){
         
-        int u = PQ.top.second;
+        int u = PQ.top().second;
         PQ.pop();
 
         mstSet[u] = true;
@@ -61,7 +61,7 @@ void Graph :: EfficientPRIM(){
 
     cout << "\nThe Minimum Spanning Tree : \n";
 
-    for(int i=1; i<V; i++){
+    for(int i=0; i<V; i++){
         cout << parent[i] << " - " << i << "\n";
     }
 }

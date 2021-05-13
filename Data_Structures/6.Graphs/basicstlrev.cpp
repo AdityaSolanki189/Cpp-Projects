@@ -62,7 +62,7 @@ int main(){
     }
 
     for(auto details: Student){
-        cout << "Roll No. : " << details.first << " & " << "Age : " << details.second << "\n";
+        cout << "Name : " << details.first << " & " << "Age : " << details.second << "\n";
     }
     cout << "\n";
 

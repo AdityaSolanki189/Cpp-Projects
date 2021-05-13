@@ -405,7 +405,59 @@ void Binary_Tree :: Reverse_level_order(){
     }
 }
 
+void Binary_Tree :: Height_Depth(){
+    Node* temp = root;
+    int level = 0;
+    queue<Node*> q, empty;
+    if(!temp){
+        cout << "\nEmpty Tree!";
+        return;
+    }
+    q.push(temp);
+    q.push(NULL); // End of first level
+    while(!q.empty()){
+        temp = q.front();
+        q.pop();
+        if(temp == NULL){
+            if(!q.empty()){
+                q.push(NULL);
+            }
+            level++;
+        }
+        else{
+            if(temp->left)
+                q.push(temp->left);
+            if(temp->right)
+                q.push(temp->right);
+        }
+    }
+    cout << "\nHeigh / Depth of the given Binary Tree : " << level;
+} 
 
+void Binary_Tree :: No_of_leaves(){
+    Node* temp;
+    queue<Node*> q, empty;
+    int count = 0;
+    if(!root){
+        cout << "\nEmpty Tree!";
+        return;
+    }
+    q.push(root);
+    while(!q.empty()){
+        temp = q.front();
+        q.pop();
+        if(!temp->left && temp->right)
+            count++;
+        else{
+            if(temp->left)
+                q.push(temp->left);
+            if(temp->right)
+                q.push(temp->right)
+        }
+    }
+    swap(q, empty);
+    cout << "\nNo. of leaves in the Binary Tree : " << count;
+}
 
 int main(){
     Binary_Tree BT;
@@ -413,7 +465,7 @@ int main(){
     BT.create_root();
     int t=1;
     while(t!=0){
-        cout<<"\n\nBasic Operations :\n1. Insert a Node;\n2. Search a Node;\n3. Remove a Node;\n4. Level-Order Traversal;\n5. In-Order Traversal;\n6. Pre-Order Traversal;\n7. Post-Order Traversal;\n8. Find Max Node of Tree;\n9. Find Min Node of Tree;\n10. Exit(0)"<<endl;
+        cout<<"\n\nBasic Operations :\n1. Insert a Node;\n2. Search a Node;\n3. Remove a Node;\n4. Level-Order Traversal;\n5. In-Order Traversal;\n6. Pre-Order Traversal;\n7. Post-Order Traversal;\n8. Find Max Node of Tree;\n9. Find Min Node of Tree;\n10. Find Size of Binary Tree\n11. Reverse Level-Order Traversal\n12. No. of Leaves in the Binary Tree\n13. Exit(0)"<<endl;
         int ch;
         cin>>ch;
         switch (ch){
@@ -454,6 +506,18 @@ int main(){
             break; 
             
             case 10:
+                BT.find_MIN();
+            break;
+
+            case 11:
+                BT.find_MIN();
+            break;
+            
+            case 12:
+                BT.find_MIN();
+            break;
+
+            case 13:
                 cout << "Thank You!";
                 t = 0;
             break;

@@ -13,45 +13,44 @@ Using Method,
 using namespace std;
 
 class HashTable{
-    int HashSize = 7;  // Lower Closest Prime Number (To more likely distribute the elements in the table (avoiding clusters and more optimal utilization of space))
+    int HashSize = 7, key;  // Lower Closest Prime Number (To more likely distribute the elements in the table (avoiding clusters and more optimal utilization of space))
     list<pair<int, string>> table[10];
 
     public:
-        int get_hv(int key);
-        void insertItem(int key, string value);
-        void removeItem(int key);
-        void searchTable(int key);
+        int get_key(int);
+        void insertItem(int, string);
+        void removeItem(int);
+        void searchTable(int);
         void printTable(); 
 };
 
-int HashTable :: get_hv(int key){
-    return int(key  % HashSize);
+int HashTable :: get_key(int rno){
+    return int(rno  % HashSize);
 }
 
-void HashTable :: insertItem(int key, string name){
-    int hashValue = get_hv(key);
-    table[hashValue].push_back(make_pair(key, name));
+void HashTable :: insertItem(int rno, string name){
+    key = get_key(rno);
+    table[key].push_back(make_pair(rno, name));
     cout << "\n[Key & Value Inserted Successfully!]\n";
 }
 
-void HashTable :: removeItem(int key){
-    int hashValue = get_hv(key);
-    for(auto it=table[hashValue].begin(); it!=table[hashValue].end(); it++){
-        if(it->first == key){
-            cout << "\n[Key has been Located]\n";
-            table[hashValue].erase(it);
+void HashTable :: removeItem(int rno){
+    key = get_key(rno);
+    for(auto it=table[key].begin(); it!=table[key].end(); it++){
+        if(it->first == rno){
+            table[key].erase(it);
             cout << "\n[Key & Value Removed Successfully!]\n";
             return;
         }
     }
-    cout << "\n[Key Not Located]\n";
+    cout << "\n[Key Does not Exist]\n";
 }
 
-void HashTable :: searchTable(int key){
-    int hashValue = get_hv(key);
-    for(auto it=table[hashValue].begin(); it!=table[hashValue].end(); it++){
-        if(it->first == key){
-            cout << "\n[Key has been Located]";
+void HashTable :: searchTable(int rno){
+    key = get_key(rno);
+    for(auto it=table[key].begin(); it!=table[key].end(); it++){
+        if(it->first == rno){
+            cout << "\n[Key Exists]";
             cout << "\nRoll No. : " << it->first;
             cout << "\nName : " << it->second << "\n";
             return;
@@ -80,19 +79,19 @@ int main(){
         cin >> op;
         switch (op){
             case 1:
-                cout << "\nEnter Roll No. & Name : ";
+                cout << "\nEnter Student's Roll No. & Name : ";
                 cin >> temp >> name;
                 HT.insertItem(temp, name);
             break;
             
             case 2:
-                cout << "\nEnter Key You Want to Remove : ";
+                cout << "\nEnter Student's Roll No. You Want to Remove : ";
                 cin >> temp;
                 HT.removeItem(temp);
             break;
 
             case 3:
-                cout << "\nEnter Key you want to Search : ";
+                cout << "\nEnter Student's Roll No. You Want to Search : ";
                 cin >> temp;
                 HT.searchTable(temp);
             break;

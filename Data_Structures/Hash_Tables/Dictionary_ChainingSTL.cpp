@@ -4,7 +4,7 @@
 using namespace std;
 
 class HashTable{
-    int HashSize = 10;
+    int HashSize = 7;  // Lower Closest Prime Number (To more likely distribute the elements in the table (avoiding collisions))
     list<pair<int, string>> table[10];
 
     public:

@@ -24,7 +24,7 @@ int main()
         list2.push_front(i * 3); 
     } 
     cout << "\nList 1 is : "; 
-    showlist(gqlist1); 
+    showlist(list1); 
   
     cout << "\nList 2 is : "; 
     showlist(list2); 

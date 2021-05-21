@@ -1,6 +1,6 @@
 // DICTIONARY IMPLEMENTAION USING CHAINING (USING STL - LIST)
 
-/* Chaining Implementation, Where collisions are bound to happen while hasing.
+/* Chaining Implementation, Where collisions are bound to happen while hasing.  
 Creating an Array of Linked List.
 Using Method,
     hash(key) = Key % (prime number closest to n)

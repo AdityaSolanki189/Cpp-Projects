@@ -1,12 +1,11 @@
 #include<iostream>
 #include <cstring>
 using namespace std;
-#define max 10
+#define max 11
 
 struct list{
-    int rno;
-    string name;
-    struct list *next;
+    int data;
+    list *next;
 };
 
 list *ptr[max],*root[max],*temp[max];
@@ -14,14 +13,14 @@ list *ptr[max],*root[max],*temp[max];
 class Dictionary{
     public:
         int index;
-        void Dictionary();
+        Dictionary();
         void insert(int);
         void search(int);
         void remove(int);
         void print_Dict();
 };
 
-void Dictionary :: Dictionary(){
+Dictionary :: Dictionary(){
     index = -1;
     for(int i=0; i<max; i++){
         root[i] = NULL;
@@ -31,9 +30,10 @@ void Dictionary :: Dictionary(){
 }
 
 void Dictionary :: insert(int key){
-    index = int(key%7);
+    index = int(key%11);
     ptr[index] = new list();
     ptr[index]->data = key;
+
     if(root[index] == NULL){
         root[index] = ptr[index];
         root[index]->next = NULL;
@@ -41,15 +41,16 @@ void Dictionary :: insert(int key){
     }
     else{
         temp[index] = root[index];
-        while(temp[index]->next != NULL)
+        while(temp[index]->next != NULL){
             temp[index] = temp[index]->next;
+        }    
         temp[index]->next = ptr[index];
     }
 }
 
 void Dictionary :: search(int key){
     int flag = 0;
-    index = int(key%7);
+    index = int(key%11);
     temp[index] = root[index];
 
     while(temp[index] != NULL){
@@ -66,7 +67,7 @@ void Dictionary :: search(int key){
 }
 
 void Dictionary :: remove(int key){
-    index = int(key%7);
+    index = int(key%11);
     temp[index] = root[index];
 
     while(temp[index]->data != key && temp[index] != NULL){
@@ -80,6 +81,15 @@ void Dictionary :: remove(int key){
     temp[index]->data = -1;
     temp[index] = NULL;
     delete temp[index];
+}
+
+void Dictionary :: print_Dict(){
+    for(int i=0; i<max; i++){
+        while (root[i] != NULL){
+            cout << root[i]->data << "\n";
+            root[i] = root[i]->next;
+        }
+    }
 }
 
 int main(){
@@ -114,6 +124,11 @@ int main(){
                 d.remove(n);
             break;
             
+            case 4:
+                cout << "\nDictionary:\n";
+                d.print_Dict();
+            break;
+
             default:
                 cout<<"\nInvalid Choice.";
         }

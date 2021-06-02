@@ -13,7 +13,7 @@ Using Method,
 using namespace std;
 
 class HashTable{
-    int HashSize = 7, key;  // Lower Closest Prime Number (To more likely distribute the elements in the table (avoiding clusters and more optimal utilization of space))
+    int HashSize = 7, key;  // Lower Closest Prime Number of Table Size (To more likely distribute the elements in the table (avoiding clusters and more optimal utilization of space))
     list<pair<int, string>> table[10];
 
     public:
@@ -21,6 +21,7 @@ class HashTable{
         void insertItem(int, string);
         void removeItem(int);
         void searchTable(int);
+        void UpdateItem(int);
         void printTable(); 
 };
 
@@ -59,6 +60,25 @@ void HashTable :: searchTable(int rno){
     cout << "\n[Key Does not Exist]\n";
 }
 
+void HashTable :: UpdateItem(int rno){
+    key = get_key(rno);
+    for(auto it=table[key].begin(); it!=table[key].end(); it++){
+        if(it->first == rno){
+            cout << "\n[Key Exists]";
+            cout << "\nRoll No. : " << it->first;
+            cout << "\nName : " << it->second << "\n";
+
+            cout << "\nEnter New String (Name) : ";
+            cin >> it->second;
+
+            cout << "\nRoll No. : " << it->first;
+            cout << "\nName : " << it->second << "\n";
+            return;
+        }
+    }
+    cout << "\n[Key Does not Exist]\n";
+}
+
 void HashTable :: printTable(){
     cout << "\nDictionary :\n";
     for(int i=0; i<HashSize; i++){
@@ -75,7 +95,7 @@ int main(){
     int t=1, op, temp;
     string name;
     while (t){
-        cout << "\nSelect Option :\n1. Insert Key & Value\n2. Delete Key\n3. Search Key\n4. Print Dictionary\n5. Exit\n";
+        cout << "\nSelect Option :\n1. Insert Key & Value\n2. Delete Key\n3. Search Key\n4. Update Key Value\n5. Print Dictionary\n6. Exit\n";
         cin >> op;
         switch (op){
             case 1:
@@ -97,10 +117,16 @@ int main(){
             break;
 
             case 4:
-                HT.printTable();
+                cout << "\nEnter Student's Roll No. You Want to Update : ";
+                cin >> temp;
+                HT.UpdateItem(temp);
             break;
             
             case 5:
+                HT.printTable();
+            break;
+
+            case 6:
                 t = 0;
             break;
 

@@ -1,14 +1,10 @@
-/* program to construct an Expression tree for a
-given prefix expression and perform recursive and non-recursive  
-traversals*/
-
 #include <iostream>
 
 using namespace std;
 
 struct TreeNode{
     char data;
-    struct TreeNode *left, *right;
+    TreeNode *left, *right;
 }*root;
 
 class StackNode{
@@ -41,11 +37,11 @@ class ExpressionTree{
     void preorder(TreeNode *);
     void preorder_nonR(TreeNode *);
     void postorder(TreeNode *);
+    void postorder_nonR(TreeNode *);
 };
 
 TreeNode* ExpressionTree :: createNode(char s){
     TreeNode* tmpNode = new TreeNode;
-    tmpNode = NULL;
     tmpNode->left = tmpNode->right = NULL;
     tmpNode->data = s;
 
@@ -70,7 +66,7 @@ void ExpressionTree :: insert(char ch){
 }
 
 void ExpressionTree :: buildTree(string eqn){
-    for(int i=eqn.length()-1; i>=0; i++)
+    for(int i=eqn.length()-1; i>=0; i--)
         insert(eqn[i]);
     root = top->treeNode;
 }
@@ -86,8 +82,10 @@ void ExpressionTree :: push(TreeNode *ptr){
 }
 
 TreeNode* ExpressionTree :: pop(){
-    if(top == NULL)
-        cout<<"Stack Empty"<<endl;
+    if(top == NULL){
+        cout << "Stack Empty" << endl;
+        return NULL;
+    }
     else{
         TreeNode *ptr = top->treeNode;
         top = top->next;
@@ -98,14 +96,14 @@ TreeNode* ExpressionTree :: pop(){
 void ExpressionTree :: inorder(TreeNode *ptr){
     if(ptr!=NULL){
         inorder(ptr->left);
-        cout<<" "<<ptr->data;
+        cout << " " << ptr->data;
         inorder(ptr->right);
     }
 }
 
 void ExpressionTree :: preorder(TreeNode *ptr){
     if(ptr!=NULL){
-        cout<<" "<<ptr->data;
+        cout << " " << ptr->data;
         preorder(ptr->left);
         preorder(ptr->right);
     }
@@ -115,7 +113,7 @@ void ExpressionTree :: postorder(TreeNode *ptr){
     if(ptr!=NULL){
         preorder(ptr->left);
         preorder(ptr->right);
-        cout<<" "<<ptr->data;
+        cout << " " << ptr->data;
     }
 }
 
@@ -127,45 +125,94 @@ void ExpressionTree :: inorder_nonR(TreeNode *temp){
             temp = temp->left;
         }
         temp = pop();
-        cout<<" "<<temp->data;
+        cout << " " << temp->data;
         temp = temp->right;
     }
 }
 
 void ExpressionTree :: preorder_nonR(TreeNode *temp){
+    if(temp == NULL){
+        return;
+    }
+    
     top =NULL;
-    while(temp!=NULL || top!=NULL){
-        while(temp!=NULL){
-            cout<<" "<<temp->data;
-            push(temp);
-            temp = temp->left;
+    push(temp);
+
+    while(top != NULL){
+        TreeNode* curr = pop();
+        cout << curr->data << " ";
+
+        if(curr->right){
+            push(curr->right);
         }
-        temp = pop();
-        temp = temp->right;
+
+        if(curr->left){
+            push(curr->left);
+        }
+    }
+}
+
+void ExpressionTree :: postorder_nonR(TreeNode* root) 
+{
+    top = NULL; 
+    push(root);
+ 
+    char postorder[50];
+
+    int i=0; 
+    while (top != NULL) {
+        TreeNode* curr = pop();
+        postorder[i]=curr->data;
+        i++;
+ 
+        if (curr->left) {
+            push(curr->left);
+        }
+ 
+        if (curr->right) {
+            push(curr->right);
+        }
+    }
+
+    for (int j=i-1; j>=0; j--){
+        cout << postorder[j] << " ";
     }
 }
 
 void ExpressionTree :: display(){
-    cout<<endl<<"Inorder : ";
+    cout << "\nInorder : ";
     inorder(root);
-    cout<<endl<<"Inorder Nonrecursive : ";
+
+    cout << "\nInorder Non-Recursive : ";
     inorder_nonR(root);
-    cout<<endl<<"Preorder : ";
+
+    cout << "\n\nPreorder : ";
     preorder(root);
-    cout<<endl<<"Preorder Nonrecursive : ";
-    preorder_nonR(root);
-    cout<<endl<<"Postorder : ";
+
+    cout << "\nPreorder Non-Recursive : ";
+   preorder_nonR(root);
+
+    cout << "\n\nPostorder : ";
     postorder(root);
-    cout<<endl;
+
+    cout << "\nPostorder Non-Recursive : ";
+    postorder_nonR(root);
+    cout << "\n\n";
 }
 
 int main(){
-    string s;
-    ExpressionTree et;
-    cout<<endl<<"Enter equation in Prefix form: ";
-    cin>>s;
-    et.buildTree(s);
-    cout<<"Travesals :"<<endl;
-    et.display();
+    string str;
+    ExpressionTree Obj;
+
+    cout << "\nExpression Tree : \n";
+    cout << "Enter Prefix Expression : ";
+    cin >> str;
+
+    Obj.buildTree(str);
+
+    cout << "\nTravesals :-";
+
+    Obj.display();
+
     return 0;
 }

@@ -170,7 +170,9 @@ int main(){
             break;
 
             case 2: 
+                cout << "\nYour Dictionary : \n";
                 Obj.display(root);
+                cout << "\n";
             break;
 
             case 3: 

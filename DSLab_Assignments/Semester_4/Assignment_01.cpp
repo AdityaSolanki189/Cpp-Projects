@@ -1,229 +1,207 @@
 #include<iostream>
 #include<string.h>
-
 using namespace std;
 
-struct node{
+struct Node{
     char key[20];
     char meaning[20];
-    node *left, *right;
+    Node *left, *right;
 }*root;
 
-class dictionary{
+class Dictionary {
     public:
-    dictionary(){
-        root = 0;
+    Dictionary() {
+        root = NULL;
     }
-    node* getData();
+    Node *getData();
+    Node *getInorderSuccessor(Node *curr);
     void create();
-    void insert(node *newNode);
-    int search(char []);
-    void display(node *);
-    void update(node*);
-    node* del(node *,char deletekey[]);
-    node *min(node *);
-
+    void insertNode(Node *);
+    void display(Node *);
+    void search(char *);
+    void update(char *);
+    Node *remove(Node *, char *);
 };
 
-node *dictionary :: getData(){
-    node *newNode;
-    newNode = new node();
-    cout<<"Enter key value : ";
-    cin>>newNode->key;
-    cout<<"Enter the meaning of Key :";
-    cin>>newNode->meaning;
+Node *Dictionary :: getData() {
+    Node *new_node = new Node;
+    cout << "\nEnter a key value : ";
+    cin >> new_node -> key;
 
-    newNode->left = NULL;
-    newNode->right = NULL;
-    return newNode;
+    cout << "Enter its meaning : ";
+    cin >> new_node -> meaning;
+
+    new_node -> right = NULL;
+    new_node -> left = NULL;
+
+    return new_node;
 }
 
-void dictionary :: insert(node *newNode){
-    node *temp = root;
-    while(1){
-        if(strcmp(newNode->key, temp->key) < 0){
-            if(temp->left == NULL){
-                temp->left = newNode;
+Node *Dictionary:: getInorderSuccessor(Node *curr){ 
+    curr=curr->right;
+    while(curr!=NULL && curr->left!=NULL)
+        curr=curr->left; 
+    return curr;
+}
+
+void Dictionary :: create() {
+    Node *new_node = new Node;
+    new_node = getData();
+
+    if (root == NULL)
+        root = new_node;
+    else 
+        insertNode(new_node);
+}
+
+void Dictionary :: insertNode(Node *new_node) {
+    Node *temp = new Node;
+    temp = root;
+    
+    while (1) {
+        if (strcmp(new_node -> key, temp -> key) < 0) {
+            if (temp -> left == NULL){
+                temp -> left = new_node;
                 break;
             }
             else
-                temp = temp->left;
+                temp = temp -> left;
         }
-        else{
-            if(temp->right == NULL){
-                temp->right = newNode;
+        else {
+            if (temp -> right == NULL){
+                temp -> right = new_node;
                 break;
             }
-            else    
-                temp = temp->right;
-        }           
-    }
-}
-
-void dictionary :: create(){
-    node* newnode = new node();
-    char input = 'y';
-    while(input == 'y' || input == 'Y'){
-        newnode = getData();
-        if(root == NULL)
-            root = newnode;
-        else{
-            insert(newnode);
+            else
+                temp = temp -> right;
         }
-        cout<<"Do you want to add more data?? (y/n)";
-        cin>>input;
-        if(input =='n' || input == 'N')
-            break;
     }
 }
 
-void dictionary :: display(node *temp){
-    if(temp !=NULL){
-        display(temp->left);
-        cout<<"Key word :"<< temp->key;
-        cout<<"\t"<<"Meaning : "<< temp->meaning<<endl;
-        display(temp->right);
+void Dictionary :: display(Node *temp) {
+    if (temp != NULL) {
+        display(temp -> left);
+        cout << "\nKeyword : " << temp -> key;
+        cout << "\t Meaning : " << temp -> meaning;
+        display(temp -> right);
     }
 }
 
-int dictionary :: search(char searchKey[]){
-    node *temp;
-    temp = root;
-    while(temp!= NULL){
-        if(strcmp(searchKey, temp->key) == 0 )
-            return 1;
-        else if(strcmp(searchKey ,temp->key) < 0)  
-            temp = temp->left;
-        else if(strcmp(searchKey, temp->key) > 0 )    
-            temp = temp->right;
-        else 
-            return 0;
-    }
-    return 0;
-}
-
-void dictionary :: update(node *updatednode){
-    node *temp = new node;
-    temp = root;
-    int flag =0;
-    while(flag == 0){
-        if(strcmp(updatednode->key, temp->key) == 0 ){
-            cout<<"Enter the new meaning for the key :";
-            cin>>temp->meaning;
-            cout<<"Meaning Updated Successfully!"<<endl;
+void Dictionary :: search(char search_key[]) {
+    Node *temp = root;
+    
+    while (temp != NULL) {
+        if (strcmp(search_key, temp -> key) == 0) {
+            cout << "\nKeyword found! The meaning is: " << temp -> meaning << "\n";
             return;
         }
-        else if(strcmp(updatednode->key, temp->key) < 0)  
-            temp = temp->left;
-        else if(strcmp(updatednode->key, temp->key) > 0 )    
-            temp = temp->right;
+        else if (strcmp(search_key, temp -> key) < 0)
+            temp = temp -> left;
+        else
+            temp = temp -> right;
     }
+
+    cout << "\nKeyword " << search_key << " not found.\n";
 }
 
-node *dictionary :: min(node *successor){
-    while(successor -> left != NULL){
-        successor = successor -> left;
+void Dictionary :: update(char search_key[]){
+    Node *temp = root;
+    
+    while (temp != NULL) {
+        if (strcmp(search_key, temp -> key) == 0) {
+            cout << "\nKeyword found! The meaning is: " << temp -> meaning;
+            cout << "\nEnter the new meaning: ";
+            cin >> temp -> meaning;
+            return;
+        }
+        else if (strcmp(search_key, temp -> key) < 0)
+            temp = temp -> left;
+        else
+            temp = temp -> right;
     }
-    return successor;
+
+    cout << "\nKeyword " << search_key << " not found.\n";
 }
 
-node *dictionary :: del(node *tempnode, char deletekey[]){
-    node *deleteNode;
+Node *Dictionary :: remove(Node *root, char delete_key[]) {
 
-    if(tempnode == NULL){
-        cout<<"Dictionary (TREE) is empty!/ Key Not Found\n";
-        return tempnode;
+    if (root == NULL){
+        cout << "\n[Dictionary Empty!]\n";
+        return root;
     }
-    else if(strcmp(deletekey, tempnode -> key) < 0){
-        tempnode -> left = del(tempnode -> left, deletekey);
-        return tempnode;
-    }
-    else if(strcmp(deletekey, tempnode -> key) > 0){
-        tempnode -> right = del(tempnode -> right, deletekey);
-        return tempnode;
-    }
+
+    if (strcmp(delete_key, root -> key) < 0)
+        root->left = remove(root->left,delete_key);
+
+    else if (strcmp(delete_key, root -> key) > 0)
+        root->right = remove(root->right,delete_key);
+
     else{
-        if(tempnode -> left == NULL && tempnode -> right == NULL){
-            deleteNode = tempnode;
-            delete deleteNode;
-            return 0;
+        if (root->left == NULL){
+            Node *temp = root -> right;
+            delete root;
+            return temp;
         }
-        else if(tempnode -> left != NULL){
-            deleteNode = tempnode;
-            tempnode = tempnode -> right;
-            delete deleteNode;
-            return tempnode;
+        else if (root -> right == NULL){
+            Node *temp = root -> left;
+            delete root;
+            return temp;
         }
-        else if(tempnode -> right != NULL){
-            deleteNode = tempnode;
-            tempnode = tempnode -> left;
-            delete deleteNode;
-            return tempnode;
+        else{
+            Node *succ=getInorderSuccessor(root);
+            *root->key=*succ->key;
+            root->right = remove(root->right,succ->key);
         }
-        deleteNode = min(tempnode -> right);
-        strcpy(tempnode -> key, deleteNode -> key);
-        tempnode -> right = del(tempnode -> right, deleteNode -> key);
     }
-    return tempnode;
+    return root;
 }
-
-node *updatednode = new node;
 
 int main(){
-    char a;
-    int ch;
-    char x[20];
-    dictionary d;
-    do{
-        cout<<"\n1.Create\n2.Display\n3.Search\n4.Update\n5.Delete\nEnter choice :";
-        cin>>ch;
+    int t=1,ch;
+    char search_Key[20];
+    Dictionary Obj;
+    while(t){
+        cout << "\nDictionary Using BST Operations: \n";
+        cout << "1. Create\n2. Display\n3. Search\n4. Update\n5. Delete\n6. Exit.\nEnter Your Choice : ";
+        cin >> ch;
         switch(ch){
             case 1: 
-                d.create();
+                Obj.create();
             break;
+
             case 2: 
-                cout<<endl<<"Contents in dictionary :"<<endl;
-                d.display(root);
+                Obj.display(root);
             break;
 
             case 3: 
-                cout<<"Enter the keyword which you want to search :";
-                cin>>x;
-                if(d.search(x) == 1)
-                    cout<<"Keyword found"<<endl;
-                else
-                    cout<<"Keyword not found"<<endl;
+                cout << "\nEnter the keyword you want to Search :";
+                cin >> search_Key;
+                Obj.search(search_Key);
             break;
 
             case 4: 
-                cout<<"Enter the key for the keyword whose meaning you want to update :";
-                cin>>updatednode->key;
-                if(d.search(updatednode->key) == 1){                        
-                    d.update(updatednode);
-                }
-                else
-                cout<<"key not found"<<endl;
+                cout << "Enter the keyword you want to Update : ";
+                cin >> search_Key;
+                Obj.update(search_Key);
             break;
 
             case 5:
-                {
-                    char searchkey[20];
-                    cout<<"Enter the key which you want to delete :";
-                    cin>>searchkey;
-                    node* deleteNode = new node();
-                    deleteNode = d.del(root, searchkey);
-                    cout<<"Node Deleted successfully!"<<endl;
-                    cout<<endl<<"Updated dictionary :: "<<endl;
-                    d.display(root);
-                }
+                cout << "\nEnter the keyword you want to delete : ";
+                cin >> search_Key;
+                root = Obj.remove(root, search_Key);
+                cout<<"\nYour dictionary : \n";
+                Obj.display(root);
+            break;
+
+            case 6:
+                t = 0;
+                cout << "\n[Program Terminated!]\n";
             break;
 
             default:
-                cout<<"Enter correct input!!"<<endl;
+                cout << "\nInvalid Input!!\n";
             break;
         }
-        cout<<"Continue?(y/n) :";
-        cin>>a;
-    } while (a == 'y' || a == 'Y');
+    }   
     return 0;
 }

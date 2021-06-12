@@ -57,6 +57,9 @@ int height(BSTNode *ptr){
         else
             return rt+1;
     }
+    else{
+        return 0;
+    }
 }
 
 void print(BSTNode *root, int level){
@@ -96,46 +99,51 @@ void mirror(BSTNode *node){
 
 int main(){
     BSTNode* root=NULL;
-    char ch ='y';
-    int data, h, choice;
     
-    while(ch == 'y' || ch == 'Y'){
-        cout<<endl<<"1.Insert Node"<<endl;
-        cout<<"2.Display Binary Tree"<<endl;
-        cout<<"3.Height of Binary Tree"<<endl;
-        cout<<"4.Mirror Image of Binary Tree"<<endl;
-        cout<<"5.Display Level wise"<<endl;
-        cout<<"6.Display Leaf Nodes"<<endl;
-        cout<<"Enter your choice : ";
-        cin>>choice;
+    int data, choice, t=1;
+    
+    while(t){
+        cout << "\nBST Operations : \n";
+        cout << "\n1.Insert Node" << endl;
+        cout << "2.Display Binary Tree (Inorder)" << endl;
+        cout << "3.Height of Binary Tree" << endl;
+        cout << "4.Mirror Image of Binary Tree" << endl;
+        cout << "5.Display Level-wise" << endl;
+        cout << "6.Display Leaf Nodes" << endl;
+        cout << "7.Exit\n";
+        cout << "\nEnter your choice : ";
+        cin >>  choice;
         switch(choice){
             case 1: 
-                cout<<"Enter the value to be added :";
-                cin>>data;
+                cout << "\nEnter the value to be added : ";
+                cin >> data;
                 root = insert(root, data);
             break;
 
             case 2:
+                cout << "\nBST InOrder Traversal : ";
                 displayInorder(root);
+                cout << "\n";
             break;
             
             case 3:
-                h = height(root);
-                cout<<endl<<"The height of binary tree is "<<h<<endl;
+                cout << "\nThe height of Binary tree is : " << height(root);
+                cout << "\n";
             break;
             
             case 4:
-                cout<<"The mirror image of the Binary Tree is :-"<<endl;
+                cout << "\nThe Mirror Image of the Binary Search Tree is : "<<endl;
                 mirror(root);
                 displayInorder(root);
                 mirror(root);
+                cout << "\n";
             break;
             
             case 5:
-                cout<<endl<<"The level wise display is: "<<endl;
+                cout << "\nThe level wise display is: "<<endl;
                 level(root);
                 mirror(root);
-                cout<<endl<<"The levelwise Display of mirror image is : "<<endl;
+                cout << "\nThe level-wise Display of Mirror Image is : "<<endl;
                 level(root);
                 mirror(root);
             break;
@@ -143,13 +151,16 @@ int main(){
             case 6:
                 inorder_leaf(root);
             break;
-            
+
+            case 7:
+                t = 0;
+                cout << "\n[Program Terminated!]\n";
+            break;
+
             default:
-                cout<<"Invalid choice!";
+                cout<<"\nInvalid choice!";
             break;
         }
-        cout<<endl<<"Do you want to continue?? (y/n) :";
-        cin>>ch;
     }
     return 0;
 }

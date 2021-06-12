@@ -48,19 +48,14 @@ void Graph :: ShortestDistance(int source){
                 PQ.push(make_pair(distTo[next], next));
             }
         }
-        
-        /* for(auto it: AdjList[prev]){ 
-            int next = it->first;
-            int nextDist = it->second;
-            if(distTo[next] > distTo[prev] + nextDist){
-                distTo[next] = distTo[prev] + nextDist;
-                PQ.push(make_pair(distTo[next], next));
-            }
-        } */
     }
     
     for(int i=1; i<=V;i++){
-        cout << distTo[i] << " ";
+        cout << i << "\t";
+    }
+    cout << "\n";
+    for(int i=1; i<=V;i++){
+        cout << distTo[i] << "\t";
     }
     cout << "\n";
 }
@@ -87,7 +82,7 @@ int main(){
     cout << "\nEnter the Source Node : ";
     cin >> src;
 
-    cout << "\nShortest Distance from Each Node : ";
+    cout << "\nShortest Distance from Each Node : \n";
     g.ShortestDistance(src);
     cout << "\n";
 

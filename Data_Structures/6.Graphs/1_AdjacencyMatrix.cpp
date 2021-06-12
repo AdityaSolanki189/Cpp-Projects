@@ -10,8 +10,9 @@ int main(){
     cout << "\nEnter total Edges : ";
     cin >> Edges;
 
+    // 2-D Array/Matix initialized with 0
+    vector<vector<int>> matrix(nodes+1, vector<int> (nodes+1, 0));
 
-    vector<vector<int>> matrix(nodes+1, vector<int> (nodes+1,0));
     // Undirected Graph
     while(Edges--){
         int from, to;

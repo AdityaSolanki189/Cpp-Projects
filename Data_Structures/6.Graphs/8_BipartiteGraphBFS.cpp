@@ -5,8 +5,7 @@ using namespace std;
 
 class Graph{
     int V;
-    vector<int> AdjList[100001]; // Adjecency List
-    
+    vector<int> AdjList[101]; // Adjecency List
 
     public:
     Graph(int V){

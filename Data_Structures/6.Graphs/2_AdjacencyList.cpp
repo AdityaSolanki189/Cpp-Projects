@@ -5,7 +5,7 @@ class Graph{
     public:
     int V;
     Graph(int V){
-        V = V;
+        this->V = V;
     }
     vector<pair<int, int>> AdjList[101];
     void addEdge(int, int, int);
@@ -26,7 +26,7 @@ void Graph :: Display(){
             cout << "(" << node->first << ", " << node->second << ")" << " ";
         }
         cout << "\n";
-
+        /*   
         for(auto node = AdjList[i].begin(); node != AdjList[i].end(); node++){
             cout << "(" << node->first << ", " << node->second << ")" << " ";
         }
@@ -35,7 +35,7 @@ void Graph :: Display(){
         for(auto node : AdjList[i]){
             cout << "(" << node.first << ", " << node.second << ")" << " ";
         }
-        cout << "\n";
+        cout << "\n"; */
     }
 }
 

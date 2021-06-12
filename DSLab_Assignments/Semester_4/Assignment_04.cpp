@@ -108,8 +108,9 @@ int main(){
     TBT obj;
     
     while(ch == 'y' || ch == 'Y'){
-        cout<<"1.Create TBT"<<endl;
-        cout<<"2.Display"<<endl;
+        cout<<"\nTwo-Way Threaded BST : \n";
+        cout<<"1.Create a Threaded B.S.T."<<endl;
+        cout<<"2.Display Inorder Traversal"<<endl;
         cout<<"Enter your choice : ";
         cin>>choice;
         
@@ -120,13 +121,14 @@ int main(){
             
             case 2:
                 obj.displayInorder(root, header);
+                cout<<"\n";
             break;
             
             default:
                 cout<<"Invalid choice!";
             break;
         }
-        cout<<"Do you want to continue?? (y/n) :";
+        cout<<"Do you want to continue?? (y/n) : ";
         cin>>ch;
     }
     return 0;

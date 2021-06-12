@@ -1,11 +1,11 @@
 // Linear ordering of vextices such that if there is an Edge u->v, then u appears before v in that Ordering. (ON Directed Acyclic Graph using BFS).
-// Kahn's Algorithm (Using in-degree of each nodes)
+// Kahn's Algorithm (Using in-degree of each node)
 #include <bits/stdc++.h>
 using namespace std;
 
 class Graph{
     int V;
-    vector<int> AdjList[100001]; // Adjecency List
+    vector<int> AdjList[101]; // Adjecency List
 
     public:
     Graph(int V){

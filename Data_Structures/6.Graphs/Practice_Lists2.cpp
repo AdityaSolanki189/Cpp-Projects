@@ -29,7 +29,7 @@ void Graph :: Display(){
             cout << "(" <<node->first << ", " << node->second << ")" << " ";
         }
         cout << "\n";
-    }
+    } 
 }
 
 int main(){

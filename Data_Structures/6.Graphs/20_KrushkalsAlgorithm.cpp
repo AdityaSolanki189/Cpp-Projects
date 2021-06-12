@@ -1,8 +1,9 @@
-// Krushkals Algorithm using Disjoint Set Data Structure, first we Sort the adjecent nodes according to thier weight in Ascending order(Greedy Approach). Then we traverse the sorted list and check if the nodes are of the same component or not(Disjoint set approach), continue till we have visited all the nodes or we find our Minimum Spanning Tree.
+// Krushkals Algorithm using Disjoint Set Data Structure, first we Sort the adjecent nodes according to thier weight in Ascending order(Greedy Approach). Then we traverse the sorted list and check if the nodes are of the same component or not(Disjoint set approach), continue till we have visited all the nodes or till we have found our Minimum Spanning Tree.
 
 // Time Complexity : O(nlogn)
-
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 struct node{
@@ -22,7 +23,7 @@ int findParent(int node, vector<int> &parent){
     if(node == parent[node]){
         return node;
     }
-    return findParent(parent[node], parent); // Path Compression to Reduce TC
+    return findParent(parent[node], parent); // Path Compression to Reduce Time Compl.
 }
 
 void Union(int u, int v, vector<int> &parent, vector<int> &rank){

@@ -1,7 +1,9 @@
-//MST - Prims Algorithm.
+// The Efficient Solution Using Heap and Priority Queue
+// Time Complexity : O(nlogn)
 #include <iostream>
-#include <climits>
 #include <vector>
+#include <queue>
+#include <climits>
 using namespace std;
 
 class Graph{
@@ -13,7 +15,7 @@ class Graph{
         this->V = V;
     }
     void addEdge(int, int, int);
-    void primsAlgo();
+    void EfficientPRIM();
 };
 
 // Undirected Weighted Graph
@@ -22,28 +24,27 @@ void Graph :: addEdge(int from, int to, int weight){
     AdjList[to].push_back(make_pair(from, weight));
 }
 
-void Graph :: primsAlgo(){ 
-    int parent[V];
-    int key[V];
-    bool mstSet[V];
-    for(int i=0; i<V; i++){
+void Graph :: EfficientPRIM(){ 
+    int parent[V+1];
+    int key[V+1];
+    bool mstSet[V+1];
+    for(int i=0; i<=V; i++){
         key[i] = INT_MAX; 
         mstSet[i] = false;
         parent[i] = -1;
     }
 
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> PQ;
+
+    //Let the Source be Node 0
     key[0] = 0;   
     parent[0] = -1;
+    PQ.push({0, 0});
 
-    for(int count=0; count<V-1; count++){ //Since, ST has V-1 Edges
-        int mini = INT_MAX, u;
-
-        for(int i=0; i<V; i++){
-            if(mstSet[i] == false && key[i] < mini){
-                mini = key[i];
-                u = i;
-            }
-        }
+    for(int count=0; count<V; count++){
+        
+        int u = PQ.top().second;
+        PQ.pop();
 
         mstSet[u] = true;
 
@@ -51,14 +52,15 @@ void Graph :: primsAlgo(){
             int v = it.first;
             int weight = it.second;
             if(mstSet[v] == false && weight < key[v]){
-                parent[v] = u;
                 key[v] = weight;
+                PQ.push({key[v], v});
+                parent[v] = u;
             }
         }
     }
 
     cout << "\nThe Minimum Spanning Tree : \n";
-
+    cout << "\nAdjacency List : \n";
     for(int i=1; i<V; i++){
         cout << parent[i] << " - " << i << "\n";
     }
@@ -80,6 +82,6 @@ int main(){
         g.addEdge(from, to, weight);
     }
 
-    g.primsAlgo();
+    g.EfficientPRIM();
     return 0;
 }

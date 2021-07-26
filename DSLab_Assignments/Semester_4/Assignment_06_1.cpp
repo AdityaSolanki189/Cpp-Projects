@@ -1,4 +1,4 @@
-// The Efficient Solution Using Heap and Priority Queue
+// The Prims' Efficient Solution Using Heap and Priority Queue
 // Time Complexity : O(nlogn)
 #include <iostream>
 #include <vector>

@@ -1,3 +1,5 @@
+/* Create inorder threaded binary search tree and perform the traversals */
+
 #include<iostream>
 using namespace std; 
 

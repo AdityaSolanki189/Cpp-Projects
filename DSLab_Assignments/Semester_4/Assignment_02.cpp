@@ -1,3 +1,6 @@
+/* Accept prefix expression, and construct a binary tree and perform recursive and non-recursive 
+traversals */
+
 #include <iostream>
 
 using namespace std;

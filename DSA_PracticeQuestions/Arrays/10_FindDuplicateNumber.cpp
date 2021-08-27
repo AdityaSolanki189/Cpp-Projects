@@ -24,7 +24,8 @@ int getDuplicate(vector<int>& array, int n){
     return low;
 }
 
-/* int getDuplicate(vector<int>& v){
+/*  IF we were allowed to make changes in the array:
+    int getDuplicate(vector<int>& v){
     int n = v.size();
     for(int i=0;i<n;i++){
         int m = abs(v[i])-1;
@@ -50,7 +51,7 @@ int main(){
     return 0;
 }
 
-/*  Linked List Cycle 
+/*  Method 2 : Linked List Cycle 
 Use two pointers the fast and the slow. The fast one goes forward two steps each time, while the slow one goes only step each time. They must meet the same item when slow==fast. In fact, they meet in a circle, the duplicate number must be the entry point of the circle when visiting the array from nums[0]. Next we just need to find the entry point. We use a point(we can use the fast one before) to visit form begining with one step each time, do the same job to slow. When fast==slow, they meet at the entry point of the circle.  
 
     int findDuplicate3(vector<int>& nums){

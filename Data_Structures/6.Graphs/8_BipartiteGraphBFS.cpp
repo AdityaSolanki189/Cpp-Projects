@@ -81,3 +81,32 @@ int main(){
      
     return 0;
 }
+
+/* 
+Sample Input :
+1. Bipartite Graph
+
+7
+7
+0 1
+1 2
+1 6
+2 3
+6 3
+3 4
+4 5
+
+2. Not a Bipartite Graph
+
+8
+8
+0 1
+1 5
+1 2
+2 3
+3 4
+5 4
+4 6
+6 7
+
+*/

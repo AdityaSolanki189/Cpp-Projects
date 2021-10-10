@@ -81,3 +81,17 @@ int main(){
 
     return 0;
 }
+
+/* 
+Sample Input :
+
+6
+6
+5 0
+5 2
+2 3
+3 1
+4 1
+4 0
+
+*/

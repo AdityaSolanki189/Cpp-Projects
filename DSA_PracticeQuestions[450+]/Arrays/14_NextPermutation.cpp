@@ -19,23 +19,25 @@ using namespace std;
 void next_permutation(vector<int>& nums){
     bool flag = false;
     int i;
-    for(i=nums.size()-1;i>=0;i--){
-        if(nums[i] > nums[i-1]){ 
-            flag=true;
-            break;   
+    for(i=nums.size()-2; i>=0; i--){
+        if(nums[i] < nums[i+1]){
+            flag = true;
+            break;
         }
     }
+    
     if(flag){
-        for(int j=nums.size()-1;j>=1;j++){
-            if(nums[j] > nums[j-1]){
-                swap(nums[j],nums[j-1]);
+        for(int j=nums.size()-1; j>i; j--){
+            if(nums[i] < nums[j]){
+                swap(nums[i],nums[j]);
                 break;
             }
         }
     }
-    else
+    else{    
         i=0;
-    sort(nums.begin()+i, nums.end());   
+    }
+    reverse(nums.begin()+i+1, nums.end());
 }
 
 int main(){
@@ -50,7 +52,7 @@ int main(){
 
     next_permutation(nums);
 
-    cout << "Next Permutation : " ;
+    //cout << "Next Permutation : " ;
     for(int i=0;i<n;i++){
         cout << nums[i] << " ";
     }
